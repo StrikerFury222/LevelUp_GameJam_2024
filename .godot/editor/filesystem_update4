@@ -1,8 +1,4 @@
-res://Camara/Camera2D.gd
 res://Camara/camera_2d.tscn
 res://Camara/node_2d.tscn
-res://Camara/Camera3D.gd
-res://Camara/camera_3d.tscn
 res://Camara/node_3d.tscn
-res://Camara/camera_2d_v2.gd
-res://Camara/CharacterBody2D.gd
+res://Camara/camera_3d.tscn
