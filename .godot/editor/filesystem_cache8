@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1719932149
+icon.svg::CompressedTexture2D::922426160210492311::1719929579::1719929584::1::::<><>::
+::res://Camara/::1719935394
+Camera2D.gd::GDScript::-1::1719935265::0::1::::Camara2D<>Camera2D<>::
+camera_2d.tscn::PackedScene::4835005963534553802::1719935270::0::1::::<><>::res://Camara/Camera2D.gd
+node_2d.tscn::PackedScene::7900152445865442900::1719935321::0::1::::<><>::uid://ca5d3ve0kcuqk::::res://Camara/camera_2d.tscn<>uid://c5idhf02nf2h2::::res://Sprites/PLACEHOLDER.png
+Camera3D.gd::GDScript::-1::1719935679::0::1::::Camara3D<>Camera3D<>::
+camera_3d.tscn::PackedScene::3190227723295988860::1719935679::0::1::::<><>::res://Camara/Camera3D.gd
+::res://Sprites/::1719931589
+PLACEHOLDER.png::CompressedTexture2D::6895216652576503437::1719931587::1719935682::1::::<><>::
