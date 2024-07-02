@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dks5megdshvno"]
+
+[ext_resource type="PackedScene" uid="uid://ca5d3ve0kcuqk" path="res://Camara/camera_2d.tscn" id="1_oto7r"]
+[ext_resource type="Texture2D" uid="uid://c5idhf02nf2h2" path="res://Sprites/PLACEHOLDER.png" id="2_j1o0r"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" parent="." instance=ExtResource("1_oto7r")]
+
+[node name="Placeholder" type="Sprite2D" parent="."]
+position = Vector2(371, 288)
+scale = Vector2(0.574561, 0.466019)
+texture = ExtResource("2_j1o0r")
+
+[node name="Placeholder2" type="Sprite2D" parent="."]
+position = Vector2(831, 250)
+scale = Vector2(2.13158, 1.49515)
+texture = ExtResource("2_j1o0r")

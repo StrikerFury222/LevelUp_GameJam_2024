@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://du2xabam6rhwa"]
+
+[ext_resource type="Texture2D" uid="uid://c5idhf02nf2h2" path="res://Sprites/PLACEHOLDER.png" id="1_y246d"]
+[ext_resource type="PackedScene" uid="uid://blpmt4xmrqowi" path="res://Camara/camera_3d.tscn" id="2_p7t4c"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0871558, -0.996195, 0, 0.996195, -0.0871558, -0.0708444, -1.65762, -6.66817)
+texture = ExtResource("1_y246d")
+
+[node name="Camera3D" parent="." instance=ExtResource("2_p7t4c")]
+current = true
