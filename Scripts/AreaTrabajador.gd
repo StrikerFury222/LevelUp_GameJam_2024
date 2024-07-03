@@ -37,3 +37,5 @@ func scan() -> void:
 			if ((target == null or distance < minDistance) and not body.carried):
 				target = body
 				minDistance = distance
+		else:
+			colisiones.remove(body)

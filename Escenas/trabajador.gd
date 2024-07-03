@@ -46,6 +46,8 @@ func _physics_process(delta):
 	if (counter >= tiempoLapsoInfluencia):
 		counter = 0
 		corrupcion += sensorMinerales.colisiones.size() * ritmoCorrupcion
+		if(sensorMinerales.colisiones.size() == 0):
+			corrupcion -= ritmoCorrupcion
 		print(corrupcion)
 		if (corrupcion >= maxCorrupcion):
 			if (carry):

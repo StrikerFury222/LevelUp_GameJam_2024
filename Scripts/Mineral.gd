@@ -5,6 +5,14 @@ class_name Mineral
 @onready var vida: int = vidaMax 
 @onready var carried: bool = false
 
+'''
+@onready var sprite: Sprite3D = $SpriteMineral
+func _physics_process(delta):
+	if carried:
+		sprite.visible = false
+	else:
+		sprite.visible = true
+'''
 func eliminarme():
 	print("I WAS PLAYED")
 	self.queue_free()
