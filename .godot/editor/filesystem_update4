@@ -1,4 +1,13 @@
-res://Camara/camera_2d.tscn
-res://Camara/node_2d.tscn
+res://Escenas/Mineral.tscn
+res://Escenas/Nave.tscn
 res://Camara/node_3d.tscn
 res://Camara/camera_3d.tscn
+res://Escenas/sensor.tscn
+res://Camara/node_2d.tscn
+res://Escenas/juego.tscn
+res://Escenas/trabajador.tscn
+res://Escenas/Suelo.tscn
+res://Escenas/trabajador.gd
+res://Scripts/Mineral.gd
+res://Scripts/AreaTrabajador.gd
+res://Scripts/RecolectarCristales.gd

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://crg4wqf3gt1uy"]
+
+[ext_resource type="Script" path="res://Scripts/Mineral.gd" id="1_cop3m"]
+[ext_resource type="Texture2D" uid="uid://dyuns7s0m5vai" path="res://Sprites/PH_placeholders/PH_minerales.png" id="2_uxgke"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gafo1"]
+
+[node name="Mineral" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_cop3m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_gafo1")
+
+[node name="SpriteMineral" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+layers = 2
+texture = ExtResource("2_uxgke")
