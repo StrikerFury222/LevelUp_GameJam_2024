@@ -2,6 +2,7 @@ extends Area3D
 class_name Sensor
 
 var target : CollisionObject3D
+
 var colisiones = [] :
 	get :
 		return colisiones
@@ -33,6 +34,6 @@ func scan() -> void:
 	for body in colisiones:
 		if (body != null):
 			var distance = body.global_position.distance_to(global_position)
-			if (target == null or distance < minDistance):
+			if ((target == null or distance < minDistance) and not body.carried):
 				target = body
 				minDistance = distance

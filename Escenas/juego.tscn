@@ -1,23 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkt2g1dqddqsu"]
+[gd_scene load_steps=6 format=3 uid="uid://dkt2g1dqddqsu"]
 
 [ext_resource type="PackedScene" uid="uid://d1nxkkyondq7a" path="res://Escenas/Suelo.tscn" id="1_48o4x"]
 [ext_resource type="PackedScene" uid="uid://crg4wqf3gt1uy" path="res://Escenas/Mineral.tscn" id="1_lglbu"]
 [ext_resource type="PackedScene" uid="uid://bieijycfti3yp" path="res://Escenas/trabajador.tscn" id="1_nhw5c"]
 [ext_resource type="PackedScene" uid="uid://blpmt4xmrqowi" path="res://Camara/camera_3d.tscn" id="2_a52lt"]
+[ext_resource type="PackedScene" uid="uid://t1r5istl5w3y" path="res://Escenas/Nave.tscn" id="5_b6qm2"]
 
 [node name="Juego" type="Node3D"]
 
 [node name="Mineral" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.688139)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.46258)
 
 [node name="Trabajador" parent="." instance=ExtResource("1_nhw5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="Camera3D" parent="." instance=ExtResource("2_a52lt")]
-transform = Transform3D(1, 0, 0, 0, 0.944233, 0.329279, 0, -0.329279, 0.944233, 0, 0.528893, 0.855724)
+transform = Transform3D(1, 0, 0, 0, 0.944233, 0.329279, 0, -0.329279, 0.944233, 0, 0.528893, 2.18542)
 
 [node name="Suelo" parent="." instance=ExtResource("1_48o4x")]
 sorting_offset = -1.0
 
 [node name="Mineral2" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.668)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548099, 0, 1.26751)
+
+[node name="Base" parent="." instance=ExtResource("5_b6qm2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Trabajador2" parent="." instance=ExtResource("1_nhw5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0.5)

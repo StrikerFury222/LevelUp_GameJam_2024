@@ -3,6 +3,7 @@ class_name Mineral
 
 @export var vidaMax: int = 3
 @onready var vida: int = vidaMax 
+@onready var carried: bool = false
 
 func eliminarme():
 	print("I WAS PLAYED")

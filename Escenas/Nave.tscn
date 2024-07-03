@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://t1r5istl5w3y"]
+
+[ext_resource type="Texture2D" uid="uid://dehehs2r86mth" path="res://Sprites/PH_placeholders/PH_nave.png" id="1_gh1si"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_57db2"]
+
+[node name="Base" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_57db2")
+
+[node name="SpriteNave" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123557, 0)
+texture = ExtResource("1_gh1si")
