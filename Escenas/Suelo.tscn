@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1nxkkyondq7a"]
-
-[ext_resource type="Texture2D" uid="uid://ppcmegyl0ssg" path="res://Sprites/PH_placeholders/PH_suelo.jpg" id="1_tjuwj"]
-
-[node name="Suelo" type="Sprite3D"]
-transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
-texture = ExtResource("1_tjuwj")
