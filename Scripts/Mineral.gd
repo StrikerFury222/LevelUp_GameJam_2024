@@ -4,6 +4,7 @@ class_name Mineral
 @export var vidaMax: int = 3
 @onready var vida: int = vidaMax 
 @onready var carried: bool = false
+@onready var value: int = 5
 
 '''
 @onready var sprite: Sprite3D = $SpriteMineral

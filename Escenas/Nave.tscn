@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://t1r5istl5w3y"]
+[gd_scene load_steps=5 format=3 uid="uid://t1r5istl5w3y"]
 
 [ext_resource type="Texture2D" uid="uid://dehehs2r86mth" path="res://Sprites/PH_placeholders/PH_nave.png" id="1_gh1si"]
+[ext_resource type="Script" path="res://Scripts/RecolectarCristales.gd" id="2_thark"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0mf3f"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_57db2"]
 
@@ -8,9 +12,39 @@
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_57db2")
-
 [node name="SpriteNave" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123557, 0)
 texture = ExtResource("1_gh1si")
+
+[node name="Textp" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+texture = SubResource("ViewportTexture_0mf3f")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(19, 40)
+
+[node name="NumCristales" type="RichTextLabel" parent="SubViewport"]
+modulate = Color(1, 0.0235294, 1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "000
+"
+fit_content = true
+scroll_active = false
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("2_thark")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_57db2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_57db2")

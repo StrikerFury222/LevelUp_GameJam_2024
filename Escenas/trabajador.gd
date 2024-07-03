@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Trabajador
 
+@onready var sensorNave: Sensor = $SensorNave as Sensor
 @onready var sensorMinerales: Sensor = $SensorMinerales as Sensor
 var target = null
 var carry = null
@@ -13,11 +14,14 @@ var counter: float = 0
 
 var corrupcion: float = 0
 @export var minCorrupcion = -255
-@export var maxCorrupcion = 5#255
+@export var maxCorrupcion = 8.5#255
 @export var ritmoCorrupcion = 0.1
 
 @export var moveSpeed: float = 5
-@export var umbralPicar: float = 0.1
+@export var umbralPicar: float = 0.05
+
+func _ready():
+	sensorNave.mineralMode = false
 
 func _physics_process(delta):
 	counter += delta
@@ -25,15 +29,10 @@ func _physics_process(delta):
 	if (carry and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 		animation.play("Move")
 		moving = true
-		if(self.global_position.distance_to(base_coordinates) < umbralPicar):
-			carry.eliminarme() #La eliminación se podría hacer con un onCollisionEnter en la nave
-			carry = null
-			
-		else:
-			self.velocity = moveSpeed * (base_coordinates - self.global_position).normalized() * delta
-			carry.velocity = self.velocity
-			move_and_slide()
-			carry.move_and_slide()
+		self.velocity = moveSpeed * (base_coordinates - self.global_position).normalized() * delta
+		carry.velocity = self.velocity
+		move_and_slide()
+		carry.move_and_slide()
 	elif (sensorMinerales.target and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 		if (sensorMinerales.target_distance < umbralPicar):
 			animation.play("Picar")
@@ -45,8 +44,8 @@ func _physics_process(delta):
 			move_and_slide()
 	if (counter >= tiempoLapsoInfluencia):
 		counter = 0
-		corrupcion += sensorMinerales.colisiones.size() * ritmoCorrupcion
-		if(sensorMinerales.colisiones.size() == 0):
+		corrupcion += (sensorMinerales.colisiones.size() + sensorNave.colisiones.size()) * ritmoCorrupcion
+		if(sensorMinerales.colisiones.size() == 0 and sensorNave.colisiones.size() == 0):
 			corrupcion -= ritmoCorrupcion
 		print(corrupcion)
 		if (corrupcion >= maxCorrupcion):

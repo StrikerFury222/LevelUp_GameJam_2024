@@ -2,6 +2,7 @@ extends Area3D
 class_name Sensor
 
 var target : CollisionObject3D
+@onready var mineralMode: bool = true
 
 var colisiones = [] :
 	get :
@@ -18,8 +19,10 @@ func _ready():
 	body_exited.connect(remove_body)
 
 func store_body(body):
+	print("in")
 	colisiones.append(body)
 func remove_body(body):
+	print("out")
 	colisiones.erase(body)
 	
 func _physics_process(delta):
@@ -34,7 +37,7 @@ func scan() -> void:
 	for body in colisiones:
 		if (body != null):
 			var distance = body.global_position.distance_to(global_position)
-			if ((target == null or distance < minDistance) and not body.carried):
+			if ((target == null or distance < minDistance) and (not mineralMode or not body.carried)):
 				target = body
 				minDistance = distance
 		else:
