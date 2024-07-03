@@ -11,3 +11,5 @@ texture = ExtResource("1_y246d")
 
 [node name="Camera3D" parent="." instance=ExtResource("2_p7t4c")]
 current = true
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
