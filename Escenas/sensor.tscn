@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg86ff6lnnk5s"]
+
+[ext_resource type="Script" path="res://Scripts/AreaTrabajador.gd" id="1_j61a2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ynd3e"]
+height = 0.75395
+
+[node name="Sensor" type="Area3D"]
+script = ExtResource("1_j61a2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_ynd3e")
