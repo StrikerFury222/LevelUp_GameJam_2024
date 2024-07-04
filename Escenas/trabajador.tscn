@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="3_6fccv"]
 [ext_resource type="Texture2D" uid="uid://ne3hvbwhycgt" path="res://icon.svg" id="4_x4s1c"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_8088w"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_w23wv"]
 
 [sub_resource type="Animation" id="Animation_rvx5b"]
 resource_name = "Die"
@@ -120,12 +120,13 @@ _data = {
 "Standing": SubResource("Animation_28tu3")
 }
 
-[node name="Trabajador" type="CharacterBody3D"]
+[node name="Trabajador" type="CharacterBody3D" groups=["Trabajador"]]
+collision_mask = 0
 script = ExtResource("1_j8hv2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
-shape = SubResource("SphereShape3D_8088w")
+transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, -0.12, 0, 0.12, -5.24537e-09, 0, -0.0133956, 0)
+shape = SubResource("BoxShape3D_w23wv")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture = ExtResource("1_88oo0")

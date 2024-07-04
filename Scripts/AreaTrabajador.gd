@@ -24,6 +24,10 @@ func store_body(body):
 func remove_body(body):
 	print("out")
 	colisiones.erase(body)
+
+func empty():
+	colisiones = []
+	target = null
 	
 func _physics_process(delta):
 	scan()

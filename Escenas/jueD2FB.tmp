@@ -11,23 +11,22 @@
 script = ExtResource("1_3tvio")
 
 [node name="Mineral" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 251.463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.46258)
 
-[node name="Trabajador" parent="." instance=ExtResource("1_nhw5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 250.5)
+[node name="Trabajador" parent="." groups=["Trabajador"] instance=ExtResource("1_nhw5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="Camera3D" parent="." instance=ExtResource("2_a52lt")]
-transform = Transform3D(1, 0, 0, 0, 0.944233, 0.329279, 0, -0.329279, 0.944233, 250, 0.529, 252.5)
+transform = Transform3D(1, 0, 0, 0, 0.944233, 0.329279, 0, -0.329279, 0.944233, 0, 0.528893, 2.18542)
 
-[node name="Suelo" parent="." instance=ExtResource("1_48o4x")]
-collision_layer = 16
-collision_mask = 0
+[node name="Suelo" parent="." groups=["Suelo"] instance=ExtResource("1_48o4x")]
+sorting_offset = -1.0
 
 [node name="Mineral2" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250.548, 0, 251.268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548099, 0, 1.26751)
 
 [node name="Base" parent="." instance=ExtResource("5_b6qm2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 250)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
-[node name="Trabajador2" parent="." instance=ExtResource("1_nhw5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.4, 0, 250.5)
+[node name="Trabajador2" parent="." groups=["Trabajador"] instance=ExtResource("1_nhw5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 1.05998)

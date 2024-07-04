@@ -15,7 +15,7 @@ func _physics_process(delta):
 		sprite.visible = true
 '''
 func eliminarme():
-	print("I WAS PLAYED")
+	#print("I WAS PLAYED")
 	self.queue_free()
 
 func picar() -> bool:
