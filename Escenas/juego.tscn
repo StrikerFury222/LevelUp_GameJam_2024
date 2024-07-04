@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkt2g1dqddqsu"]
+[gd_scene load_steps=7 format=3 uid="uid://dkt2g1dqddqsu"]
 
+[ext_resource type="Script" path="res://Scripts/AdministradorJuego.gd" id="1_3tvio"]
 [ext_resource type="PackedScene" uid="uid://d1nxkkyondq7a" path="res://Escenas/Suelo.tscn" id="1_48o4x"]
 [ext_resource type="PackedScene" uid="uid://crg4wqf3gt1uy" path="res://Escenas/Mineral.tscn" id="1_lglbu"]
 [ext_resource type="PackedScene" uid="uid://bieijycfti3yp" path="res://Escenas/trabajador.tscn" id="1_nhw5c"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://t1r5istl5w3y" path="res://Escenas/Nave.tscn" id="5_b6qm2"]
 
 [node name="Juego" type="Node3D"]
+script = ExtResource("1_3tvio")
 
 [node name="Mineral" parent="." instance=ExtResource("1_lglbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.46258)
@@ -27,4 +29,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548099, 0, 1.26751)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
 
 [node name="Trabajador2" parent="." instance=ExtResource("1_nhw5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 1.05998)

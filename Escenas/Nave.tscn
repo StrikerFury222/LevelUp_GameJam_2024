@@ -15,6 +15,7 @@ collision_mask = 0
 [node name="SpriteNave" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123557, 0)
 texture = ExtResource("1_gh1si")
+hframes = 10
 
 [node name="Textp" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

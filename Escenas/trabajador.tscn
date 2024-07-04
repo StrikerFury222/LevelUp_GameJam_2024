@@ -124,7 +124,7 @@ _data = {
 script = ExtResource("1_j8hv2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 shape = SubResource("SphereShape3D_8088w")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
