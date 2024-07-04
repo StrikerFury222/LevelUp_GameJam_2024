@@ -12,7 +12,7 @@ func _ready():
 	text.set_text(str(numCristales))
 
 func _process(delta):
-	var porcentaje: float = float(numCristales)/goalCristales
+	var porcentaje: float = float(numCristales)/goalCristales * 100
 	if porcentaje < 10:
 		spriteNave.frame = 0
 	elif porcentaje < 20:
