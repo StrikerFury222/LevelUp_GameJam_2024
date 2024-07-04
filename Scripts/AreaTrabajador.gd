@@ -19,10 +19,10 @@ func _ready():
 	body_exited.connect(remove_body)
 
 func store_body(body):
-	print("in")
+	#print("in")
 	colisiones.append(body)
 func remove_body(body):
-	print("out")
+	#print("out")
 	colisiones.erase(body)
 
 func empty():

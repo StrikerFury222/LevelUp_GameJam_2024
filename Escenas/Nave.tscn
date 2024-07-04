@@ -1,16 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://t1r5istl5w3y"]
+[gd_scene load_steps=10 format=3 uid="uid://t1r5istl5w3y"]
 
 [ext_resource type="Texture2D" uid="uid://dehehs2r86mth" path="res://Sprites/PH_placeholders/PH_nave.png" id="1_gh1si"]
+[ext_resource type="Script" path="res://Scripts/Nave_accessor.gd" id="1_smcsu"]
 [ext_resource type="Script" path="res://Scripts/RecolectarCristales.gd" id="2_thark"]
+[ext_resource type="Script" path="res://Scripts/boton_contratar.gd" id="3_pyvdw"]
+[ext_resource type="Texture2D" uid="uid://ccw3f5blhxkll" path="res://Sprites/PH_boton_contratar.png" id="4_hff3p"]
+[ext_resource type="Script" path="res://BotonContratar.gd" id="5_ulqne"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0mf3f"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_57db2"]
+radius = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ms6e2"]
+size = Vector3(0.8, 0.2, 0.01)
 
 [node name="Base" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 0
+script = ExtResource("1_smcsu")
 
 [node name="SpriteNave" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123557, 0)
@@ -18,7 +27,7 @@ texture = ExtResource("1_gh1si")
 hframes = 10
 
 [node name="Textp" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.747547, 0)
 texture = SubResource("ViewportTexture_0mf3f")
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -30,6 +39,8 @@ modulate = Color(1, 0.0235294, 1, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -49,3 +60,35 @@ shape = SubResource("SphereShape3D_57db2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_57db2")
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+
+[node name="Button" type="Button" parent="SubViewport2"]
+custom_minimum_size = Vector2(81, 25)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 279.5
+offset_top = 97.0
+offset_right = 360.5
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_pyvdw")
+icono = ExtResource("4_hff3p")
+metadata/_edit_use_anchors_ = true
+
+[node name="BotonContratar" type="StaticBody3D" parent="." groups=["Contratar"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.328188, 0)
+script = ExtResource("5_ulqne")
+
+[node name="SpriteContratar" type="Sprite3D" parent="BotonContratar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.177111, 0)
+texture = ExtResource("4_hff3p")
+hframes = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BotonContratar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.174911, 0)
+shape = SubResource("BoxShape3D_ms6e2")

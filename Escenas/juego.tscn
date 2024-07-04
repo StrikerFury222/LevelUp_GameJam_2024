@@ -9,6 +9,7 @@
 
 [node name="Juego" type="Node3D"]
 script = ExtResource("1_3tvio")
+spawnContratar = ExtResource("1_nhw5c")
 
 [node name="Mineral" parent="." instance=ExtResource("1_lglbu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 251.463)
