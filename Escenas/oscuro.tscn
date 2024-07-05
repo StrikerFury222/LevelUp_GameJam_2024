@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://egfw8x6vm44d"]
+
+[ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="1_u5m37"]
+[ext_resource type="Script" path="res://Scripts/oscuro.gd" id="1_wm8n6"]
+[ext_resource type="Texture2D" uid="uid://cj7glmkdhjyf5" path="res://Sprites/PH_placeholders/PH_trabajadores/PH_simple_sprite.png" id="2_bxa2p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8b4w"]
+
+[sub_resource type="Animation" id="Animation_xisp1"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_altes"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_mc1cr"]
+resource_name = "Move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_dsspr"]
+resource_name = "Destruir"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"picar"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_knegi"]
+_data = {
+"Destruir": SubResource("Animation_dsspr"),
+"Idle": SubResource("Animation_xisp1"),
+"Move": SubResource("Animation_mc1cr"),
+"RESET": SubResource("Animation_altes")
+}
+
+[node name="Oscuro" type="CharacterBody3D" groups=["Oscuro"]]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_wm8n6")
+
+[node name="SensorTrabajador" parent="." instance=ExtResource("1_u5m37")]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08, -0.03, -0.04, 0)
+shape = SubResource("BoxShape3D_w8b4w")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+texture = ExtResource("2_bxa2p")
+hframes = 12
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_knegi")
+}
+
+[node name="SensorMineral" parent="." instance=ExtResource("1_u5m37")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="SensorNave" parent="." instance=ExtResource("1_u5m37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+collision_layer = 0
+collision_mask = 4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkt2g1dqddqsu"]
+[gd_scene load_steps=8 format=3 uid="uid://dkt2g1dqddqsu"]
 
 [ext_resource type="Script" path="res://Scripts/AdministradorJuego.gd" id="1_3tvio"]
 [ext_resource type="PackedScene" uid="uid://d1nxkkyondq7a" path="res://Escenas/Suelo.tscn" id="1_48o4x"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bieijycfti3yp" path="res://Escenas/trabajador.tscn" id="1_nhw5c"]
 [ext_resource type="PackedScene" uid="uid://blpmt4xmrqowi" path="res://Camara/camera_3d.tscn" id="2_a52lt"]
 [ext_resource type="PackedScene" uid="uid://t1r5istl5w3y" path="res://Escenas/Nave.tscn" id="5_b6qm2"]
+[ext_resource type="PackedScene" uid="uid://egfw8x6vm44d" path="res://Escenas/oscuro.tscn" id="7_dpimf"]
 
 [node name="Juego" type="Node3D"]
 script = ExtResource("1_3tvio")
@@ -27,10 +28,13 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="Mineral2" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.548, 0, 246.268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.592, 0.0553155, 246.273)
 
 [node name="Base" parent="." instance=ExtResource("5_b6qm2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245, 0, 245)
 
 [node name="Trabajador2" parent="." instance=ExtResource("1_nhw5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.4, 0, 245.5)
+
+[node name="Oscuro" parent="." instance=ExtResource("7_dpimf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.034, 0, 247.146)

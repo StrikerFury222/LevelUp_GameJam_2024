@@ -177,3 +177,8 @@ texture = ExtResource("4_x4s1c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 collision_layer = 0
 collision_mask = 4
+
+[node name="SensorOscuro" parent="." instance=ExtResource("3_6fccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+collision_layer = 0
+collision_mask = 4

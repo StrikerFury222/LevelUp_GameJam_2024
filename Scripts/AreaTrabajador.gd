@@ -5,6 +5,7 @@ var target : CollisionObject3D
 @onready var mineralMode: bool = true
 @onready var esVisible: bool = true
 @onready var sprite = $Sprite3D
+@onready var area = $CollisionShape3D
 
 var colisiones = [] :
 	get :
@@ -45,8 +46,12 @@ func scan() -> void:
 	for body in colisiones:
 		if (body != null):
 			var distance = body.global_position.distance_to(global_position)
-			if ((target == null or distance < minDistance) and (not mineralMode or not body.carried)):
+			if (distance > area.scale.x):
+				print("I did it")
+				remove_body(body)
+			elif ((target == null or distance < minDistance) and (not mineralMode or not body.carried)):
 				target = body
 				minDistance = distance
+			
 		else:
 			colisiones.remove(body)

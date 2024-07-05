@@ -1,4 +1,6 @@
+AnimationPlayer
 Sprite3D
+CharacterBody3D
 CollisionShape3D
 StaticBody3D
 SubViewport
@@ -8,7 +10,5 @@ Sprite2D
 Area3D
 RichTextLabel
 MeshInstance3D
-CharacterBody3D
 CharacterBody2D
 Node
-AnimationPlayer

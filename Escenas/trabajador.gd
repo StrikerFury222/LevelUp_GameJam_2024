@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Trabajador
 
 @onready var sensorNave: Sensor = $SensorNave as Sensor
+@onready var sensorOscuro: Sensor = $SensorOscuro as Sensor
 @onready var sensorMinerales: Sensor = $SensorMinerales as Sensor
 var target = null
 var carry = null
@@ -17,6 +18,7 @@ var corrupcion: float = 0
 @export var minCorrupcion = -255
 @export var maxCorrupcion = 255#8.5
 @export var ritmoCorrupcion = 0.1
+@export var ritmoCorrupcionInfluencia = 1
 
 @export var moveSpeed: float = 30
 @export var umbralPicar: float = 0.2
@@ -32,6 +34,8 @@ const min_V = 228
 func _ready():
 	sensorNave.mineralMode = false
 	sensorNave.esVisible = false
+	sensorOscuro.mineralMode = false
+	sensorOscuro.esVisible = false
 
 func _physics_process(delta):
 	if (not holded):
@@ -45,7 +49,7 @@ func _physics_process(delta):
 			carry.velocity = self.velocity
 			move_and_slide()
 			carry.move_and_slide()
-		elif (sensorMinerales.target and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
+		elif (sensorMinerales.target != null and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 			if (sensorMinerales.target_distance < umbralPicar):
 				animation.play("Picar")
 				moving = true
@@ -57,6 +61,7 @@ func _physics_process(delta):
 				move_and_slide()
 		if (counter >= tiempoLapsoInfluencia):
 			counter = 0
+			corrupcion -= (sensorOscuro.colisiones.size() * ritmoCorrupcionInfluencia)
 			corrupcion += (sensorMinerales.colisiones.size() + sensorNave.colisiones.size()) * ritmoCorrupcion
 			if(sensorMinerales.colisiones.size() == 0 and sensorNave.colisiones.size() == 0):
 				corrupcion -= ritmoCorrupcion
@@ -93,7 +98,7 @@ func updateOrientacion():
 
 func picar():
 	#print("Picando...")
-	if (sensorMinerales.target and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
+	if (sensorMinerales.target != null and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 		if sensorMinerales.target.picar():
 			sensorMinerales.target.carried = true;
 			carry = sensorMinerales.target

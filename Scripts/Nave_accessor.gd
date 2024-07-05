@@ -7,3 +7,12 @@ var numCristales: int:
 	set(newValue):
 		areaRecoleccion.numCristales = newValue
 		areaRecoleccion.text.set_text(str(numCristales))
+		
+func picar() -> bool:
+	#print("OUCH")
+	if areaRecoleccion.numCristales > 0:
+		areaRecoleccion.numCristales -= 1
+		areaRecoleccion.text.set_text(str(numCristales))
+		return false
+	else:
+		return true

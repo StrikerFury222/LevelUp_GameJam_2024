@@ -21,10 +21,10 @@ var place = Vector3.ZERO
 @onready var segundosSpawn: float = 1.0
 @onready var tiempoSpawn: float = 0
 @onready var rng = RandomNumberGenerator.new()
-const max_H = 260
-const min_H = 230
-const max_V = 260
-const min_V = 225
+const max_H = 255
+const min_H = 235
+const max_V = 255
+const min_V = 230
 
 func _input(event):
 	if Input.is_action_just_pressed("Click_press"):
@@ -47,7 +47,7 @@ func _physics_process(delta):
 		for i in numToSpawn:
 			var nodo = spawnCristal.instantiate()
 			nodo.position = Vector3(rng.randf_range(min_H+10,max_H-10),10,rng.randf_range(min_V+10,max_V-10))
-			print(nodo.position)
+			#print(nodo.position)
 			nodo.setFall(rng)
 			add_child(nodo)
 	

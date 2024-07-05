@@ -5,7 +5,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gafo1"]
 
-[node name="Mineral" type="CharacterBody3D"]
+[node name="Mineral" type="CharacterBody3D" groups=["Mineral"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_cop3m")
