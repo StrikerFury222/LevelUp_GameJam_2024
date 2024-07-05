@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bieijycfti3yp"]
+[gd_scene load_steps=13 format=3 uid="uid://bieijycfti3yp"]
 
-[ext_resource type="Texture2D" uid="uid://cj7glmkdhjyf5" path="res://Sprites/PH_placeholders/PH_trabajadores/PH_simple_sprite.png" id="1_88oo0"]
 [ext_resource type="Script" path="res://Escenas/trabajador.gd" id="1_j8hv2"]
+[ext_resource type="Texture2D" uid="uid://b1kjl6lmh3yg0" path="res://Sprites/Dwarf/DWARF_animation.png" id="2_ipond"]
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="3_6fccv"]
 [ext_resource type="Texture2D" uid="uid://ne3hvbwhycgt" path="res://icon.svg" id="4_x4s1c"]
 
@@ -12,14 +12,14 @@ resource_name = "Die"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/path = NodePath("Idle:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [6, 7, 8]
+"values": [3, 14, 25]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -38,46 +38,50 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_v33qx"]
 resource_name = "Move"
+length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/path = NodePath("Idle:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [9, 10, 11]
+"values": [12, 13, 14, 15, 16, 17]
 }
 
 [sub_resource type="Animation" id="Animation_cbyue"]
 resource_name = "Picar"
-tracks/0/type = "value"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [3, 4, 5]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"picar"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Idle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
 }
 
 [sub_resource type="Animation" id="Animation_3y2gl"]
@@ -85,7 +89,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/path = NodePath("Idle:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -97,23 +101,42 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_28tu3"]
 resource_name = "Standing"
+length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/path = NodePath("Idle:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_wxxxn"]
+resource_name = "Drag"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Idle:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 42]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_btfcu"]
 _data = {
 "Die": SubResource("Animation_rvx5b"),
+"Drag": SubResource("Animation_wxxxn"),
 "Move": SubResource("Animation_v33qx"),
 "Picar": SubResource("Animation_cbyue"),
 "RESET": SubResource("Animation_3y2gl"),
@@ -128,9 +151,10 @@ script = ExtResource("1_j8hv2")
 transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, -0.12, 0, 0.12, -5.24537e-09, 0, -0.0133956, 0)
 shape = SubResource("BoxShape3D_w23wv")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-texture = ExtResource("1_88oo0")
+[node name="Idle" type="Sprite3D" parent="."]
+texture = ExtResource("2_ipond")
 hframes = 12
+vframes = 4
 frame = 1
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -145,7 +169,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="IndicadorAlma" type="Sprite3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.123557, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.241304, 0)
 texture = ExtResource("4_x4s1c")
 
 [node name="SensorNave" parent="." instance=ExtResource("3_6fccv")]

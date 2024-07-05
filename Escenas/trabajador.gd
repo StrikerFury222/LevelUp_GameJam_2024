@@ -7,6 +7,7 @@ var target = null
 var carry = null
 @onready var animation: AnimationPlayer = $Animation as AnimationPlayer
 @onready var soul: Sprite3D = $IndicadorAlma
+@onready var sprite: Sprite3D = $Idle
 var base_coordinates: Vector3 = Vector3(250,0,250)
 
 @export var tiempoLapsoInfluencia: float = 1
@@ -18,7 +19,7 @@ var corrupcion: float = 0
 @export var ritmoCorrupcion = 0.1
 
 @export var moveSpeed: float = 5
-@export var umbralPicar: float = 0.05
+@export var umbralPicar: float = 0.2
 
 @onready var hitBox = $CollisionShape3D
 @onready var holded: bool = false
@@ -31,9 +32,10 @@ func _physics_process(delta):
 		counter += delta
 		var moving = false
 		if (carry and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
-			animation.play("Move")
+			animation.play("Drag")
 			moving = true
 			self.velocity = moveSpeed * (base_coordinates - self.global_position).normalized() * delta
+			updateOrientacion()
 			carry.velocity = self.velocity
 			move_and_slide()
 			carry.move_and_slide()
@@ -45,6 +47,7 @@ func _physics_process(delta):
 				animation.play("Move")
 				moving = true
 				self.velocity = moveSpeed * sensorMinerales.target_direction.normalized() * delta
+				updateOrientacion()
 				move_and_slide()
 		if (counter >= tiempoLapsoInfluencia):
 			counter = 0
@@ -64,12 +67,26 @@ func eliminarme():
 	#print("I'm Dying")
 	self.queue_free()
 
+func updateOrientacion():
+	if self.velocity != Vector3.ZERO:
+		sprite.flip_h = self.velocity.x > 0
+		if carry:
+			if sprite.flip_h:
+				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.1)
+			else:
+				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.1)
+				
+
 func picar():
 	#print("Picando...")
 	if (sensorMinerales.target and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 		if sensorMinerales.target.picar():
 			sensorMinerales.target.carried = true;
 			carry = sensorMinerales.target
+			if sprite.flip_h:
+				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.1)
+			else:
+				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.1)
 			#sensorMinerales.remove_body(sensorMinerales.target)
 			#sensorMinerales.target.eliminarme()
 			#sensorMinerales.target = null
