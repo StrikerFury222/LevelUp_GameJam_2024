@@ -72,9 +72,9 @@ func updateOrientacion():
 		sprite.flip_h = self.velocity.x > 0
 		if carry:
 			if sprite.flip_h:
-				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.1)
+				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.08)
 			else:
-				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.1)
+				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.08)
 				
 
 func picar():
@@ -84,9 +84,9 @@ func picar():
 			sensorMinerales.target.carried = true;
 			carry = sensorMinerales.target
 			if sprite.flip_h:
-				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.1)
+				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.08)
 			else:
-				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.1)
+				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.08)
 			#sensorMinerales.remove_body(sensorMinerales.target)
 			#sensorMinerales.target.eliminarme()
 			#sensorMinerales.target = null
