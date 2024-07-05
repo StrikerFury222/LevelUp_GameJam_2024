@@ -5,6 +5,12 @@ extends Camera3D
 @export var input = Vector3.ZERO
 var velocity = Vector3.ZERO
 
+const max_H = 280
+const min_H = 210
+const max_V = 280
+const min_V = 205
+
+
 const max_speed = 0.1
 const accel = 1.5 
 const friction = 0.9
@@ -31,3 +37,12 @@ func camera_movement(delta):
 		velocity = velocity.limit_length(max_speed)
 	
 	position += velocity
+	if position.x < min_H:
+		position.x = min_H
+	elif position.x > max_H:
+		position.x = max_H
+	
+	if position.z < min_V:
+		position.z = min_V
+	elif position.z > max_V:
+		position.z = max_V

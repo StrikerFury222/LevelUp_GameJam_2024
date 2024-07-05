@@ -24,6 +24,12 @@ var corrupcion: float = 0
 @onready var hitBox = $CollisionShape3D
 @onready var holded: bool = false
 
+
+const max_H = 280
+const min_H = 210
+const max_V = 280
+const min_V = 205
+
 func _ready():
 	sensorNave.mineralMode = false
 
@@ -62,7 +68,15 @@ func _physics_process(delta):
 				animation.play("Die")
 			elif (not moving):
 				animation.play("Standing")
-			
+	
+	if position.x < min_H:
+		position.x = min_H
+	elif position.x > max_H:
+		position.x = max_H
+	if position.z < min_V:
+		position.z = min_V
+	elif position.z > max_V:
+		position.z = max_V
 func eliminarme():
 	#print("I'm Dying")
 	self.queue_free()
@@ -72,9 +86,9 @@ func updateOrientacion():
 		sprite.flip_h = self.velocity.x > 0
 		if carry:
 			if sprite.flip_h:
-				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.08)
+				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.07)
 			else:
-				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.08)
+				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.07)
 				
 
 func picar():
@@ -84,9 +98,9 @@ func picar():
 			sensorMinerales.target.carried = true;
 			carry = sensorMinerales.target
 			if sprite.flip_h:
-				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.08)
+				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.07)
 			else:
-				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.08)
+				carry.global_position = Vector3(global_position.x-0.1, global_position.y-0.1, global_position.z+0.07)
 			#sensorMinerales.remove_body(sensorMinerales.target)
 			#sensorMinerales.target.eliminarme()
 			#sensorMinerales.target = null

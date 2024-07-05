@@ -21,6 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 0, 250.5)
 transform = Transform3D(1, 0, 0, 0, 0.944233, 0.329279, 0, -0.329279, 0.944233, 250, 0.529, 252.5)
 
 [node name="Suelo" parent="." instance=ExtResource("1_48o4x")]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 194, 0, 189.671)
 collision_layer = 16
 collision_mask = 0
 

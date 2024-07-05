@@ -7,3 +7,4 @@ res://Escenas/Suelo.tscn
 res://Camara/camera_3d.tscn
 res://Escenas/sensor.tscn
 res://Escenas/trabajador.gd
+res://Camara/Camera3D.gd
