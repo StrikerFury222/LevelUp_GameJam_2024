@@ -3,6 +3,8 @@ class_name Sensor
 
 var target : CollisionObject3D
 @onready var mineralMode: bool = true
+@onready var esVisible: bool = true
+@onready var sprite = $Sprite3D
 
 var colisiones = [] :
 	get :
@@ -30,6 +32,8 @@ func empty():
 	target = null
 	
 func _physics_process(delta):
+	if not esVisible:
+		sprite.visible = false
 	scan()
 
 func scan() -> void:

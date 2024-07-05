@@ -46,7 +46,7 @@ func _physics_process(delta):
 		var numToSpawn = rng.randi_range(5,20)
 		for i in numToSpawn:
 			var nodo = spawnCristal.instantiate()
-			nodo.position = Vector3(rng.randf_range(min_H,max_H),10,rng.randf_range(min_V,max_V))
+			nodo.position = Vector3(rng.randf_range(min_H+10,max_H-10),10,rng.randf_range(min_V+10,max_V-10))
 			print(nodo.position)
 			nodo.setFall(rng)
 			add_child(nodo)

@@ -148,7 +148,7 @@ collision_mask = 0
 script = ExtResource("1_j8hv2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.12, 0, 0, 0, -5.24537e-09, -0.12, 0, 0.12, -5.24537e-09, 0, -0.0133956, 0)
+transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08, -0.03, -0.04, 0)
 shape = SubResource("BoxShape3D_w23wv")
 
 [node name="Idle" type="Sprite3D" parent="."]
@@ -165,6 +165,7 @@ libraries = {
 [node name="Node" type="Node" parent="."]
 
 [node name="SensorMinerales" parent="." instance=ExtResource("3_6fccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 collision_layer = 0
 collision_mask = 2
 
@@ -173,5 +174,6 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.241304, 0)
 texture = ExtResource("4_x4s1c")
 
 [node name="SensorNave" parent="." instance=ExtResource("3_6fccv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 collision_layer = 0
 collision_mask = 4

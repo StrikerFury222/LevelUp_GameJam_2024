@@ -8,7 +8,7 @@ var carry = null
 @onready var animation: AnimationPlayer = $Animation as AnimationPlayer
 @onready var soul: Sprite3D = $IndicadorAlma
 @onready var sprite: Sprite3D = $Idle
-var base_coordinates: Vector3 = Vector3(250,0,250)
+var base_coordinates: Vector3 = Vector3(245,0,245)
 
 @export var tiempoLapsoInfluencia: float = 1
 var counter: float = 0
@@ -18,20 +18,20 @@ var corrupcion: float = 0
 @export var maxCorrupcion = 255#8.5
 @export var ritmoCorrupcion = 0.1
 
-@export var moveSpeed: float = 5
+@export var moveSpeed: float = 30
 @export var umbralPicar: float = 0.2
 
 @onready var hitBox = $CollisionShape3D
 @onready var holded: bool = false
 
-
-const max_H = 300
-const min_H = 190
-const max_V = 300
-const min_V = 195
+const max_H = 262
+const min_H = 228
+const max_V = 262
+const min_V = 228
 
 func _ready():
 	sensorNave.mineralMode = false
+	sensorNave.esVisible = false
 
 func _physics_process(delta):
 	if (not holded):
