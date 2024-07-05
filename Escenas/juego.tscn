@@ -38,8 +38,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.4, 0, 245.5)
 
 [node name="Oscuro" parent="." instance=ExtResource("7_dpimf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.034, 0, 247.146)
-moveSpeed = 30.0
-umbralPicar = 0.2
-danyo = 1
-vidaMax = 100
-tiempoLapsoInfluencia = 1.0

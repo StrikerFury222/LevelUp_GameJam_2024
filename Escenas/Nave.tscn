@@ -82,6 +82,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BotonContratar" type="StaticBody3D" parent="." groups=["Contratar"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.328188, 0)
+collision_layer = 32768
+collision_mask = 0
 script = ExtResource("5_ulqne")
 
 [node name="SpriteContratar" type="Sprite3D" parent="BotonContratar"]
