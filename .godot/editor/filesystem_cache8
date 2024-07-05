@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1720198388
+::res://::1720199049
 BotonContratar.gd::GDScript::-1::1720196501::0::1::::<>StaticBody3D<>::
 export_presets.cfg::TextFile::-1::1720038515::0::1::::<><>::
 icon.svg::CompressedTexture2D::922426160210492311::1719945921::1720038515::1::::<><>::
@@ -12,7 +12,7 @@ plugin.gd::GDScript::-1::1720198392::0::1::::<>EditorPlugin<>::
 getting-started.md::TextFile::-1::1720198391::0::1::::<><>::
 music-manager.md::TextFile::-1::1720198389::0::1::::<><>::
 sound-manager.md::TextFile::-1::1720198391::0::1::::<><>::
-::res://addons/resonate/docs/images/::1720198391
+::res://addons/resonate/docs/images/::1720198392
 add-music-bank-node.jpg::CompressedTexture2D::7445013521400015045::1720198391::1720198392::1::::<><>::
 add-sound-bank-node.jpg::CompressedTexture2D::8855672476859474822::1720198389::1720198392::1::::<><>::
 music-banks.png::CompressedTexture2D::5807024528907645441::1720198390::1720198392::1::::<><>::
@@ -30,7 +30,7 @@ stemmed_music_stream_player.gd::GDScript::-1::1720198392::0::1::::StemmedMusicSt
 ::res://addons/resonate/shared/::1720198391
 resonate_settings.gd::GDScript::-1::1720198391::0::1::::<>RefCounted<>::
 resonate_utils.gd::GDScript::-1::1720198391::0::1::::ResonateUtils<>RefCounted<>::
-::res://addons/resonate/sound_manager/::1720198389
+::res://addons/resonate/sound_manager/::1720198392
 null_pooled_audio_stream_player.gd::GDScript::-1::1720198389::0::1::::NullPooledAudioStreamPlayer<>PooledAudioStreamPlayer<>::
 null_pooled_audio_stream_player_2d.gd::GDScript::-1::1720198389::0::1::::NullPooledAudioStreamPlayer2D<>PooledAudioStreamPlayer2D<>::
 null_pooled_audio_stream_player_3d.gd::GDScript::-1::1720198389::0::1::::NullPooledAudioStreamPlayer3D<>PooledAudioStreamPlayer3D<>::
