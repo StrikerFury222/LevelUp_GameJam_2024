@@ -6,6 +6,22 @@ class_name Mineral
 @onready var carried: bool = false
 @onready var value: int = 5
 
+#@onready var rng = RandomNumberGenerator.new()
+
+var cayendo: bool
+var velocidadCaida: Vector3 = Vector3.ZERO
+func setFall(rng: RandomNumberGenerator):
+	cayendo = true
+	velocidadCaida = Vector3(rng.randf_range(-3,3),-1,rng.randf_range(-3,3))
+	
+func _physics_process(delta):
+	if cayendo:
+		velocity = velocidadCaida
+		move_and_slide()
+		if position.y < 0:
+			cayendo = false
+
+
 '''
 @onready var sprite: Sprite3D = $SpriteMineral
 func _physics_process(delta):

@@ -25,10 +25,10 @@ var corrupcion: float = 0
 @onready var holded: bool = false
 
 
-const max_H = 280
-const min_H = 210
-const max_V = 280
-const min_V = 205
+const max_H = 300
+const min_H = 190
+const max_V = 300
+const min_V = 195
 
 func _ready():
 	sensorNave.mineralMode = false

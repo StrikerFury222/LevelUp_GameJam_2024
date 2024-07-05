@@ -17,8 +17,14 @@ var place = Vector3.ZERO
 @onready var costeContratar = 5
 @onready var baseCristales = $Base
 
-#@export var debugVar: PackedScene
-#var place
+@export var spawnCristal: PackedScene = null 
+@onready var segundosSpawn: float = 1.0
+@onready var tiempoSpawn: float = 0
+@onready var rng = RandomNumberGenerator.new()
+const max_H = 260
+const min_H = 230
+const max_V = 260
+const min_V = 225
 
 func _input(event):
 	if Input.is_action_just_pressed("Click_press"):
@@ -29,7 +35,22 @@ func _input(event):
 		#print("RELSEASED")
 		unclicked = true
 		holded = false
+
 func _physics_process(delta):
+	tiempoSpawn += delta
+	if tiempoSpawn >= segundosSpawn:
+		print("¡METEORITOS!")
+		tiempoSpawn = 0
+		segundosSpawn = rng.randf_range(30,60)
+		print("Next in: ", segundosSpawn)
+		var numToSpawn = rng.randi_range(5,20)
+		for i in numToSpawn:
+			var nodo = spawnCristal.instantiate()
+			nodo.position = Vector3(rng.randf_range(min_H,max_H),10,rng.randf_range(min_V,max_V))
+			print(nodo.position)
+			nodo.setFall(rng)
+			add_child(nodo)
+	
 	if clicked:
 		clicked = false
 		#print("SHOOT")
