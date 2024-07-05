@@ -31,6 +31,15 @@ const min_H = 228
 const max_V = 262
 const min_V = 228
 
+#Para que tome decisión de moverse
+@onready var counterMoveMax: float = 10
+var counterMove: float = 0
+var moving = false
+var direccion = Vector3.ZERO
+
+#RNG
+@onready var rng = RandomNumberGenerator.new()
+
 func _ready():
 	sensorNave.mineralMode = false
 	sensorNave.esVisible = false
@@ -40,10 +49,11 @@ func _ready():
 func _physics_process(delta):
 	if (not holded):
 		counter += delta
-		var moving = false
+		counterMove += delta
+		#var moving = false
 		if (carry and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 			animation.play("Drag")
-			moving = true
+			#moving = true
 			self.velocity = moveSpeed * (base_coordinates - self.global_position).normalized() * delta
 			updateOrientacion()
 			carry.velocity = self.velocity
@@ -52,11 +62,21 @@ func _physics_process(delta):
 		elif (sensorMinerales.target != null and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 			if (sensorMinerales.target_distance < umbralPicar):
 				animation.play("Picar")
-				moving = true
+				#moving = true
 			else:
 				animation.play("Move")
-				moving = true
+				#moving = true
 				self.velocity = moveSpeed * sensorMinerales.target_direction.normalized() * delta
+				updateOrientacion()
+				move_and_slide()
+		else:
+			if counterMove > counterMoveMax and not moving:
+				counterMove = 0
+				moving = true
+				direccion = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
+			elif moving:
+				counterMove = 0
+				self.velocity = moveSpeed/2 * direccion.normalized() * delta
 				updateOrientacion()
 				move_and_slide()
 		if (counter >= tiempoLapsoInfluencia):
@@ -73,7 +93,9 @@ func _physics_process(delta):
 				animation.play("Die")
 			elif (not moving):
 				animation.play("Standing")
-	
+	else:
+		counterMove = 0
+		moving = false
 	if position.x < min_H:
 		position.x = min_H
 	elif position.x > max_H:

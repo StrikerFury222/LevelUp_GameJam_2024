@@ -96,6 +96,11 @@ _data = {
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_wm8n6")
+moveSpeed = null
+umbralPicar = null
+danyo = null
+vidaMax = null
+tiempoLapsoInfluencia = null
 
 [node name="SensorTrabajador" parent="." instance=ExtResource("1_u5m37")]
 collision_layer = 0

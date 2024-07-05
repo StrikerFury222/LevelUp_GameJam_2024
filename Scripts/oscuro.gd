@@ -42,16 +42,22 @@ func _physics_process(delta):
 			#print(vida)
 			if vida <= 0:
 				animation.play("Morir")
-		if sensorNave.target != null and sensorNave.target.numCristales > 0:
-			target = sensorNave.target
-			self.velocity = moveSpeed * sensorNave.target_direction.normalized() * delta
-			updateOrientacion()
-			if sensorNave.target_distance > umbralPicar:
-				animation.play("Move")
-				move_and_slide()
+		if sensorNave.target != null:
+			if sensorNave.target.numCristales > 0:
+				target = sensorNave.target
+				self.velocity = moveSpeed * sensorNave.target_direction.normalized() * delta
+				updateOrientacion()
+				if sensorNave.target_distance > umbralPicar:
+					animation.play("Move")
+					move_and_slide()
+				else:
+					animation.play("Destruir")
 			else:
-				animation.play("Destruir")
-			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
+				direction = -sensorNave.target_direction.normalized()
+				self.velocity = moveSpeed * direction * delta
+				animation.play("Move")
+				updateOrientacion()
+				move_and_slide()
 		elif sensorMinerales.target != null:
 			target = sensorMinerales.target
 			self.velocity = moveSpeed * sensorMinerales.target_direction.normalized() * delta
@@ -61,7 +67,6 @@ func _physics_process(delta):
 				move_and_slide()
 			else:
 				animation.play("Destruir")
-			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		elif sensorTrabajadores.target != null:
 			target = sensorTrabajadores.target
 			animation.play("Move")
@@ -69,13 +74,13 @@ func _physics_process(delta):
 			updateOrientacion()
 			if sensorTrabajadores.target_distance > umbralPicar:
 				move_and_slide()
-			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
+			
 		else:
 			target = null
 			animation.play("Move")
-			self.velocity = moveSpeed * direction.normalized() * delta
-			#updateOrientacion()
-			#move_and_slide()
+			self.velocity = moveSpeed/2 * direction * delta
+			updateOrientacion()
+			move_and_slide()
 		
 		#Limite de desplazamiento
 		if position.x < min_H:
@@ -90,7 +95,7 @@ func _physics_process(delta):
 		elif position.z > max_V:
 			position.z = max_V
 			direction.z = -direction.z
-
+		position.y = 0
 func eliminarme():
 	print("I'm Dying")
 	self.queue_free()
@@ -103,7 +108,8 @@ func updateOrientacion():
 func picar():
 	print("Picando")
 	if target != null:
-		if target.picar() and target.get_groups().size() > 0 and target.get_groups()[0] == "Mineral":
+		var result = target.picar()
+		if result and target.get_groups().size() > 0 and target.get_groups()[0] == "Mineral":
 			target.eliminarme() #Elimina el objetivo
 			target = null
-			
+			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
