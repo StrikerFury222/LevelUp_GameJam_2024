@@ -22,9 +22,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245.5)
 
 [node name="Camera3D" parent="." instance=ExtResource("2_a52lt")]
 transform = Transform3D(1, 0, 0, 0, 0.944233, 0.329279, 0, -0.329279, 0.944233, 235, 0.529, 248.5)
+current = true
 
 [node name="Suelo" parent="." instance=ExtResource("1_48o4x")]
-transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 194, 0, 189.671)
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 175.388, 0, 185.513)
 collision_layer = 16
 collision_mask = 0
 

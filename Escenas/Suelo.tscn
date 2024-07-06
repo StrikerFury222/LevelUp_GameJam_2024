@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1nxkkyondq7a"]
 
-[ext_resource type="Texture2D" uid="uid://c5cvymex18xj5" path="res://Sprites/Sprite-0001.png" id="1_5qglt"]
+[ext_resource type="Texture2D" uid="uid://cms4sqiafijyg" path="res://Sprites/Floor.png" id="1_8krt4"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wajje"]
 
@@ -14,5 +14,6 @@ shape = SubResource("WorldBoundaryShape3D_wajje")
 [node name="StaticBody3D" type="Sprite3D" parent="." groups=["Suelo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8056, -19.9258, -8.70986e-07)
 layers = 32
+sorting_offset = -5.0
 texture_filter = 2
-texture = ExtResource("1_5qglt")
+texture = ExtResource("1_8krt4")
