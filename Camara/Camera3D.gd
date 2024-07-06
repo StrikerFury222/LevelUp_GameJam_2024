@@ -5,10 +5,10 @@ extends Camera3D
 @export var input = Vector3.ZERO
 var velocity = Vector3.ZERO
 
-const max_H = 260
+const max_H = 240
 const min_H = 230
-const max_V = 260
-const min_V = 230
+const max_V = 250
+const min_V = 240
 
 
 const max_speed = 0.1

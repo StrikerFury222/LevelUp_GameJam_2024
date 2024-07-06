@@ -1,5 +1,5 @@
-res://Camara/node_3d.tscn
 res://Escenas/juego.tscn
+res://Camara/node_3d.tscn
 res://Escenas/Nave.tscn
 res://Escenas/trabajador.tscn
 res://Escenas/Mineral.tscn
@@ -7,6 +7,8 @@ res://Escenas/Suelo.tscn
 res://Camara/camera_3d.tscn
 res://Escenas/sensor.tscn
 res://Escenas/oscuro.tscn
+res://Camara/Camera3D.gd
 res://Scripts/oscuro.gd
+res://Escenas/trabajador.gd
+res://Scripts/Mineral.gd
 res://Scripts/AdministradorJuego.gd
-res://Scripts/AreaTrabajador.gd

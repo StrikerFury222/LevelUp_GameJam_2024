@@ -12,10 +12,10 @@ class_name Oscuro
 @onready var direction = Vector3.ZERO 
 @onready var rng = RandomNumberGenerator.new()
 
-const max_H = 262
+const max_H = 242
 const min_H = 228
-const max_V = 262
-const min_V = 228
+const max_V = 249.5
+const min_V = 238
 
 var target = null
 
@@ -43,7 +43,7 @@ func _physics_process(delta):
 			if vida <= 0:
 				animation.play("Morir")
 		if sensorNave.target != null and sensorNave.target.numCristales > 0:
-			print("Nave")
+			#print("Nave")
 			target = sensorNave.target
 			self.velocity = moveSpeed * sensorNave.target_direction.normalized() * delta
 			updateOrientacion()
@@ -54,7 +54,7 @@ func _physics_process(delta):
 				animation.play("Destruir")
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		elif sensorMinerales.target != null:
-			print("Mineral")
+			#print("Mineral")
 			target = sensorMinerales.target
 			self.velocity = moveSpeed * sensorMinerales.target_direction.normalized() * delta
 			updateOrientacion()
@@ -65,8 +65,8 @@ func _physics_process(delta):
 				animation.play("Destruir")
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		elif sensorTrabajadores.target != null:
-			print("Worker")
-			print(sensorTrabajadores.colisiones.size())
+			#print("Worker")
+			#print(sensorTrabajadores.colisiones.size())
 			target = sensorTrabajadores.target
 			animation.play("Move")
 			self.velocity = moveSpeed * sensorTrabajadores.target_direction.normalized() * delta
@@ -75,7 +75,7 @@ func _physics_process(delta):
 				move_and_slide()
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		else:
-			print("Moving")
+			#print("Moving")
 			target = null
 			animation.play("Move")
 			self.velocity = moveSpeed/2 * direction.normalized() * delta
@@ -106,10 +106,12 @@ func updateOrientacion():
 		
 
 func picar():
-	print("Picando")
+	#print("Picando")
 	if target != null:
 		var result = target.picar()
-		if result and target.get_groups().size() > 0 and target.get_groups()[0] == "Mineral":
+		if result and target.get_groups().size() > 0 and target.get_groups()[0] == "Mineral"  and not target.carried:
 			target.eliminarme() #Elimina el objetivo
 			target = null
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
+		elif target.get_groups().size() > 0 and target.get_groups()[0] == "Mineral"  and target.carried:
+			target = null

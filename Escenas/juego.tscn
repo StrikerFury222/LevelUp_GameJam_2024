@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkt2g1dqddqsu"]
+[gd_scene load_steps=9 format=3 uid="uid://dkt2g1dqddqsu"]
 
 [ext_resource type="Script" path="res://Scripts/AdministradorJuego.gd" id="1_3tvio"]
 [ext_resource type="PackedScene" uid="uid://d1nxkkyondq7a" path="res://Escenas/Suelo.tscn" id="1_48o4x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://blpmt4xmrqowi" path="res://Camara/camera_3d.tscn" id="2_a52lt"]
 [ext_resource type="PackedScene" uid="uid://t1r5istl5w3y" path="res://Escenas/Nave.tscn" id="5_b6qm2"]
 [ext_resource type="PackedScene" uid="uid://egfw8x6vm44d" path="res://Escenas/oscuro.tscn" id="7_dpimf"]
+[ext_resource type="Texture2D" uid="uid://ne3hvbwhycgt" path="res://icon.svg" id="8_sba8t"]
 
 [node name="Juego" type="Node3D"]
 script = ExtResource("1_3tvio")
@@ -14,13 +15,13 @@ spawnContratar = ExtResource("1_nhw5c")
 spawnCristal = ExtResource("1_lglbu")
 
 [node name="Mineral" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245, 0, 246.463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 246.463)
 
 [node name="Trabajador" parent="." instance=ExtResource("1_nhw5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245, 0, 245.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245.5)
 
 [node name="Camera3D" parent="." instance=ExtResource("2_a52lt")]
-transform = Transform3D(1, 0, 0, 0, 0.944233, 0.329279, 0, -0.329279, 0.944233, 245, 0.529, 248.5)
+transform = Transform3D(1, 0, 0, 0, 0.944233, 0.329279, 0, -0.329279, 0.944233, 235, 0.529, 248.5)
 
 [node name="Suelo" parent="." instance=ExtResource("1_48o4x")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 194, 0, 189.671)
@@ -28,13 +29,17 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="Mineral2" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.592, 0.0553155, 246.273)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.592, 0.055, 246.273)
 
 [node name="Base" parent="." instance=ExtResource("5_b6qm2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245, 0, 245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245)
 
 [node name="Trabajador2" parent="." instance=ExtResource("1_nhw5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.4, 0, 245.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.4, 0, 245.5)
 
 [node name="Oscuro" parent="." instance=ExtResource("7_dpimf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.034, 0, 247.146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.034, 0, 247.146)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(700, 0, 0, 0, 700, 0, 0, 0, 700, 233.368, 0, 0)
+texture = ExtResource("8_sba8t")

@@ -9,7 +9,7 @@ var carry = null
 @onready var animation: AnimationPlayer = $Animation as AnimationPlayer
 @onready var soul: Sprite3D = $IndicadorAlma
 @onready var sprite: Sprite3D = $Idle
-var base_coordinates: Vector3 = Vector3(245,0,245)
+var base_coordinates: Vector3 = Vector3(235,0,245)
 
 @export var tiempoLapsoInfluencia: float = 1
 var counter: float = 0
@@ -26,10 +26,10 @@ var corrupcion: float = 0
 @onready var hitBox = $CollisionShape3D
 @onready var holded: bool = false
 
-const max_H = 262
+const max_H = 242
 const min_H = 228
-const max_V = 262
-const min_V = 228
+const max_V = 249.5
+const min_V = 238
 
 #Para que tome decisión de moverse
 @onready var counterMoveMax: float = 10
@@ -98,12 +98,16 @@ func _physics_process(delta):
 		moving = false
 	if position.x < min_H:
 		position.x = min_H
+		direccion.x = -direccion.x
 	elif position.x > max_H:
 		position.x = max_H
+		direccion.x = -direccion.x
 	if position.z < min_V:
 		position.z = min_V
+		direccion.z = -direccion.z
 	elif position.z > max_V:
 		position.z = max_V
+		direccion.z = -direccion.z
 func eliminarme():
 	#print("I'm Dying")
 	self.queue_free()
