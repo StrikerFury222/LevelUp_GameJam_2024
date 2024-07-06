@@ -1,12 +1,1 @@
-res://Camara/node_3d.tscn
-res://Escenas/juego.tscn
-res://Escenas/Nave.tscn
 res://Escenas/trabajador.tscn
-res://Escenas/Mineral.tscn
-res://Escenas/Suelo.tscn
-res://Camara/camera_3d.tscn
-res://Escenas/sensor.tscn
-res://Escenas/oscuro.tscn
-res://Scripts/oscuro.gd
-res://Scripts/AdministradorJuego.gd
-res://Scripts/AreaTrabajador.gd

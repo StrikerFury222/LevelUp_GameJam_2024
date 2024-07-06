@@ -152,6 +152,7 @@ transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08,
 shape = SubResource("BoxShape3D_w23wv")
 
 [node name="Idle" type="Sprite3D" parent="."]
+texture_filter = 2
 texture = ExtResource("2_ipond")
 hframes = 12
 vframes = 4
