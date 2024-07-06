@@ -12,7 +12,7 @@ var cayendo: bool
 var velocidadCaida: Vector3 = Vector3.ZERO
 func setFall(rng: RandomNumberGenerator):
 	cayendo = true
-	velocidadCaida = Vector3(rng.randf_range(-1.5,1.5),-1,rng.randf_range(-1.5,1.5))
+	velocidadCaida = Vector3(rng.randf_range(-0.7,0.7),-1,rng.randf_range(-0.7,0.7))
 	
 func _physics_process(delta):
 	if cayendo:
