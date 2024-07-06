@@ -14,6 +14,6 @@ shape = SubResource("WorldBoundaryShape3D_wajje")
 [node name="StaticBody3D" type="Sprite3D" parent="." groups=["Suelo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8056, -19.9258, -8.70986e-07)
 layers = 32
-sorting_offset = -5.0
+sorting_offset = -10.0
 texture_filter = 2
 texture = ExtResource("1_8krt4")

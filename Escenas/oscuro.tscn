@@ -157,5 +157,5 @@ libraries = {
 
 [node name="Influencia" type="Sprite3D" parent="."]
 transform = Transform3D(3.6, 0, 0, 0, -1.57361e-07, -3.6, 0, 3.6, -1.57361e-07, 0, -0.1, 0)
-sorting_offset = -2.0
+sorting_offset = -3.0
 texture = ExtResource("4_7fl37")

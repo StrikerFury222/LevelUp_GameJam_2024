@@ -71,6 +71,7 @@ func _physics_process(delta):
 				move_and_slide()
 		else:
 			if counterMove > counterMoveMax and not moving:
+				animation.play("Move")
 				counterMove = 0
 				moving = true
 				direccion = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))

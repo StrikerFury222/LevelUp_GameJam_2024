@@ -12,3 +12,4 @@ res://Escenas/oscuro.tscn
 res://Scripts/AdministradorJuego.gd
 res://Escenas/trabajador.gd
 res://Scripts/Mineral.gd
+res://Scripts/Nave_accessor.gd
