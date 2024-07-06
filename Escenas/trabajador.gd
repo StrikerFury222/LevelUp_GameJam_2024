@@ -14,10 +14,10 @@ var base_coordinates: Vector3 = Vector3(235,0,245)
 var counter: float = 0
 
 var corrupcion: float = 0
-@export var minCorrupcion = -50#-255
-@export var maxCorrupcion = 50#255#8.5
-@export var ritmoCorrupcion = 2#0.1
-@export var ritmoCorrupcionInfluencia = 1
+@export var minCorrupcion = -100#-255
+@export var maxCorrupcion = 100#255#8.5
+@export var ritmoCorrupcion = 1
+@export var ritmoCorrupcionInfluencia = 2
 
 @export var moveSpeed: float = 30
 @export var umbralPicar: float = 0.2
@@ -42,8 +42,8 @@ var direccion = Vector3.ZERO
 #Para modular el color del alma
 @onready var soul: Sprite2D = $SubViewport/Sprite2D
 @onready var animSoul = $SubViewport/AnimationSoul
-const colorIluminado = [197,100]
-const colorOscuro = [273,100]
+const colorIluminado = [0.5,1]
+const colorOscuro = [0.75,1]
 
 func _ready():
 	animSoul.play("vibe")
@@ -95,15 +95,21 @@ func _physics_process(delta):
 				
 			#actualizamos el color del shader
 			if corrupcion < 0:
-				var porcentaje = (corrupcion/minCorrupcion)
-				print(porcentaje)
-				soul.material.set_shader_parameter("new_colour", Color.from_hsv(colorIluminado[0],porcentaje,colorIluminado[1]))
+				var porcentaje:float = (corrupcion/minCorrupcion)
+				print(porcentaje,"-",corrupcion)
+				var color = Color.from_hsv(colorOscuro[0],porcentaje,1,1)
+				soul.material.set_shader_parameter("new_colour", color)
+				animSoul.play("vibe")
+				print(color)
 			else:
-				var porcentaje = (corrupcion/minCorrupcion)
-				print(porcentaje)
-				soul.material.set_shader_parameter("new_colour", Color.from_hsv(colorOscuro[0],porcentaje,colorOscuro[1]))
+				var porcentaje:float = (corrupcion/maxCorrupcion)
+				print(porcentaje,"-",corrupcion)
+				var color = Color.from_hsv(colorIluminado[0],porcentaje,1,1)
+				soul.material.set_shader_parameter("new_colour", color)
+				animSoul.play("vibe")
+				print(color)
 			#print(corrupcion)
-			if (corrupcion >= maxCorrupcion):
+			if (corrupcion >= maxCorrupcion or corrupcion <= minCorrupcion):
 				if (carry):
 					carry.carried = false
 					carry = null
