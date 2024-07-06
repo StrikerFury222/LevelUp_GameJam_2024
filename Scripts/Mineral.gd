@@ -5,6 +5,7 @@ class_name Mineral
 @onready var vida: int = vidaMax 
 @onready var carried: bool = false
 @onready var value: int = 5
+@onready var influencia = $Influencia
 
 #@onready var rng = RandomNumberGenerator.new()
 
@@ -12,6 +13,7 @@ var cayendo: bool
 var velocidadCaida: Vector3 = Vector3.ZERO
 func setFall(rng: RandomNumberGenerator):
 	cayendo = true
+	influencia.visible = false
 	velocidadCaida = Vector3(rng.randf_range(-0.7,0.7),-1,rng.randf_range(-0.7,0.7))
 	
 func _physics_process(delta):
@@ -20,6 +22,8 @@ func _physics_process(delta):
 		move_and_slide()
 		if position.y < 0:
 			cayendo = false
+			influencia.visible = true
+			position.y = 0
 
 
 '''

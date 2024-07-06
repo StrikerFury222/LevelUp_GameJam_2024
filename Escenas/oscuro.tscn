@@ -1,10 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://egfw8x6vm44d"]
+[gd_scene load_steps=14 format=3 uid="uid://egfw8x6vm44d"]
 
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="1_u5m37"]
 [ext_resource type="Script" path="res://Scripts/oscuro.gd" id="1_wm8n6"]
 [ext_resource type="Texture2D" uid="uid://cj7glmkdhjyf5" path="res://Sprites/PH_placeholders/PH_trabajadores/PH_simple_sprite.png" id="2_bxa2p"]
+[ext_resource type="Texture2D" uid="uid://fnprqk1j2p2f" path="res://Sprites/Dwarf/Area-oscuro.png" id="4_7fl37"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w8b4w"]
+
+[sub_resource type="Animation" id="Animation_l55uh"]
+resource_name = "Atacar"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
 
 [sub_resource type="Animation" id="Animation_dsspr"]
 resource_name = "Destruir"
@@ -52,6 +69,36 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_hph1t"]
+resource_name = "Morir"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"eliminarme"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_mc1cr"]
 resource_name = "Move"
 length = 0.8
@@ -84,12 +131,45 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_lk4tj"]
+resource_name = "Spawn"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 7, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enablePlay"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_knegi"]
 _data = {
+"Atacar": SubResource("Animation_l55uh"),
 "Destruir": SubResource("Animation_dsspr"),
 "Idle": SubResource("Animation_xisp1"),
+"Morir": SubResource("Animation_hph1t"),
 "Move": SubResource("Animation_mc1cr"),
-"RESET": SubResource("Animation_altes")
+"RESET": SubResource("Animation_altes"),
+"Spawn": SubResource("Animation_lk4tj")
 }
 
 [node name="Oscuro" type="CharacterBody3D" groups=["Oscuro"]]
@@ -109,11 +189,6 @@ texture = ExtResource("2_bxa2p")
 hframes = 12
 frame = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_knegi")
-}
-
 [node name="SensorMineral" parent="." instance=ExtResource("1_u5m37")]
 collision_layer = 0
 collision_mask = 2
@@ -122,3 +197,17 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 collision_layer = 0
 collision_mask = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_knegi")
+}
+
+[node name="Influencia" type="Sprite3D" parent="."]
+transform = Transform3D(3.6, 0, 0, 0, -1.57361e-07, -3.6, 0, 3.6, -1.57361e-07, 0, -0.1, 0)
+sorting_offset = -3.0
+texture = ExtResource("4_7fl37")
+
+[node name="SensorIluminado" parent="." instance=ExtResource("1_u5m37")]
+collision_layer = 0
+collision_mask = 64

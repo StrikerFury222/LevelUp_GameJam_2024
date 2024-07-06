@@ -15,4 +15,5 @@ shape = SubResource("CylinderShape3D_ynd3e")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(3.6, 0, 0, 0, -1.57361e-07, -3.6, 0, 3.6, -1.57361e-07, 0, 0, 0)
+sorting_offset = -1.0
 texture = ExtResource("2_7n0b1")

@@ -4,6 +4,7 @@ class_name Oscuro
 @onready var sensorTrabajadores: Sensor = $SensorTrabajador as Sensor
 @onready var sensorMinerales: Sensor = $SensorMineral as Sensor
 @onready var sensorNave: Sensor = $SensorNave as Sensor
+@onready var sensorIluminados: Sensor = $SensorIluminado as Sensor
 @onready var sprite: Sprite3D = $Sprite
 @onready var animation = $AnimationPlayer
 
@@ -24,6 +25,15 @@ var target = null
 var vida = vidaMax
 @export var tiempoLapsoInfluencia: float = 1
 var counter: float = 0
+var enabled = true
+
+
+func setSpawn():
+	enabled = false
+	animation.play("Spawn")
+
+func enablePlay():
+	enabled = true
 
 func _ready():
 	direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
@@ -32,17 +42,29 @@ func _ready():
 	sensorTrabajadores.mineralMode = false
 	sensorTrabajadores.esVisible = false
 	sensorMinerales.esVisible = false
+	sensorIluminados.mineralMode = false
+	sensorIluminados.esVisible = false
 
 func _physics_process(delta):
-	if vida > 0:
+	if vida > 0 and enabled:
 		counter += delta
 		if (counter >= tiempoLapsoInfluencia):
+			#print("Vida Oscuro: ", vida)
 			counter = 0
-			vida -= (sensorMinerales.colisiones.size() + sensorNave.colisiones.size()) * danyo
+			vida -= (sensorMinerales.colisiones.size() + sensorNave.colisiones.size() + sensorIluminados.colisiones.size()) * danyo
 			#print(vida)
-			if vida <= 0:
-				animation.play("Morir")
-		if sensorNave.target != null and sensorNave.target.numCristales > 0:
+		if sensorIluminados.target != null:
+			#print("ENEMY")
+			target = sensorIluminados.target
+			self.velocity = moveSpeed * sensorIluminados.target_direction.normalized() * delta
+			updateOrientacion()
+			if sensorIluminados.target_distance > umbralPicar:
+				animation.play("Move")
+				move_and_slide()
+			else:
+				animation.play("Atacar")
+			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
+		elif sensorNave.target != null and sensorNave.target.numCristales > 0:
 			#print("Nave")
 			target = sensorNave.target
 			self.velocity = moveSpeed * sensorNave.target_direction.normalized() * delta
@@ -95,7 +117,9 @@ func _physics_process(delta):
 		elif position.z > max_V:
 			position.z = max_V
 			direction.z = -direction.z
-		#position.y = 0
+		position.y = 0
+	elif enabled:
+		animation.play("Morir")
 func eliminarme():
 	print("I'm Dying")
 	self.queue_free()
