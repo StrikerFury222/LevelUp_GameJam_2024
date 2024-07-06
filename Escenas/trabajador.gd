@@ -51,7 +51,7 @@ func _physics_process(delta):
 		counter += delta
 		counterMove += delta
 		#var moving = false
-		if (carry and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
+		if (carry != null and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 			animation.play("Drag")
 			#moving = true
 			self.velocity = moveSpeed * (base_coordinates - self.global_position).normalized() * delta
@@ -108,6 +108,7 @@ func _physics_process(delta):
 	elif position.z > max_V:
 		position.z = max_V
 		direccion.z = -direccion.z
+	position.y = 0
 func eliminarme():
 	#print("I'm Dying")
 	self.queue_free()
@@ -115,7 +116,7 @@ func eliminarme():
 func updateOrientacion():
 	if self.velocity != Vector3.ZERO:
 		sprite.flip_h = self.velocity.x > 0
-		if carry:
+		if carry != null:
 			if sprite.flip_h:
 				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.07)
 			else:

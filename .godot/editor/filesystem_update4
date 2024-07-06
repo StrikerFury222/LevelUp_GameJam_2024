@@ -9,3 +9,6 @@ res://Escenas/Suelo.tscn
 res://Camara/camera_3d.tscn
 res://Escenas/sensor.tscn
 res://Escenas/oscuro.tscn
+res://Scripts/AdministradorJuego.gd
+res://Escenas/trabajador.gd
+res://Scripts/Mineral.gd

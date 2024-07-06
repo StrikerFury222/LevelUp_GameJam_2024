@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://egfw8x6vm44d"]
+[gd_scene load_steps=12 format=3 uid="uid://egfw8x6vm44d"]
 
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="1_u5m37"]
 [ext_resource type="Script" path="res://Scripts/oscuro.gd" id="1_wm8n6"]
 [ext_resource type="Texture2D" uid="uid://cj7glmkdhjyf5" path="res://Sprites/PH_placeholders/PH_trabajadores/PH_simple_sprite.png" id="2_bxa2p"]
+[ext_resource type="Texture2D" uid="uid://fnprqk1j2p2f" path="res://Sprites/Dwarf/Area-oscuro.png" id="4_7fl37"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w8b4w"]
 
@@ -153,3 +154,8 @@ collision_mask = 4
 libraries = {
 "": SubResource("AnimationLibrary_knegi")
 }
+
+[node name="Influencia" type="Sprite3D" parent="."]
+transform = Transform3D(3.6, 0, 0, 0, -1.57361e-07, -3.6, 0, 3.6, -1.57361e-07, 0, -0.1, 0)
+sorting_offset = -2.0
+texture = ExtResource("4_7fl37")

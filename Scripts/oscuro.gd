@@ -94,7 +94,7 @@ func _physics_process(delta):
 		elif position.z > max_V:
 			position.z = max_V
 			direction.z = -direction.z
-		#position.y = 0
+		position.y = 0
 	else:
 		#print("OSCURO DYING")
 		animation.play("Morir")

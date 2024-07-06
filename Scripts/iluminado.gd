@@ -24,6 +24,7 @@ var target = null
 var vida = vidaMax
 @export var tiempoLapsoInfluencia: float = 1
 var counter: float = 0
+@onready var influencia = $Influencia
 
 func _ready():
 	direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
@@ -33,8 +34,22 @@ func _ready():
 	sensorTrabajadores.esVisible = false
 	sensorMinerales.esVisible = false
 
+var cayendo: bool = false
+var velocidadCaida: Vector3 = Vector3.ZERO
+func setFall(rng: RandomNumberGenerator):
+	cayendo = true
+	influencia.visible = false
+	velocidadCaida = Vector3(rng.randf_range(-0.7,0.7),-1,rng.randf_range(-0.7,0.7))
+
 func _physics_process(delta):
-	if vida > 0:
+	if cayendo:
+		velocity = velocidadCaida
+		move_and_slide()
+		if position.y < 0:
+			cayendo = false
+			influencia.visible = true
+			position.y = 0
+	elif vida > 0:
 		counter += delta
 		if (counter >= tiempoLapsoInfluencia):
 			print("Vida Iluminado: ", vida)
@@ -85,7 +100,7 @@ func _physics_process(delta):
 		elif position.z > max_V:
 			position.z = max_V
 			direction.z = -direction.z
-		#position.y = 0
+		position.y = 0
 	else:
 		#print("ILUMINADO DYING")
 		animation.play("Morir")

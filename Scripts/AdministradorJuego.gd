@@ -21,6 +21,10 @@ var place = Vector3.ZERO
 @onready var segundosSpawn: float = 1.0
 @onready var tiempoSpawn: float = 0
 @onready var rng = RandomNumberGenerator.new()
+
+@export var spawnIluminado: PackedScene = null 
+@onready var chanceIluminado: float = 25
+
 const max_H = 240
 const min_H = 230
 const max_V = 250
@@ -42,14 +46,20 @@ func _physics_process(delta):
 		tiempoSpawn = 0
 		segundosSpawn = rng.randf_range(30,60)
 		print("Next in: ", segundosSpawn)
-		var numToSpawn = rng.randi_range(5,20)
+		var numToSpawn = rng.randi_range(3,10)
 		print("¡",numToSpawn," METEORITOS!")
 		for i in numToSpawn:
 			var nodo = spawnCristal.instantiate()
 			nodo.position = Vector3(rng.randf_range(min_H+5,max_H-5),5,rng.randf_range(min_V+5,max_V-5))
 			#print(nodo.position)
-			nodo.setFall(rng)
 			add_child(nodo)
+			nodo.setFall(rng)
+		if rng.randf_range(0,100) < chanceIluminado:
+			var nodo = spawnIluminado.instantiate()
+			nodo.position = Vector3(rng.randf_range(min_H+5,max_H-5),5,rng.randf_range(min_V+5,max_V-5))
+			add_child(nodo)
+			nodo.setFall(rng)
+			
 	
 	if clicked:
 		clicked = false
