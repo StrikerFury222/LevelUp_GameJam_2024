@@ -1,7 +1,7 @@
 extends Area3D
 
 @onready var numCristales: int = 0
-@onready var goalCristales: int = 100 
+@onready var goalCristales: int = 500 
 @onready var text := $"../SubViewport/NumCristales"
 @onready var viewPort := $"../SubViewport"
 @onready var spriteNave := $"../SpriteNave"
@@ -13,26 +13,16 @@ func _ready():
 
 func _process(delta):
 	var porcentaje: float = float(numCristales)/goalCristales * 100
-	if porcentaje < 10:
+	if porcentaje < 25:
 		spriteNave.frame = 0
-	elif porcentaje < 20:
-		spriteNave.frame = 1
-	elif porcentaje < 30:
-		spriteNave.frame = 2
-	elif porcentaje < 40:
-		spriteNave.frame = 3
 	elif porcentaje < 50:
-		spriteNave.frame = 4
-	elif porcentaje < 60:
-		spriteNave.frame = 5
-	elif porcentaje < 70:
-		spriteNave.frame = 6
-	elif porcentaje < 80:
-		spriteNave.frame = 7
-	elif porcentaje < 90:
-		spriteNave.frame = 8
+		spriteNave.frame = 1
+	elif porcentaje < 75:
+		spriteNave.frame = 2
+	elif porcentaje < 100:
+		spriteNave.frame = 3
 	else:
-		spriteNave.frame = 9
+		spriteNave.frame = 4
 
 func collectCarry(body):
 	if body.carry:

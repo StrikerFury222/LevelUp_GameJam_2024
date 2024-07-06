@@ -4,6 +4,7 @@ class_name Trabajador
 @onready var sensorNave: Sensor = $SensorNave as Sensor
 @onready var sensorOscuro: Sensor = $SensorOscuro as Sensor
 @onready var sensorMinerales: Sensor = $SensorMinerales as Sensor
+@onready var sensorIluminados: Sensor = $SensorIluminado as Sensor
 var target = null
 var carry = null
 @onready var animation: AnimationPlayer = $Animation as AnimationPlayer
@@ -14,8 +15,8 @@ var base_coordinates: Vector3 = Vector3(235,0,245)
 var counter: float = 0
 
 var corrupcion: float = 0
-@export var minCorrupcion = -100#-255
-@export var maxCorrupcion = 100#255#8.5
+@export var minCorrupcion = -50#-255
+@export var maxCorrupcion = 50#255#8.5
 @export var ritmoCorrupcion = 1
 @export var ritmoCorrupcionInfluencia = 2
 
@@ -42,8 +43,10 @@ var direccion = Vector3.ZERO
 #Para modular el color del alma
 @onready var soul: Sprite2D = $SubViewport/Sprite2D
 @onready var animSoul = $SubViewport/AnimationSoul
-const colorIluminado = [0.5,1]
-const colorOscuro = [0.75,1]
+var colorIluminado = [0.5,0]
+var colorOscuro = [0.75,0]
+
+var dying = false
 
 func _ready():
 	animSoul.play("vibe")
@@ -51,9 +54,27 @@ func _ready():
 	sensorNave.esVisible = false
 	sensorOscuro.mineralMode = false
 	sensorOscuro.esVisible = false
+	sensorIluminados.mineralMode = false
+	sensorIluminados.esVisible = false
+
+func _process(delta):
+	if corrupcion < 0:
+		#var porcentaje:float = (corrupcion/minCorrupcion)
+		#print(porcentaje,"-",corrupcion)
+		var color = Color.from_hsv(colorOscuro[0],colorOscuro[1],1,1)
+		soul.material.set_shader_parameter("new_colour", color)
+		animSoul.play("vibe")
+		#print(color)
+	else:
+		#var porcentaje:float = (corrupcion/maxCorrupcion)
+		#print(porcentaje,"-",corrupcion)
+		var color = Color.from_hsv(colorIluminado[0],colorIluminado[1],1,1)
+		soul.material.set_shader_parameter("new_colour", color)
+		animSoul.play("vibe")
+	
 
 func _physics_process(delta):
-	if (not holded):
+	if (not holded and not dying):
 		counter += delta
 		counterMove += delta
 		#var moving = false
@@ -90,30 +111,32 @@ func _physics_process(delta):
 			counter = 0
 			corrupcion -= (sensorOscuro.colisiones.size() * ritmoCorrupcionInfluencia)
 			corrupcion += (sensorMinerales.colisiones.size() + sensorNave.colisiones.size()) * ritmoCorrupcion
-			if(sensorMinerales.colisiones.size() == 0 and sensorNave.colisiones.size() == 0):
+			corrupcion += sensorIluminados.colisiones.size() * ritmoCorrupcionInfluencia
+			if(sensorMinerales.colisiones.size() == 0 and sensorNave.colisiones.size() == 0 and sensorIluminados.colisiones.size() == 0):
 				corrupcion -= ritmoCorrupcion
-				
+			print("corrupcion: ",corrupcion)
 			#actualizamos el color del shader
 			if corrupcion < 0:
 				var porcentaje:float = (corrupcion/minCorrupcion)
-				print(porcentaje,"-",corrupcion)
+				colorOscuro[1] = porcentaje
 				var color = Color.from_hsv(colorOscuro[0],porcentaje,1,1)
 				soul.material.set_shader_parameter("new_colour", color)
 				animSoul.play("vibe")
-				print(color)
+				#print(color)
 			else:
 				var porcentaje:float = (corrupcion/maxCorrupcion)
-				print(porcentaje,"-",corrupcion)
+				colorIluminado[1] = porcentaje
 				var color = Color.from_hsv(colorIluminado[0],porcentaje,1,1)
 				soul.material.set_shader_parameter("new_colour", color)
 				animSoul.play("vibe")
-				print(color)
+				#print(color)
 			#print(corrupcion)
 			if (corrupcion >= maxCorrupcion or corrupcion <= minCorrupcion):
 				if (carry):
 					carry.carried = false
 					carry = null
 				animation.play("Die")
+				dying = true
 			elif (not moving):
 				animation.play("Standing")
 	else:

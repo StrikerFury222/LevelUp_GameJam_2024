@@ -21,3 +21,11 @@ func picar() -> bool:
 		return false
 	else:
 		return true
+
+func _process(delta):
+	if numCristales > 9:
+		viewPort.size = Vector2(36,viewPort.size.y)
+	if numCristales > 99:
+		viewPort.size = Vector2(54,viewPort.size.y)
+	else:
+		viewPort.size = Vector2(19,viewPort.size.y)

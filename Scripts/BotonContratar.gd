@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@onready var spriteContratar = $SpriteContratar
+@onready var spriteContratar = $VendingMachine
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

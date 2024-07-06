@@ -1,11 +1,11 @@
+CollisionShape3D
+StaticBody3D
 Sprite3D
 AnimationPlayer
 Container
 Sprite2D
 SubViewport
 CharacterBody3D
-CollisionShape3D
-StaticBody3D
 Control
 Button
 Area3D

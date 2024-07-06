@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5idhf02nf2h2"
-path.s3tc="res://.godot/imported/PLACEHOLDER.png-8ac2299fe360ee1f9c30c5187b84609a.s3tc.ctex"
+path.s3tc="res://.godot/imported/PLACEHOLDER.png-8649dd7f600fb34fd806c06697adc369.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/PLACEHOLDER.png"
-dest_files=["res://.godot/imported/PLACEHOLDER.png-8ac2299fe360ee1f9c30c5187b84609a.s3tc.ctex"]
+source_file="res://Sprites/PH_placeholders/PLACEHOLDER.png"
+dest_files=["res://.godot/imported/PLACEHOLDER.png-8649dd7f600fb34fd806c06697adc369.s3tc.ctex"]
 
 [params]
 
