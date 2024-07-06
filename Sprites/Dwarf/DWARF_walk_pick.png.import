@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqo5ieyqyrop7"
-path.s3tc="res://.godot/imported/DWARF_walk_pick.png-cb1b42cc9d995dd27d789c974b75c615.s3tc.ctex"
+path.bptc="res://.godot/imported/DWARF_walk_pick.png-cb1b42cc9d995dd27d789c974b75c615.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,12 +12,12 @@ metadata={
 [deps]
 
 source_file="res://Sprites/Dwarf/DWARF_walk_pick.png"
-dest_files=["res://.godot/imported/DWARF_walk_pick.png-cb1b42cc9d995dd27d789c974b75c615.s3tc.ctex"]
+dest_files=["res://.godot/imported/DWARF_walk_pick.png-cb1b42cc9d995dd27d789c974b75c615.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
