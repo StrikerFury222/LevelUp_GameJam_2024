@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkt2g1dqddqsu"]
+[gd_scene load_steps=13 format=3 uid="uid://dkt2g1dqddqsu"]
 
 [ext_resource type="Script" path="res://Scripts/AdministradorJuego.gd" id="1_3tvio"]
 [ext_resource type="PackedScene" uid="uid://d1nxkkyondq7a" path="res://Escenas/Suelo.tscn" id="1_48o4x"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://blpmt4xmrqowi" path="res://Camara/camera_3d.tscn" id="2_a52lt"]
 [ext_resource type="PackedScene" uid="uid://t1r5istl5w3y" path="res://Escenas/Nave.tscn" id="5_b6qm2"]
 [ext_resource type="PackedScene" uid="uid://egfw8x6vm44d" path="res://Escenas/oscuro.tscn" id="7_dpimf"]
+[ext_resource type="AudioStream" uid="uid://useu7m12bxdi" path="res://audio/musica/m_construccion_earlygame.ogg" id="8_07e3t"]
+[ext_resource type="AudioStream" uid="uid://bsjit60q5s1pd" path="res://audio/musica/m_construccion_midgame.ogg" id="9_c75fj"]
+[ext_resource type="AudioStream" uid="uid://cpomc0v0yn6mx" path="res://audio/musica/m_construccion_endgame.ogg" id="10_02fa1"]
+[ext_resource type="AudioStream" uid="uid://bwscdo5xq1kos" path="res://audio/musica/m_luminosos.ogg" id="11_hywss"]
+[ext_resource type="AudioStream" uid="uid://sd8i2lidisp5" path="res://audio/musica/m_oscuros.ogg" id="12_h6efj"]
 
 [node name="Juego" type="Node3D"]
 script = ExtResource("1_3tvio")
@@ -38,3 +43,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.4, 0, 245.5)
 
 [node name="Oscuro" parent="." instance=ExtResource("7_dpimf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.034, 0, 247.146)
+
+[node name="m_construccion_earlygame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_07e3t")
+autoplay = true
+bus = &"Music"
+
+[node name="m_construccion_midgame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_c75fj")
+bus = &"Music"
+
+[node name="m_construccion_endgame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_02fa1")
+bus = &"Music"
+
+[node name="m_luminosos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_hywss")
+autoplay = true
+bus = &"Music"
+
+[node name="m_oscuros" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_h6efj")
+autoplay = true
+bus = &"Music"
