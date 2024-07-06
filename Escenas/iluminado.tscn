@@ -1,0 +1,210 @@
+[gd_scene load_steps=14 format=3 uid="uid://dldjoxoxs212t"]
+
+[ext_resource type="Script" path="res://Scripts/iluminado.gd" id="1_ra42g"]
+[ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="2_ci1ri"]
+[ext_resource type="Texture2D" uid="uid://3m5yjl8m5xh1" path="res://Sprites/PH_placeholders/PH_trabajadores/PH_simple_sprite v2.png" id="3_4yiw7"]
+[ext_resource type="Texture2D" uid="uid://cladap4cvjeuj" path="res://Sprites/Dwarf/Area-iluminadot.png" id="4_jvke4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8b4w"]
+
+[sub_resource type="Animation" id="Animation_l55uh"]
+resource_name = "Atacar"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_dsspr"]
+resource_name = "Destruir"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [3, 4, 5]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"picar"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xisp1"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_hph1t"]
+resource_name = "Morir"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"eliminarme"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mc1cr"]
+resource_name = "Move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 10]
+}
+
+[sub_resource type="Animation" id="Animation_altes"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_lk4tj"]
+resource_name = "Spawn"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 7, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enablePlay"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_knegi"]
+_data = {
+"Atacar": SubResource("Animation_l55uh"),
+"Destruir": SubResource("Animation_dsspr"),
+"Idle": SubResource("Animation_xisp1"),
+"Morir": SubResource("Animation_hph1t"),
+"Move": SubResource("Animation_mc1cr"),
+"RESET": SubResource("Animation_altes"),
+"Spawn": SubResource("Animation_lk4tj")
+}
+
+[node name="Iluminado" type="CharacterBody3D" groups=["Oscuro"]]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_ra42g")
+
+[node name="SensorTrabajador" parent="." instance=ExtResource("2_ci1ri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08, -0.0023122, -0.04, 0)
+shape = SubResource("BoxShape3D_w8b4w")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+layers = 64
+texture = ExtResource("3_4yiw7")
+hframes = 12
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_knegi")
+}
+
+[node name="SensorOscuro" parent="." instance=ExtResource("2_ci1ri")]
+collision_layer = 0
+collision_mask = 32
+
+[node name="SensorMineral" parent="." instance=ExtResource("2_ci1ri")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Influencia" type="Sprite3D" parent="."]
+transform = Transform3D(3.6, 0, 0, 0, -1.57361e-07, -3.6, 0, 3.6, -1.57361e-07, 0, -0.1, 0)
+sorting_offset = -2.0
+texture = ExtResource("4_jvke4")

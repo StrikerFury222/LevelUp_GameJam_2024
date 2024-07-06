@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var areaRecoleccion = $Area3D
+@onready var viewPort = $SubViewport
 var numCristales: int:
 	get:
 		return areaRecoleccion.numCristales
@@ -12,6 +13,10 @@ func picar() -> bool:
 	#print("OUCH")
 	if areaRecoleccion.numCristales > 0:
 		areaRecoleccion.numCristales -= 1
+		if numCristales > 9:
+			viewPort.size = Vector2(36,viewPort.size.y)
+		if numCristales > 99:
+			viewPort.size = Vector2(54,viewPort.size.y)
 		areaRecoleccion.text.set_text(str(numCristales))
 		return false
 	else:

@@ -7,7 +7,6 @@ class_name Trabajador
 var target = null
 var carry = null
 @onready var animation: AnimationPlayer = $Animation as AnimationPlayer
-@onready var soul: Sprite3D = $IndicadorAlma
 @onready var sprite: Sprite3D = $Idle
 var base_coordinates: Vector3 = Vector3(235,0,245)
 
@@ -15,10 +14,10 @@ var base_coordinates: Vector3 = Vector3(235,0,245)
 var counter: float = 0
 
 var corrupcion: float = 0
-@export var minCorrupcion = -255
-@export var maxCorrupcion = 255#8.5
-@export var ritmoCorrupcion = 0.1
-@export var ritmoCorrupcionInfluencia = 1
+@export var minCorrupcion = -100#-255
+@export var maxCorrupcion = 100#255#8.5
+@export var ritmoCorrupcion = 1
+@export var ritmoCorrupcionInfluencia = 2
 
 @export var moveSpeed: float = 30
 @export var umbralPicar: float = 0.2
@@ -40,7 +39,14 @@ var direccion = Vector3.ZERO
 #RNG
 @onready var rng = RandomNumberGenerator.new()
 
+#Para modular el color del alma
+@onready var soul: Sprite2D = $SubViewport/Sprite2D
+@onready var animSoul = $SubViewport/AnimationSoul
+const colorIluminado = [0.5,1]
+const colorOscuro = [0.75,1]
+
 func _ready():
+	animSoul.play("vibe")
 	sensorNave.mineralMode = false
 	sensorNave.esVisible = false
 	sensorOscuro.mineralMode = false
@@ -51,7 +57,7 @@ func _physics_process(delta):
 		counter += delta
 		counterMove += delta
 		#var moving = false
-		if (carry and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
+		if (carry != null and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 			animation.play("Drag")
 			#moving = true
 			self.velocity = moveSpeed * (base_coordinates - self.global_position).normalized() * delta
@@ -71,6 +77,7 @@ func _physics_process(delta):
 				move_and_slide()
 		else:
 			if counterMove > counterMoveMax and not moving:
+				animation.play("Move")
 				counterMove = 0
 				moving = true
 				direccion = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
@@ -85,8 +92,24 @@ func _physics_process(delta):
 			corrupcion += (sensorMinerales.colisiones.size() + sensorNave.colisiones.size()) * ritmoCorrupcion
 			if(sensorMinerales.colisiones.size() == 0 and sensorNave.colisiones.size() == 0):
 				corrupcion -= ritmoCorrupcion
+				
+			#actualizamos el color del shader
+			if corrupcion < 0:
+				var porcentaje:float = (corrupcion/minCorrupcion)
+				print(porcentaje,"-",corrupcion)
+				var color = Color.from_hsv(colorOscuro[0],porcentaje,1,1)
+				soul.material.set_shader_parameter("new_colour", color)
+				animSoul.play("vibe")
+				print(color)
+			else:
+				var porcentaje:float = (corrupcion/maxCorrupcion)
+				print(porcentaje,"-",corrupcion)
+				var color = Color.from_hsv(colorIluminado[0],porcentaje,1,1)
+				soul.material.set_shader_parameter("new_colour", color)
+				animSoul.play("vibe")
+				print(color)
 			#print(corrupcion)
-			if (corrupcion >= maxCorrupcion):
+			if (corrupcion >= maxCorrupcion or corrupcion <= minCorrupcion):
 				if (carry):
 					carry.carried = false
 					carry = null
@@ -108,6 +131,7 @@ func _physics_process(delta):
 	elif position.z > max_V:
 		position.z = max_V
 		direccion.z = -direccion.z
+	position.y = 0
 func eliminarme():
 	#print("I'm Dying")
 	self.queue_free()
@@ -115,7 +139,7 @@ func eliminarme():
 func updateOrientacion():
 	if self.velocity != Vector3.ZERO:
 		sprite.flip_h = self.velocity.x > 0
-		if carry:
+		if carry != null:
 			if sprite.flip_h:
 				carry.global_position = Vector3(global_position.x+0.1, global_position.y-0.1, global_position.z+0.07)
 			else:

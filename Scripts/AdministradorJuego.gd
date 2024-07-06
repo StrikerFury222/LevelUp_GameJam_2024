@@ -21,6 +21,12 @@ var place = Vector3.ZERO
 @onready var segundosSpawn: float = 1.0
 @onready var tiempoSpawn: float = 0
 @onready var rng = RandomNumberGenerator.new()
+
+@export var spawnIluminado: PackedScene = null 
+@onready var chanceIluminado: float = 20 
+@export var spawnOscuro: PackedScene = null 
+@onready var chanceOscuro: float = 40
+
 const max_H = 240
 const min_H = 230
 const max_V = 250
@@ -42,14 +48,28 @@ func _physics_process(delta):
 		tiempoSpawn = 0
 		segundosSpawn = rng.randf_range(30,60)
 		print("Next in: ", segundosSpawn)
-		var numToSpawn = rng.randi_range(5,20)
+		var numToSpawn = rng.randi_range(3,10)
 		print("¡",numToSpawn," METEORITOS!")
 		for i in numToSpawn:
 			var nodo = spawnCristal.instantiate()
-			nodo.position = Vector3(rng.randf_range(min_H+5,max_H-5),5,rng.randf_range(min_V+5,max_V-5))
+			nodo.position = Vector3(rng.randf_range(min_H+3,max_H-3),5,rng.randf_range(min_V+2,max_V-5))
 			#print(nodo.position)
-			nodo.setFall(rng)
 			add_child(nodo)
+			nodo.setFall(rng)
+		if rng.randf_range(0,100) < chanceIluminado:
+			var nodo = spawnIluminado.instantiate()
+			nodo.position = Vector3(rng.randf_range(min_H+2,max_H-2),5,rng.randf_range(min_V+2,max_V-5))
+			add_child(nodo)
+			nodo.setFall(rng)
+		if rng.randf_range(0,100) < chanceOscuro:
+			var nodo = spawnOscuro.instantiate()
+			nodo.position = Vector3(rng.randf_range(min_H+2,max_H-2),5,rng.randf_range(min_V+2,max_V-5))
+			if nodo.position.x < 235 and nodo.position.x > 231:
+				nodo.position.x = 231
+			elif nodo.position.x < 238 and nodo.position.x >= 235:
+				nodo.position.x = 238
+			add_child(nodo)
+			nodo.setSpawn()
 	
 	if clicked:
 		clicked = false
@@ -60,6 +80,7 @@ func _physics_process(delta):
 		var end: Vector3 = origin + camara.project_ray_normal(mouse_pos) * RAYCAST_LENGTH
 		var query = PhysicsRayQueryParameters3D.create(origin,end)
 		#query.collide_with_bodies = true
+		query.collision_mask = 0x0009
 		var rayResult:Dictionary = spaceState.intersect_ray(query)
 		if rayResult.size() > 0:
 			var hit = rayResult.get("collider")
