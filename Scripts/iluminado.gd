@@ -1,9 +1,9 @@
 extends CharacterBody3D
-class_name Oscuro
+class_name Iluminado
 
 @onready var sensorTrabajadores: Sensor = $SensorTrabajador as Sensor
 @onready var sensorMinerales: Sensor = $SensorMineral as Sensor
-@onready var sensorNave: Sensor = $SensorNave as Sensor
+@onready var sensorOscuros: Sensor = $SensorOscuro as Sensor
 @onready var sprite: Sprite3D = $Sprite
 @onready var animation = $AnimationPlayer
 
@@ -27,8 +27,8 @@ var counter: float = 0
 
 func _ready():
 	direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
-	sensorNave.mineralMode = false
-	sensorNave.esVisible = false
+	sensorOscuros.mineralMode = false
+	sensorOscuros.esVisible = false
 	sensorTrabajadores.mineralMode = false
 	sensorTrabajadores.esVisible = false
 	sensorMinerales.esVisible = false
@@ -37,27 +37,18 @@ func _physics_process(delta):
 	if vida > 0:
 		counter += delta
 		if (counter >= tiempoLapsoInfluencia):
-			print("Vida Oscuro: ", vida)
+			print("Vida Iluminado: ", vida)
 			counter = 0
-			vida -= (sensorMinerales.colisiones.size() + sensorNave.colisiones.size()) * danyo
+			vida -= (sensorOscuros.colisiones.size()) * danyo
+			if (sensorMinerales.colisiones.size() == 0):
+				vida -= danyo
 			#print(vida)
-		if sensorNave.target != null and sensorNave.target.numCristales > 0:
+		if sensorOscuros.target != null:
 			#print("Nave")
-			target = sensorNave.target
-			self.velocity = moveSpeed * sensorNave.target_direction.normalized() * delta
+			target = sensorOscuros.target
+			self.velocity = moveSpeed * sensorOscuros.target_direction.normalized() * delta
 			updateOrientacion()
-			if sensorNave.target_distance > umbralPicar:
-				animation.play("Move")
-				move_and_slide()
-			else:
-				animation.play("Destruir")
-			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
-		elif sensorMinerales.target != null:
-			#print("Mineral")
-			target = sensorMinerales.target
-			self.velocity = moveSpeed * sensorMinerales.target_direction.normalized() * delta
-			updateOrientacion()
-			if sensorMinerales.target_distance > umbralPicar:
+			if sensorOscuros.target_distance > umbralPicar:
 				animation.play("Move")
 				move_and_slide()
 			else:
@@ -96,8 +87,9 @@ func _physics_process(delta):
 			direction.z = -direction.z
 		#position.y = 0
 	else:
-		#print("OSCURO DYING")
+		#print("ILUMINADO DYING")
 		animation.play("Morir")
+		
 func eliminarme():
 	print("I'm Dying")
 	self.queue_free()

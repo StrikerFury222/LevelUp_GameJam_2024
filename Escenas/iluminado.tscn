@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://egfw8x6vm44d"]
+[gd_scene load_steps=11 format=3 uid="uid://dldjoxoxs212t"]
 
-[ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="1_u5m37"]
-[ext_resource type="Script" path="res://Scripts/oscuro.gd" id="1_wm8n6"]
-[ext_resource type="Texture2D" uid="uid://cj7glmkdhjyf5" path="res://Sprites/PH_placeholders/PH_trabajadores/PH_simple_sprite.png" id="2_bxa2p"]
+[ext_resource type="Script" path="res://Scripts/iluminado.gd" id="1_ra42g"]
+[ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="2_ci1ri"]
+[ext_resource type="Texture2D" uid="uid://3m5yjl8m5xh1" path="res://Sprites/PH_placeholders/PH_trabajadores/PH_simple_sprite v2.png" id="3_4yiw7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w8b4w"]
 
@@ -123,33 +123,34 @@ _data = {
 "RESET": SubResource("Animation_altes")
 }
 
-[node name="Oscuro" type="CharacterBody3D" groups=["Oscuro"]]
-collision_layer = 32
+[node name="Iluminado" type="CharacterBody3D" groups=["Oscuro"]]
+collision_layer = 64
 collision_mask = 0
-script = ExtResource("1_wm8n6")
+script = ExtResource("1_ra42g")
 
-[node name="SensorTrabajador" parent="." instance=ExtResource("1_u5m37")]
+[node name="SensorTrabajador" parent="." instance=ExtResource("2_ci1ri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08, -0.03, -0.04, 0)
+transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08, -0.0023122, -0.04, 0)
 shape = SubResource("BoxShape3D_w8b4w")
 
 [node name="Sprite" type="Sprite3D" parent="."]
-texture = ExtResource("2_bxa2p")
+layers = 64
+texture = ExtResource("3_4yiw7")
 hframes = 12
 frame = 1
-
-[node name="SensorMineral" parent="." instance=ExtResource("1_u5m37")]
-collision_layer = 0
-collision_mask = 2
-
-[node name="SensorNave" parent="." instance=ExtResource("1_u5m37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-collision_layer = 0
-collision_mask = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_knegi")
 }
+
+[node name="SensorOscuro" parent="." instance=ExtResource("2_ci1ri")]
+collision_layer = 0
+collision_mask = 32
+
+[node name="SensorMineral" parent="." instance=ExtResource("2_ci1ri")]
+collision_layer = 0
+collision_mask = 2
