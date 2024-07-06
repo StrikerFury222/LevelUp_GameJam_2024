@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://t1r5istl5w3y"]
+[gd_scene load_steps=9 format=3 uid="uid://t1r5istl5w3y"]
 
 [ext_resource type="Texture2D" uid="uid://dehehs2r86mth" path="res://Sprites/PH_placeholders/PH_nave.png" id="1_gh1si"]
 [ext_resource type="Script" path="res://Scripts/Nave_accessor.gd" id="1_smcsu"]
 [ext_resource type="Script" path="res://Scripts/RecolectarCristales.gd" id="2_thark"]
-[ext_resource type="Script" path="res://Scripts/boton_contratar.gd" id="3_pyvdw"]
 [ext_resource type="Texture2D" uid="uid://ccw3f5blhxkll" path="res://Sprites/PH_boton_contratar.png" id="4_hff3p"]
 [ext_resource type="Script" path="res://BotonContratar.gd" id="5_ulqne"]
 
@@ -60,25 +59,6 @@ shape = SubResource("SphereShape3D_57db2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_57db2")
-
-[node name="SubViewport2" type="SubViewport" parent="."]
-
-[node name="Button" type="Button" parent="SubViewport2"]
-custom_minimum_size = Vector2(81, 25)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 279.5
-offset_top = 97.0
-offset_right = 360.5
-offset_bottom = 136.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("3_pyvdw")
-icono = ExtResource("4_hff3p")
-metadata/_edit_use_anchors_ = true
 
 [node name="BotonContratar" type="StaticBody3D" parent="." groups=["Contratar"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.328188, 0)

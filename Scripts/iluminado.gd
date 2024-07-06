@@ -52,7 +52,7 @@ func _physics_process(delta):
 	elif vida > 0:
 		counter += delta
 		if (counter >= tiempoLapsoInfluencia):
-			print("Vida Iluminado: ", vida)
+			#print("Vida Iluminado: ", vida)
 			counter = 0
 			vida -= (sensorOscuros.colisiones.size()) * danyo
 			if (sensorMinerales.colisiones.size() == 0):
@@ -67,7 +67,7 @@ func _physics_process(delta):
 				animation.play("Move")
 				move_and_slide()
 			else:
-				animation.play("Destruir")
+				animation.play("Atacar")
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		elif sensorTrabajadores.target != null:
 			#print("Worker")

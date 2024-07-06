@@ -1,14 +1,14 @@
 Sprite3D
 AnimationPlayer
+Container
+Sprite2D
+SubViewport
 CharacterBody3D
 CollisionShape3D
 StaticBody3D
-SubViewport
 Control
 Button
-Sprite2D
 Area3D
 RichTextLabel
 MeshInstance3D
 CharacterBody2D
-Node

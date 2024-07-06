@@ -7,7 +7,6 @@ class_name Trabajador
 var target = null
 var carry = null
 @onready var animation: AnimationPlayer = $Animation as AnimationPlayer
-@onready var soul: Sprite3D = $IndicadorAlma
 @onready var sprite: Sprite3D = $Idle
 var base_coordinates: Vector3 = Vector3(235,0,245)
 
@@ -15,9 +14,9 @@ var base_coordinates: Vector3 = Vector3(235,0,245)
 var counter: float = 0
 
 var corrupcion: float = 0
-@export var minCorrupcion = -255
-@export var maxCorrupcion = 255#8.5
-@export var ritmoCorrupcion = 0.1
+@export var minCorrupcion = -50#-255
+@export var maxCorrupcion = 50#255#8.5
+@export var ritmoCorrupcion = 2#0.1
 @export var ritmoCorrupcionInfluencia = 1
 
 @export var moveSpeed: float = 30
@@ -40,7 +39,14 @@ var direccion = Vector3.ZERO
 #RNG
 @onready var rng = RandomNumberGenerator.new()
 
+#Para modular el color del alma
+@onready var soul: Sprite2D = $SubViewport/Sprite2D
+@onready var animSoul = $SubViewport/AnimationSoul
+const colorIluminado = [197,100]
+const colorOscuro = [273,100]
+
 func _ready():
+	animSoul.play("vibe")
 	sensorNave.mineralMode = false
 	sensorNave.esVisible = false
 	sensorOscuro.mineralMode = false
@@ -86,6 +92,16 @@ func _physics_process(delta):
 			corrupcion += (sensorMinerales.colisiones.size() + sensorNave.colisiones.size()) * ritmoCorrupcion
 			if(sensorMinerales.colisiones.size() == 0 and sensorNave.colisiones.size() == 0):
 				corrupcion -= ritmoCorrupcion
+				
+			#actualizamos el color del shader
+			if corrupcion < 0:
+				var porcentaje = (corrupcion/minCorrupcion)
+				print(porcentaje)
+				soul.material.set_shader_parameter("new_colour", Color.from_hsv(colorIluminado[0],porcentaje,colorIluminado[1]))
+			else:
+				var porcentaje = (corrupcion/minCorrupcion)
+				print(porcentaje)
+				soul.material.set_shader_parameter("new_colour", Color.from_hsv(colorOscuro[0],porcentaje,colorOscuro[1]))
 			#print(corrupcion)
 			if (corrupcion >= maxCorrupcion):
 				if (carry):
