@@ -48,14 +48,8 @@ var colorOscuro = [0.75,0]
 
 var dying = false
 
-@onready var numOscuros = 0
-@onready var numIluminados = 0
-@onready var numTrabajadores = 2
 #Senales respecto a trabajadores
 @export var administrador: Node3D
-signal signal_oscuro
-signal signal_iluminado
-signal signal_trabajador
 
 #Instanciadores
 @export var oscuro: PackedScene
@@ -177,12 +171,14 @@ func eliminarme():
 		get_parent().add_child(nodo)
 		nodo.spawn = false
 		nodo.setSpawn()
+		nodo.administrador = administrador
 	else:
 		administrador.signal_iluminado.emit()
 		var nodo = iluminado.instantiate()
 		nodo.position = position
 		get_parent().add_child(nodo)
 		nodo.setSpawn()
+		nodo.administrador = administrador
 	self.queue_free()
 
 func updateOrientacion():
@@ -210,14 +206,3 @@ func picar():
 			#sensorMinerales.target = null
 	else:
 		animation.play("Standing")
-
-func _on_signal_iluminado():
-	numIluminados += 1
-	numTrabajadores -=1
-
-func _on_signal_oscuro():
-	numOscuros += 1
-	numTrabajadores -=1
-
-func _on_signal_trabajador():
-	numTrabajadores +=1

@@ -29,6 +29,9 @@ var enabled = true
 
 var spawn = true
 
+#Senales respecto a trabajadores
+@export var administrador: Node3D
+
 
 func setSpawn():
 	enabled = false
@@ -129,6 +132,7 @@ func _physics_process(delta):
 		animation.play("Morir")
 func eliminarme():
 	print("I'm Dying")
+	administrador.signal_muerte_oscuro.emit()
 	self.queue_free()
 
 func updateOrientacion():

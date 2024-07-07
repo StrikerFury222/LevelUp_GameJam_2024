@@ -257,7 +257,3 @@ texture = SubResource("ViewportTexture_pcp6t")
 [node name="SensorIluminado" parent="." instance=ExtResource("3_6fccv")]
 collision_layer = 0
 collision_mask = 64
-
-[connection signal="signal_iluminado" from="." to="." method="_on_signal_iluminado"]
-[connection signal="signal_oscuro" from="." to="." method="_on_signal_oscuro"]
-[connection signal="signal_trabajador" from="." to="." method="_on_signal_trabajador"]

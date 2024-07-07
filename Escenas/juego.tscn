@@ -33,16 +33,20 @@ collision_mask = 0
 [node name="Base" parent="." instance=ExtResource("5_b6qm2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245)
 
-[node name="Oscuro" parent="." instance=ExtResource("7_dpimf")]
+[node name="Oscuro" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("7_dpimf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.034, 0, 247.146)
+administrador = NodePath("..")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(700, 0, 0, 0, 700, 0, 0, 0, 700, 233.368, 0, 0)
 texture = ExtResource("8_sba8t")
 
-[node name="Iluminado" parent="." instance=ExtResource("9_lyw7d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 237, 0, 246)
-
 [node name="Trabajador2" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("1_nhw5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.5, 0, 245.5)
 administrador = NodePath("..")
+
+[connection signal="signal_iluminado" from="." to="." method="_on_signal_iluminado"]
+[connection signal="signal_muerte_iluminado" from="." to="." method="_on_signal_muerte_iluminado"]
+[connection signal="signal_muerte_oscuro" from="." to="." method="_on_signal_muerte_oscuro"]
+[connection signal="signal_oscuro" from="." to="." method="_on_signal_oscuro"]
+[connection signal="signal_trabajador" from="." to="." method="_on_signal_trabajador"]

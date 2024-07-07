@@ -37,6 +37,9 @@ func _ready():
 var cayendo: bool = false
 var velocidadCaida: Vector3 = Vector3.ZERO
 
+
+@export var administrador: Node3D
+
 '''
 func setFall(rng: RandomNumberGenerator):
 	cayendo = true
@@ -46,7 +49,7 @@ func setFall(rng: RandomNumberGenerator):
 var enabled = false
 func setSpawn():
 	enabled = false
-	animation.play("Nacer")
+	animation.play("Spawn")
 
 func enablePlay():
 	enabled = true
@@ -117,6 +120,7 @@ func _physics_process(delta):
 		
 func eliminarme():
 	print("I'm Dying")
+	administrador.signal_muerte_iluminado.emit()
 	self.queue_free()
 
 func updateOrientacion():

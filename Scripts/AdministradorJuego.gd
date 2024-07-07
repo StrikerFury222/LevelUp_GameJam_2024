@@ -37,6 +37,14 @@ var vendingMachine = false
 #Senales
 signal signal_oscuro
 signal signal_iluminado
+signal signal_trabajador
+signal signal_muerte_oscuro
+signal signal_muerte_iluminado
+
+@onready var numOscuros = 0
+@onready var numIluminados = 0
+@onready var numTrabajadores = 2
+
 
 func _input(event):
 	if Input.is_action_just_pressed("Click_press"):
@@ -69,7 +77,7 @@ func _physics_process(delta):
 			add_child(nodo)
 			nodo.setFall(rng)
 		'''
-		if true: #rng.randf_range(0,100) < chanceOscuro:
+		if rng.randf_range(0,100) < chanceOscuro:
 			var nodo = spawnOscuro.instantiate()
 			nodo.position = Vector3(rng.randf_range(min_H+2,max_H-2),0,rng.randf_range(min_V+2,max_V-5))
 			if nodo.position.x < 235 and nodo.position.x > 231:
@@ -151,3 +159,22 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	camara = $Camera3D
+
+
+
+func _on_signal_iluminado():
+	numIluminados += 1
+	numTrabajadores -=1
+
+func _on_signal_oscuro():
+	numOscuros += 1
+	numTrabajadores -=1
+
+func _on_signal_trabajador():
+	numTrabajadores +=1
+
+func _on_signal_muerte_iluminado():
+	numIluminados -= 1
+
+func _on_signal_muerte_oscuro():
+	numOscuros -= 1
