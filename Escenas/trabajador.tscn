@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bieijycfti3yp"]
+[gd_scene load_steps=26 format=3 uid="uid://bieijycfti3yp"]
 
 [ext_resource type="Script" path="res://Escenas/trabajador.gd" id="1_j8hv2"]
 [ext_resource type="Texture2D" uid="uid://bgnk3adn0lef1" path="res://Sprites/Final/dwarf_animation.png" id="2_l3840"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dldjoxoxs212t" path="res://Escenas/iluminado.tscn" id="3_l0y1y"]
 [ext_resource type="Shader" path="res://Shaders/trabajador.gdshader" id="4_65m30"]
 [ext_resource type="Texture2D" uid="uid://ddaq1fkr8ld8n" path="res://Sprites/Alma.png" id="4_y8xla"]
+[ext_resource type="AudioStream" uid="uid://c45iwbyuxagkw" path="res://audio/SFX/death/death (1).wav" id="5_irh7l"]
+[ext_resource type="AudioStream" uid="uid://c7m5203v34p37" path="res://audio/SFX/steps/steps-01.wav" id="6_bvbxb"]
+[ext_resource type="AudioStream" uid="uid://b00lefe46uyyu" path="res://audio/SFX/steps/steps-04.wav" id="7_jh1d8"]
+[ext_resource type="AudioStream" uid="uid://cgtjwp67ycipe" path="res://audio/SFX/steps/steps-03.wav" id="8_ne1rn"]
+[ext_resource type="AudioStream" uid="uid://dndyvutapcpgr" path="res://audio/SFX/dig/dig (1).wav" id="8_rvsna"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w23wv"]
 size = Vector3(0.3, 0.05, 0.3)
@@ -40,6 +45,21 @@ tracks/1/keys = {
 "method": &"eliminarme"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_irh7l")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_wxxxn"]
 resource_name = "Drag"
@@ -57,6 +77,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [39, 40, 41, 42, 43, 44, 45]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_ne1rn")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_jh1d8")
+}],
+"times": PackedFloat32Array(0, 0.434821)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_v33qx"]
 resource_name = "Move"
@@ -74,6 +113,25 @@ tracks/0/keys = {
 "update": 1,
 "values": [13, 14, 15, 16, 17, 18, 19]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_bvbxb")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_ne1rn")
+}],
+"times": PackedFloat32Array(0, 0.350055)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_cbyue"]
 resource_name = "Picar"
@@ -105,6 +163,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_rvsna")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_3y2gl"]
 length = 0.001
@@ -258,3 +331,6 @@ texture = SubResource("ViewportTexture_pcp6t")
 [node name="SensorIluminado" parent="." instance=ExtResource("3_6fccv")]
 collision_layer = 0
 collision_mask = 64
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"

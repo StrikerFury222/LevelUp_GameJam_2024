@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dldjoxoxs212t"]
+[gd_scene load_steps=22 format=3 uid="uid://dldjoxoxs212t"]
 
 [ext_resource type="Script" path="res://Scripts/iluminado.gd" id="1_ra42g"]
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="2_ci1ri"]
 [ext_resource type="Texture2D" uid="uid://de1pbl563oj5j" path="res://Sprites/Final/LIGHT_animation.png" id="3_h2dia"]
+[ext_resource type="AudioStream" uid="uid://dy2erjs3mv07s" path="res://audio/SFX/luminosos_idle_y_caminando_loop.wav" id="4_6y3l8"]
 [ext_resource type="Texture2D" uid="uid://cladap4cvjeuj" path="res://Sprites/Dwarf/Area-iluminadot.png" id="4_jvke4"]
 [ext_resource type="Shader" path="res://Shaders/trabajador.gdshader" id="5_fk6kd"]
 [ext_resource type="Texture2D" uid="uid://ddaq1fkr8ld8n" path="res://Sprites/Alma.png" id="6_li1no"]
@@ -74,6 +75,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [48, 49, 50, 49]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 26.5814,
+"start_offset": 0.0,
+"stream": ExtResource("4_6y3l8")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hph1t"]
 resource_name = "Morir"
@@ -121,6 +137,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [1, 2, 3, 4]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 14.8071,
+"start_offset": 11.7743,
+"stream": ExtResource("4_6y3l8")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_altes"]
 length = 0.001
@@ -283,3 +314,6 @@ frame = 1
 [node name="IndicadorAlma" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0.378163, -0.979693)
 texture = SubResource("ViewportTexture_ca15g")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+volume_db = -20.0
