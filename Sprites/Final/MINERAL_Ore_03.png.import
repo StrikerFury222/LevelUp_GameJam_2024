@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvmmntfm50ff5"
-path="res://.godot/imported/MINERAL_Ore_03.png-669435b3e06efbb06ad1a3494511fe16.ctex"
+path.bptc="res://.godot/imported/MINERAL_ore_03.png-f858e12e2ae08fdb796b20fc877b59b0.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Sprites/Final/MINERAL_Ore_03.png"
-dest_files=["res://.godot/imported/MINERAL_Ore_03.png-669435b3e06efbb06ad1a3494511fe16.ctex"]
+source_file="res://Sprites/Final/MINERAL_ore_03.png"
+dest_files=["res://.godot/imported/MINERAL_ore_03.png-f858e12e2ae08fdb796b20fc877b59b0.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
