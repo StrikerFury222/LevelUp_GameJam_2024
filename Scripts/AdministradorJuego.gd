@@ -41,7 +41,7 @@ signal signal_trabajador
 signal signal_muerte_oscuro
 signal signal_muerte_iluminado
 
-@onready var numOscuros = 0
+@onready var numOscuros = 1
 @onready var numIluminados = 0
 @onready var numTrabajadores = 2
 
@@ -143,15 +143,49 @@ func _physics_process(delta):
 			else:
 				body2.animationVending.play("On")
 			body2 = null
+
+
+
+@onready var m_construccion_earlygame = $m_construccion_earlygame
+@onready var m_luminosos = $m_luminosos
+@onready var m_oscuros = $m_oscuros
+@onready var m_construccion_midgame = $m_construccion_midgame
+@onready var m_construccion_lategame = $m_construccion_lategame
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	camara = $Camera3D
+	#m_construccion_midgame.stream_paused = true
+	#m_construccion_lategame.stream_paused = true
+	AudioServer.set_bus_volume_db(3,-80)
+	AudioServer.set_bus_volume_db(4,-80)
+	AudioServer.set_bus_volume_db(5,-80)
+	AudioServer.set_bus_volume_db(6,-80)
 	#place = debugVar.instantiate()
 	#add_child(place)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	camara = $Camera3D
+	var poblacionTotal: float = numIluminados + numTrabajadores + numOscuros
+	var porcentajeIluminados = numIluminados / poblacionTotal
+	AudioServer.set_bus_volume_db(4,-60 + int(porcentajeIluminados * 50))
+	var porcentajeOscuros = numOscuros / poblacionTotal
+	AudioServer.set_bus_volume_db(3,-60 + int(porcentajeOscuros * 50))
+	print(porcentajeOscuros * 80)
+	
+	if baseCristales.numCristales <= 30:
+		AudioServer.set_bus_volume_db(1,-10)
+		AudioServer.set_bus_volume_db(5,-80)
+		AudioServer.set_bus_volume_db(6,-80)
+	elif baseCristales.numCristales <= 60:
+		AudioServer.set_bus_volume_db(1,-80)
+		AudioServer.set_bus_volume_db(5,-10)
+		AudioServer.set_bus_volume_db(6,-80)
+	else:
+		AudioServer.set_bus_volume_db(1,-80)
+		AudioServer.set_bus_volume_db(5,-80)
+		AudioServer.set_bus_volume_db(6,-10)
+		
 
 
 
