@@ -25,7 +25,7 @@ var place = Vector3.ZERO
 @export var spawnIluminado: PackedScene = null 
 @onready var chanceIluminado: float = 20 
 @export var spawnOscuro: PackedScene = null 
-@onready var chanceOscuro: float = 40
+@onready var chanceOscuro: float = 20
 
 const max_H = 240
 const min_H = 230

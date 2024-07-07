@@ -143,6 +143,7 @@ scroll_active = false
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0489293, 0.961372)
+collision_layer = 0
 script = ExtResource("2_thark")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
