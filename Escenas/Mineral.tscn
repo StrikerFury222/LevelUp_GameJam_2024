@@ -99,6 +99,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("SphereShape3D_gafo1")
 
 [node name="SpriteOre" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 layers = 2
 texture = ExtResource("2_28tnu")
 hframes = 3
@@ -109,12 +110,14 @@ sorting_offset = -2.0
 texture = ExtResource("3_es3bm")
 
 [node name="SpriteMineral" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 visible = false
 sorting_offset = 3.0
 texture = ExtResource("4_guxqx")
 hframes = 5
 
 [node name="Fire" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 sorting_offset = 1.0
 texture = ExtResource("5_rrlfr")
 hframes = 5
@@ -126,7 +129,7 @@ libraries = {
 }
 
 [node name="Impact" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.087, 0)
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0.0280986, -0.0423627)
 sorting_offset = 1.0
 texture = ExtResource("6_pwxx2")
 hframes = 7

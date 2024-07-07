@@ -34,6 +34,10 @@ const min_V = 240
 
 var vendingMachine = false
 
+#Senales
+signal signal_oscuro
+signal signal_iluminado
+
 func _input(event):
 	if Input.is_action_just_pressed("Click_press"):
 		#print("PRESSED")
@@ -58,14 +62,16 @@ func _physics_process(delta):
 			#print(nodo.position)
 			add_child(nodo)
 			nodo.setFall(rng)
+		'''
 		if rng.randf_range(0,100) < chanceIluminado:
 			var nodo = spawnIluminado.instantiate()
 			nodo.position = Vector3(rng.randf_range(min_H+2,max_H-2),5,rng.randf_range(min_V+2,max_V-5))
 			add_child(nodo)
 			nodo.setFall(rng)
-		if rng.randf_range(0,100) < chanceOscuro:
+		'''
+		if true: #rng.randf_range(0,100) < chanceOscuro:
 			var nodo = spawnOscuro.instantiate()
-			nodo.position = Vector3(rng.randf_range(min_H+2,max_H-2),5,rng.randf_range(min_V+2,max_V-5))
+			nodo.position = Vector3(rng.randf_range(min_H+2,max_H-2),0,rng.randf_range(min_V+2,max_V-5))
 			if nodo.position.x < 235 and nodo.position.x > 231:
 				nodo.position.x = 231
 			elif nodo.position.x < 238 and nodo.position.x >= 235:

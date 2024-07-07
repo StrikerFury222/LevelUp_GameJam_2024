@@ -48,6 +48,19 @@ var colorOscuro = [0.75,0]
 
 var dying = false
 
+@onready var numOscuros = 0
+@onready var numIluminados = 0
+@onready var numTrabajadores = 2
+#Senales respecto a trabajadores
+@export var administrador: Node3D
+signal signal_oscuro
+signal signal_iluminado
+signal signal_trabajador
+
+#Instanciadores
+@export var oscuro: PackedScene
+@export var iluminado: PackedScene
+
 func _ready():
 	animSoul.play("vibe")
 	sensorNave.mineralMode = false
@@ -157,6 +170,19 @@ func _physics_process(delta):
 	position.y = 0
 func eliminarme():
 	#print("I'm Dying")
+	if corrupcion < 0:
+		administrador.signal_oscuro.emit()
+		var nodo = oscuro.instantiate()
+		nodo.position = position
+		get_parent().add_child(nodo)
+		nodo.spawn = false
+		nodo.setSpawn()
+	else:
+		administrador.signal_iluminado.emit()
+		var nodo = iluminado.instantiate()
+		nodo.position = position
+		get_parent().add_child(nodo)
+		nodo.setSpawn()
 	self.queue_free()
 
 func updateOrientacion():
@@ -185,3 +211,13 @@ func picar():
 	else:
 		animation.play("Standing")
 
+func _on_signal_iluminado():
+	numIluminados += 1
+	numTrabajadores -=1
+
+func _on_signal_oscuro():
+	numOscuros += 1
+	numTrabajadores -=1
+
+func _on_signal_trabajador():
+	numTrabajadores +=1
