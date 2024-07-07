@@ -1,9 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1nxkkyondq7a"]
+[gd_scene load_steps=3 format=3 uid="uid://d1nxkkyondq7a"]
 
-[ext_resource type="Texture2D" uid="uid://cmmqgqy542346" path="res://Sprites/Final/WORLD_floor.png" id="1_873d1"]
-[ext_resource type="Texture2D" uid="uid://g3cnulpm4n3e" path="res://Sprites/Final/WORLD_walls.png" id="2_lqy4e"]
-[ext_resource type="Texture2D" uid="uid://53mwe8dam4eu" path="res://Sprites/Final/WORLD_trees_up.png" id="2_mq5w7"]
-[ext_resource type="Texture2D" uid="uid://bc1kmf5as2ky5" path="res://Sprites/Final/WORLD_trees_down.png" id="3_ywg7c"]
+[ext_resource type="Texture2D" uid="uid://c25x2ttjjd4qb" path="res://Sprites/WORLD.png" id="1_wt5m3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wajje"]
 
@@ -19,14 +16,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8056, -19.9258, -8.70986e-
 layers = 32
 sorting_offset = -10.0
 texture_filter = 2
-texture = ExtResource("1_873d1")
-
-[node name="Sprite3D3" type="Sprite3D" parent="StaticBody3D"]
-texture = ExtResource("2_lqy4e")
-
-[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
-sorting_offset = -2.0
-texture = ExtResource("2_mq5w7")
-
-[node name="Sprite3D2" type="Sprite3D" parent="StaticBody3D"]
-texture = ExtResource("3_ywg7c")
+texture = ExtResource("1_wt5m3")
