@@ -69,10 +69,6 @@ volume_db = -10.0
 stream = ExtResource("14_shygm")
 volume_db = -10.0
 
-[node name="Oscuro" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("7_dpimf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230, 0, 246)
-administrador = NodePath("..")
-
 [connection signal="signal_iluminado" from="." to="." method="_on_signal_iluminado"]
 [connection signal="signal_muerte_iluminado" from="." to="." method="_on_signal_muerte_iluminado"]
 [connection signal="signal_muerte_oscuro" from="." to="." method="_on_signal_muerte_oscuro"]

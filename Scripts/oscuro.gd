@@ -21,7 +21,7 @@ const min_V = 238
 var target = null
 
 @export var danyo = 1
-@export var vidaMax = 100
+@export var vidaMax = 75
 var vida = vidaMax
 @export var tiempoLapsoInfluencia: float = 1
 var counter: float = 0
