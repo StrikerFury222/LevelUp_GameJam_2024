@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var areaRecoleccion = $Area3D
+@onready var goalCristales: int = 100 
 @onready var viewPort = $SubViewport
 @export var sceneTrabajador: PackedScene
 #Senales respecto a trabajadores

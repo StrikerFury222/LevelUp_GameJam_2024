@@ -87,6 +87,7 @@ func _physics_process(delta):
 		#var moving = false
 		if (carry != null and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 			animation.play("Drag")
+			print(sensorNave.colisiones.size())
 			#moving = true
 			self.velocity = moveSpeed * (base_coordinates - self.global_position).normalized() * delta
 			updateOrientacion()
