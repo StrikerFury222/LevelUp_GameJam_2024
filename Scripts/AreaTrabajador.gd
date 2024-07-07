@@ -38,7 +38,6 @@ func _physics_process(delta):
 	scan()
 
 func scan() -> void:
-	target = null # Esto puede ser que cause bugs... O no, quien sabe
 	if colisiones.size() == 0:
 		#print("Nothing at all")
 		return

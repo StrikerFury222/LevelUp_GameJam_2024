@@ -230,6 +230,7 @@ script = ExtResource("1_ra42g")
 
 [node name="SensorTrabajador" parent="." instance=ExtResource("2_ci1ri")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.1, 0)
+collision_mask = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.0023122, -0.04, 0.0459013)

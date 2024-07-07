@@ -185,11 +185,11 @@ func _process(delta):
 		AudioServer.set_bus_volume_db(3,-40 + porcentajeOscuros * 40)
 		#print(porcentajeOscuros * 80)
 		
-		if baseCristales.numCristales <= 30:
+		if baseCristales.numCristales <= 20:
 			AudioServer.set_bus_volume_db(1,-10)
 			AudioServer.set_bus_volume_db(5,-80)
 			AudioServer.set_bus_volume_db(6,-80)
-		elif baseCristales.numCristales <= 60:
+		elif baseCristales.numCristales <= 40:
 			AudioServer.set_bus_volume_db(1,-80)
 			AudioServer.set_bus_volume_db(5,-10)
 			AudioServer.set_bus_volume_db(6,-80)

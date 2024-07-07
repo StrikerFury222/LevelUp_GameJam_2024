@@ -76,7 +76,7 @@ func _physics_process(delta):
 			vida -= (sensorMinerales.colisiones.size() + sensorNave.colisiones.size() + sensorIluminados.colisiones.size()) * danyo
 			#print(vida)
 		if sensorIluminados.target != null:
-			#print("ENEMY")
+			print("ENEMY")
 			target = sensorIluminados.target
 			self.velocity = moveSpeed * sensorIluminados.target_direction.normalized() * delta
 			updateOrientacion()
@@ -87,7 +87,7 @@ func _physics_process(delta):
 				animation.play("Atacar")
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		elif sensorMinerales.target != null:
-			#print("Mineral")
+			print("Mineral")
 			target = sensorMinerales.target
 			self.velocity = moveSpeed * sensorMinerales.target_direction.normalized() * delta
 			updateOrientacion()
@@ -97,8 +97,8 @@ func _physics_process(delta):
 			else:
 				animation.play("Destruir")
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
-		elif sensorTrabajadores.target != null:
-			#print("Worker")
+		elif sensorTrabajadores.colisiones.size() > 0 and sensorTrabajadores.target != null:
+			print("Worker")
 			#print(sensorTrabajadores.colisiones.size())
 			target = sensorTrabajadores.target
 			animation.play("Move")
@@ -108,7 +108,7 @@ func _physics_process(delta):
 				move_and_slide()
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		elif sensorNave.target != null and sensorNave.target.numCristales > 0:
-			#print("Nave")
+			print("Nave")
 			target = sensorNave.target
 			self.velocity = moveSpeed * sensorNave.target_direction.normalized() * delta
 			updateOrientacion()
@@ -119,7 +119,7 @@ func _physics_process(delta):
 				animation.play("Destruir")
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		else:
-			#print("Moving")
+			print("Moving")
 			target = null
 			animation.play("Move")
 			self.velocity = moveSpeed/2 * direction.normalized() * delta

@@ -32,7 +32,6 @@ current = true
 
 [node name="Suelo" parent="." instance=ExtResource("1_48o4x")]
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 175.388, 0, 185.513)
-collision_layer = 16
 collision_mask = 0
 
 [node name="Base" parent="." instance=ExtResource("5_b6qm2")]
@@ -69,6 +68,10 @@ volume_db = -10.0
 [node name="m_construccion_lategame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_shygm")
 volume_db = -10.0
+
+[node name="Oscuro" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("7_dpimf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230, 0, 246)
+administrador = NodePath("..")
 
 [connection signal="signal_iluminado" from="." to="." method="_on_signal_iluminado"]
 [connection signal="signal_muerte_iluminado" from="." to="." method="_on_signal_muerte_iluminado"]

@@ -84,7 +84,7 @@ func _physics_process(delta):
 				vida -= danyo
 			#print(vida)
 		if sensorOscuros.target != null:
-			#print("Nave")
+			print("OSCURO")
 			target = sensorOscuros.target
 			self.velocity = moveSpeed * sensorOscuros.target_direction.normalized() * delta
 			updateOrientacion()

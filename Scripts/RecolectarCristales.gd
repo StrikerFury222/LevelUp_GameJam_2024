@@ -1,7 +1,7 @@
 extends Area3D
 
 @onready var numCristales: int = 0
-@onready var goalCristales: int = 100 
+@onready var goalCristales: int = 50 
 @onready var text := $"../SubViewport/NumCristales"
 @onready var viewPort := $"../SubViewport"
 @onready var spriteNave := $"../SpriteNave"

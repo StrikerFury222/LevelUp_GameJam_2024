@@ -15,8 +15,8 @@ var base_coordinates: Vector3 = Vector3(235,0,246)
 var counter: float = 0
 
 var corrupcion: float = 0
-@export var minCorrupcion = -50#-255
-@export var maxCorrupcion = 50#255#8.5
+@export var minCorrupcion = -75#-255
+@export var maxCorrupcion = 75#255#8.5
 @export var ritmoCorrupcion = 1
 @export var ritmoCorrupcionInfluencia = 2
 
