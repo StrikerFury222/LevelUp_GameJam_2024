@@ -39,4 +39,5 @@ func _process(delta):
 func spawnTrabajador():
 	var nodo = sceneTrabajador.instantiate()
 	get_parent().add_child(nodo)
+	nodo.administrador = get_parent().get_parent()
 	nodo.position = position
