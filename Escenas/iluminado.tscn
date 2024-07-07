@@ -229,7 +229,7 @@ collision_mask = 0
 script = ExtResource("1_ra42g")
 
 [node name="SensorTrabajador" parent="." instance=ExtResource("2_ci1ri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 2.81908, -1.02606, 0, 1.02606, 2.81908, -0.0023122, -0.04, 0.0459013)
@@ -250,13 +250,15 @@ libraries = {
 }
 
 [node name="SensorOscuro" parent="." instance=ExtResource("2_ci1ri")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_mask = 32
 
 [node name="SensorMineral" parent="." instance=ExtResource("2_ci1ri")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_mask = 2
 
 [node name="Influencia" type="Sprite3D" parent="."]
-transform = Transform3D(3.6, 0, 0, 0, -1.57361e-07, -3.6, 0, 3.6, -1.57361e-07, 0, -0.1, 0)
+transform = Transform3D(5.4, 0, 0, 0, -2.36042e-07, -5.4, 0, 5.4, -2.36042e-07, 0, -0.1, 0)
 sorting_offset = -2.0
 texture = ExtResource("4_jvke4")
 

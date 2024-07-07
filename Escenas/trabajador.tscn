@@ -220,15 +220,15 @@ libraries = {
 [node name="Node" type="Node" parent="."]
 
 [node name="SensorMinerales" parent="." instance=ExtResource("3_6fccv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.1, 0)
 collision_mask = 2
 
 [node name="SensorNave" parent="." instance=ExtResource("3_6fccv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.1, 0)
 collision_mask = 4
 
 [node name="SensorOscuro" parent="." instance=ExtResource("3_6fccv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.1, 0)
 collision_mask = 32
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -253,4 +253,5 @@ transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0,
 texture = SubResource("ViewportTexture_pcp6t")
 
 [node name="SensorIluminado" parent="." instance=ExtResource("3_6fccv")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_mask = 64

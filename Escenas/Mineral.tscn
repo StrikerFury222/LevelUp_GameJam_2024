@@ -105,7 +105,7 @@ texture = ExtResource("2_28tnu")
 hframes = 3
 
 [node name="Influencia" type="Sprite3D" parent="."]
-transform = Transform3D(3.6, 0, 0, 0, -1.57361e-07, -3.6, 0, 3.6, -1.57361e-07, 0, -0.1, 0)
+transform = Transform3D(5.4, 0, 0, 0, -2.36042e-07, -5.4, 0, 5.4, -2.36042e-07, 0, -0.1, 0)
 sorting_offset = -2.0
 texture = ExtResource("3_es3bm")
 
