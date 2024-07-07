@@ -26,8 +26,8 @@ var corrupcion: float = 0
 @onready var hitBox = $CollisionShape3D
 @onready var holded: bool = false
 
-const max_H = 242
-const min_H = 228
+const max_H = 248
+const min_H = 222
 const max_V = 249.5
 const min_V = 238
 

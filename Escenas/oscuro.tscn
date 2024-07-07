@@ -259,7 +259,6 @@ collision_mask = 0
 script = ExtResource("1_wm8n6")
 
 [node name="SensorTrabajador" parent="." instance=ExtResource("1_u5m37")]
-collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 2.81908, -1.02606, 0, 1.02606, 2.81908, 0.0166274, -0.04, 0.141328)
@@ -274,12 +273,10 @@ vframes = 5
 frame = 1
 
 [node name="SensorMineral" parent="." instance=ExtResource("1_u5m37")]
-collision_layer = 0
 collision_mask = 2
 
 [node name="SensorNave" parent="." instance=ExtResource("1_u5m37")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-collision_layer = 0
 collision_mask = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -293,7 +290,6 @@ sorting_offset = -3.0
 texture = ExtResource("4_7fl37")
 
 [node name="SensorIluminado" parent="." instance=ExtResource("1_u5m37")]
-collision_layer = 0
 collision_mask = 64
 
 [node name="SubViewport" type="SubViewport" parent="."]

@@ -27,8 +27,8 @@ var place = Vector3.ZERO
 @export var spawnOscuro: PackedScene = null 
 @onready var chanceOscuro: float = 40
 
-const max_H = 240
-const min_H = 230
+const max_H = 248
+const min_H = 222
 const max_V = 250
 const min_V = 240
 
@@ -69,6 +69,10 @@ func _physics_process(delta):
 			for i in numToSpawn:
 				var nodo = spawnCristal.instantiate()
 				nodo.position = Vector3(rng.randf_range(min_H+3,max_H-3),5,rng.randf_range(min_V+2,max_V-5))
+				if nodo.position.x < 235 and nodo.position.x > 228:
+					nodo.position.x = 228
+				elif nodo.position.x < 240 and nodo.position.x >= 235:
+					nodo.position.x = 240
 				#print(nodo.position)
 				add_child(nodo)
 				nodo.setFall(rng)
@@ -172,8 +176,12 @@ func _process(delta):
 	if !gameOver:
 		var poblacionTotal: float = numIluminados + numTrabajadores + numOscuros
 		var porcentajeIluminados = numIluminados / poblacionTotal
+		if porcentajeIluminados > 0.9:
+			porcentajeIluminados = 0.9
 		AudioServer.set_bus_volume_db(4,-60 + int(porcentajeIluminados * 50))
 		var porcentajeOscuros = numOscuros / poblacionTotal
+		if porcentajeOscuros > 0.9:
+			porcentajeOscuros = 0.9
 		AudioServer.set_bus_volume_db(3,-60 + int(porcentajeOscuros * 50))
 		#print(porcentajeOscuros * 80)
 		

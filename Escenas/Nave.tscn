@@ -10,7 +10,7 @@
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vr2rb"]
-size = Vector3(0.75, 1, 0.35)
+size = Vector3(3, 10, 1.5)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_57db2"]
 margin = 0.0
@@ -148,7 +148,7 @@ collision_layer = 0
 script = ExtResource("2_thark")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.433013, -0.25, 0, 0.25, 0.433013, -0.0273665, -0.224418, 0.134527)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0273665, -0.224418, 0.134527)
 shape = SubResource("BoxShape3D_vr2rb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
