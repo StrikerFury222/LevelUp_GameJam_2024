@@ -50,7 +50,7 @@ func _physics_process(delta):
 		tiempoSpawn = 0
 		segundosSpawn = rng.randf_range(30,60)
 		print("Next in: ", segundosSpawn)
-		var numToSpawn = rng.randi_range(3,10)
+		var numToSpawn = rng.randi_range(5,10)
 		print("¡",numToSpawn," METEORITOS!")
 		for i in numToSpawn:
 			var nodo = spawnCristal.instantiate()
@@ -88,7 +88,7 @@ func _physics_process(delta):
 			var hit = rayResult.get("collider")
 			print(hit.get_groups()[0])
 			if hit.get_groups().size() > 0:
-				if hit.get_groups()[0] == "Trabajador":
+				if hit.get_groups()[0] == "Trabajador" and not hit.dying:
 					if hit.carry == null:
 						body = hit
 						body.holded = true

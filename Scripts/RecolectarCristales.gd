@@ -1,7 +1,7 @@
 extends Area3D
 
 @onready var numCristales: int = 0
-@onready var goalCristales: int = 500 
+@onready var goalCristales: int = 100 
 @onready var text := $"../SubViewport/NumCristales"
 @onready var viewPort := $"../SubViewport"
 @onready var spriteNave := $"../SpriteNave"
@@ -26,7 +26,7 @@ func _process(delta):
 
 func collectCarry(body):
 	if body.carry:
-		numCristales += body.carry.value
+		numCristales += 1#body.carry.value
 		body.carry.eliminarme() #La eliminación se podría hacer con un onCollisionEnter en la nave
 		body.carry = null
 		if numCristales > 9:

@@ -13,3 +13,5 @@ res://Scripts/Nave_accessor.gd
 res://Scripts/BotonContratar.gd
 res://Scripts/AdministradorJuego.gd
 res://Scripts/Vending.gd
+res://Scripts/Mineral.gd
+res://Scripts/RecolectarCristales.gd

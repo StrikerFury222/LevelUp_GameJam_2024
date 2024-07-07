@@ -1,7 +1,7 @@
+Sprite3D
 AnimationPlayer
 CollisionShape3D
 StaticBody3D
-Sprite3D
 Container
 Sprite2D
 SubViewport

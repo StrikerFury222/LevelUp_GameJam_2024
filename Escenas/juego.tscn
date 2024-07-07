@@ -17,9 +17,6 @@ spawnCristal = ExtResource("1_lglbu")
 spawnIluminado = ExtResource("9_lyw7d")
 spawnOscuro = ExtResource("7_dpimf")
 
-[node name="Mineral" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 246.463)
-
 [node name="Trabajador" parent="." instance=ExtResource("1_nhw5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245.5)
 
@@ -31,9 +28,6 @@ current = true
 transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 3, 0, -3, -1.31134e-07, 175.388, 0, 185.513)
 collision_layer = 16
 collision_mask = 0
-
-[node name="Mineral2" parent="." instance=ExtResource("1_lglbu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.592, 0.055, 246.273)
 
 [node name="Base" parent="." instance=ExtResource("5_b6qm2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245)

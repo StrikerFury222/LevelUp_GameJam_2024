@@ -90,6 +90,7 @@ frame = 4
 
 [node name="Textp" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+sorting_offset = 4.0
 texture = SubResource("ViewportTexture_0mf3f")
 
 [node name="SubViewport" type="SubViewport" parent="."]
