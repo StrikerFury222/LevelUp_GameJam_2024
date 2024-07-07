@@ -151,7 +151,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.433013, -0.25, 0, 0.25, 0.433013, -0.027
 shape = SubResource("BoxShape3D_vr2rb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.0151568)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.280544, 1.07746)
 shape = SubResource("SphereShape3D_57db2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Vending"]]
