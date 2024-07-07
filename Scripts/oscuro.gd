@@ -33,6 +33,18 @@ var spawn = true
 @export var administrador: Node3D
 
 
+#Para modular el color del alma
+@onready var soul: Sprite2D = $SubViewport/Sprite2D
+@onready var animSoul = $SubViewport/AnimationSoul
+var colorOscuro = 0.75
+func _process(delta):
+	#var porcentaje:float = (corrupcion/minCorrupcion)
+	#print(porcentaje,"-",corrupcion)
+	var color = Color.from_hsv(colorOscuro,float(vida)/vidaMax,1,1)
+	soul.material.set_shader_parameter("new_colour", color)
+	animSoul.play("vibe")
+	
+
 func setSpawn():
 	enabled = false
 	if spawn:

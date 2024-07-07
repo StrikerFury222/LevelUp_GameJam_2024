@@ -47,6 +47,18 @@ func setFall(rng: RandomNumberGenerator):
 	velocidadCaida = Vector3(rng.randf_range(-0.7,0.7),-1,rng.randf_range(-0.7,0.7))
 '''
 var enabled = false
+
+#Para modular el color del alma
+@onready var soul: Sprite2D = $SubViewport/Sprite2D
+@onready var animSoul = $SubViewport/AnimationSoul
+var colorIluminado = 0.5
+func _process(delta):
+	#var porcentaje:float = (corrupcion/minCorrupcion)
+	#print(porcentaje,"-",corrupcion)
+	var color = Color.from_hsv(colorIluminado,float(vida)/vidaMax,1,1)
+	soul.material.set_shader_parameter("new_colour", color)
+	animSoul.play("vibe")
+	
 func setSpawn():
 	enabled = false
 	animation.play("Spawn")

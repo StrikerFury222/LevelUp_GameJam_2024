@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dldjoxoxs212t"]
+[gd_scene load_steps=21 format=3 uid="uid://dldjoxoxs212t"]
 
 [ext_resource type="Script" path="res://Scripts/iluminado.gd" id="1_ra42g"]
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="2_ci1ri"]
 [ext_resource type="Texture2D" uid="uid://de1pbl563oj5j" path="res://Sprites/Final/LIGHT_animation.png" id="3_h2dia"]
 [ext_resource type="Texture2D" uid="uid://cladap4cvjeuj" path="res://Sprites/Dwarf/Area-iluminadot.png" id="4_jvke4"]
+[ext_resource type="Shader" path="res://Shaders/trabajador.gdshader" id="5_fk6kd"]
+[ext_resource type="Texture2D" uid="uid://ddaq1fkr8ld8n" path="res://Sprites/Alma.png" id="6_li1no"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w8b4w"]
 
@@ -175,6 +177,51 @@ _data = {
 "Spawn": SubResource("Animation_lk4tj")
 }
 
+[sub_resource type="Animation" id="Animation_mploj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_usmea"]
+resource_name = "vibe"
+length = 0.88
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11, 0.22, 0.33, 0.44, 0.55, 0.66, 0.77),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bhtlj"]
+_data = {
+"RESET": SubResource("Animation_mploj"),
+"vibe": SubResource("Animation_usmea")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfi5m"]
+shader = ExtResource("5_fk6kd")
+shader_parameter/new_colour = Color(1, 1, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ca15g"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Iluminado" type="CharacterBody3D" groups=["Oscuro"]]
 collision_layer = 64
 collision_mask = 0
@@ -214,3 +261,24 @@ collision_mask = 2
 transform = Transform3D(3.6, 0, 0, 0, -1.57361e-07, -3.6, 0, 3.6, -1.57361e-07, 0, -0.1, 0)
 sorting_offset = -2.0
 texture = ExtResource("4_jvke4")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(120, 120)
+render_target_update_mode = 4
+
+[node name="AnimationSoul" type="AnimationPlayer" parent="SubViewport"]
+libraries = {
+"": SubResource("AnimationLibrary_bhtlj")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport"]
+material = SubResource("ShaderMaterial_nfi5m")
+position = Vector2(60, 64)
+texture = ExtResource("6_li1no")
+hframes = 8
+frame = 1
+
+[node name="IndicadorAlma" type="Sprite3D" parent="."]
+transform = Transform3D(0.15, 0, 0, 0, 0.051303, 0.140954, 0, -0.140954, 0.051303, 0, 0.0867757, -0.25528)
+texture = SubResource("ViewportTexture_ca15g")
