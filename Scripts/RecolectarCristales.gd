@@ -8,7 +8,7 @@ extends Area3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	body_entered.connect(collectCarry)
-	viewPort.size = Vector2(19,40)
+	viewPort.size = Vector2(54,40)
 	text.set_text(str(numCristales))
 
 func _process(delta):

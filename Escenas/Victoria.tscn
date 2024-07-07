@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://b216mwucwl0bc"]
+
+[ext_resource type="Script" path="res://Escenas/Button.gd" id="1_kefiq"]
+[ext_resource type="Texture2D" uid="uid://7ukkmhyaghms" path="res://Sprites/Final/WORLD.png" id="1_my5xf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 297.0
+theme_override_font_sizes/font_size = 100
+text = "DWARFSCAPE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -4.0
+offset_top = 198.0
+offset_right = 1146.0
+offset_bottom = 495.0
+theme_override_font_sizes/font_size = 100
+text = "¡El portal ya funciona!
+¡Los enanos son libres!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 497.0
+offset_right = 725.0
+offset_bottom = 622.0
+theme_override_font_sizes/font_size = 30
+text = "Ayudar a más enanos
+(Jugar otra vez)"
+script = ExtResource("1_kefiq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1146.0
+offset_bottom = 644.0
+texture = ExtResource("1_my5xf")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

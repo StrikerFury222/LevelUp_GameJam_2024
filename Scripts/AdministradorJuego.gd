@@ -199,6 +199,7 @@ func _process(delta):
 			AudioServer.set_bus_volume_db(6,-10)
 	else:
 		print("VICTORY")	
+		get_tree().change_scene_to_file("res://Escenas/Victoria.tscn")
 
 
 
