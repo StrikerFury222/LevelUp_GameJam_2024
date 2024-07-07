@@ -7,6 +7,7 @@
 height = 0.75395
 
 [node name="Sensor" type="Area3D"]
+collision_layer = 0
 script = ExtResource("1_j61a2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

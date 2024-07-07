@@ -1,10 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://egfw8x6vm44d"]
+[gd_scene load_steps=22 format=3 uid="uid://egfw8x6vm44d"]
 
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="1_u5m37"]
 [ext_resource type="Script" path="res://Scripts/oscuro.gd" id="1_wm8n6"]
 [ext_resource type="Texture2D" uid="uid://i4k8h28sqbgr" path="res://Sprites/Final/DARK_animation.png" id="3_8d2vx"]
 [ext_resource type="Texture2D" uid="uid://fnprqk1j2p2f" path="res://Sprites/Dwarf/Area-oscuro.png" id="4_7fl37"]
-[ext_resource type="AudioStream" uid="uid://vc00m5lrlh6i" path="res://audio/SFX/oscuros_idle_y_caminando_loop.wav" id="4_l2l22"]
 [ext_resource type="Shader" path="res://Shaders/trabajador.gdshader" id="5_lyb78"]
 [ext_resource type="Texture2D" uid="uid://ddaq1fkr8ld8n" path="res://Sprites/Alma.png" id="6_awdml"]
 
@@ -27,21 +26,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [24, 25, 26, 27, 28, 29, 30]
 }
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer3D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 14.5154,
-"start_offset": 0.633301,
-"stream": ExtResource("4_l2l22")
-}],
-"times": PackedFloat32Array(0.0149059)
-}
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_dsspr"]
 resource_name = "Destruir"
@@ -90,21 +74,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer3D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 14.0114,
-"start_offset": 1.21002,
-"stream": ExtResource("4_l2l22")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hph1t"]
 resource_name = "Morir"
@@ -151,21 +120,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer3D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 6.16494,
-"start_offset": 9.20564,
-"stream": ExtResource("4_l2l22")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_lk4tj"]
 resource_name = "Nacer"
@@ -362,6 +316,3 @@ frame = 1
 [node name="IndicadorAlma" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, -0.0055652, 0.35288, -0.927477)
 texture = SubResource("ViewportTexture_vcljk")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-volume_db = -20.0

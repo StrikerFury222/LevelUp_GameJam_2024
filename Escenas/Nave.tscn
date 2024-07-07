@@ -10,10 +10,11 @@
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vr2rb"]
-size = Vector3(7, 2, 3)
+size = Vector3(0.75, 1, 0.35)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_57db2"]
-radius = 0.1
+margin = 0.0
+radius = 2.0
 
 [sub_resource type="Animation" id="Animation_o60jo"]
 resource_name = "Off"
