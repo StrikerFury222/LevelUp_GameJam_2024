@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://egfw8x6vm44d"]
+[gd_scene load_steps=15 format=3 uid="uid://egfw8x6vm44d"]
 
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="1_u5m37"]
 [ext_resource type="Script" path="res://Scripts/oscuro.gd" id="1_wm8n6"]
-[ext_resource type="Texture2D" uid="uid://cj7glmkdhjyf5" path="res://Sprites/PH_placeholders/PH_trabajadores/PH_simple_sprite.png" id="2_bxa2p"]
+[ext_resource type="Texture2D" uid="uid://i4k8h28sqbgr" path="res://Sprites/Final/DARK_animation.png" id="3_8d2vx"]
 [ext_resource type="Texture2D" uid="uid://fnprqk1j2p2f" path="res://Sprites/Dwarf/Area-oscuro.png" id="4_7fl37"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w8b4w"]
 
 [sub_resource type="Animation" id="Animation_l55uh"]
 resource_name = "Atacar"
-length = 0.9
+length = 0.7
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,15 +18,16 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [3, 4, 5]
+"values": [24, 25, 26, 27, 28, 29, 30]
 }
 
 [sub_resource type="Animation" id="Animation_dsspr"]
 resource_name = "Destruir"
-length = 0.9
+length = 0.7
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,10 +35,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [3, 4, 5]
+"values": [24, 25, 26, 27, 28, 29, 30]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -55,6 +57,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_xisp1"]
 resource_name = "Idle"
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -63,15 +66,14 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_hph1t"]
 resource_name = "Morir"
-length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -79,10 +81,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [6, 7, 8]
+"values": [72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -91,7 +93,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.9),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -101,7 +103,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_mc1cr"]
 resource_name = "Move"
-length = 0.8
+length = 0.44
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -110,10 +112,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.11, 0.22, 0.33),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [9, 10, 11, 10]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_altes"]
@@ -132,8 +134,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_lk4tj"]
-resource_name = "Spawn"
-length = 0.9
+resource_name = "Nacer"
+length = 1.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -141,10 +143,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [8, 7, 6]
+"values": [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -153,7 +155,37 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.9),
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enablePlay"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ih53u"]
+resource_name = "Spawn"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 119]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -168,8 +200,9 @@ _data = {
 "Idle": SubResource("Animation_xisp1"),
 "Morir": SubResource("Animation_hph1t"),
 "Move": SubResource("Animation_mc1cr"),
+"Nacer": SubResource("Animation_lk4tj"),
 "RESET": SubResource("Animation_altes"),
-"Spawn": SubResource("Animation_lk4tj")
+"Spawn": SubResource("Animation_ih53u")
 }
 
 [node name="Oscuro" type="CharacterBody3D" groups=["Oscuro"]]
@@ -185,8 +218,11 @@ transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08,
 shape = SubResource("BoxShape3D_w8b4w")
 
 [node name="Sprite" type="Sprite3D" parent="."]
-texture = ExtResource("2_bxa2p")
-hframes = 12
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
+sorting_offset = 2.0
+texture = ExtResource("3_8d2vx")
+hframes = 24
+vframes = 5
 frame = 1
 
 [node name="SensorMineral" parent="." instance=ExtResource("1_u5m37")]

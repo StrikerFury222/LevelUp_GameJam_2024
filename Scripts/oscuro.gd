@@ -27,12 +27,19 @@ var vida = vidaMax
 var counter: float = 0
 var enabled = true
 
+var spawn = true
+
 
 func setSpawn():
 	enabled = false
-	animation.play("Spawn")
-
+	if spawn:
+		print("Playing spawn")
+		animation.play("Spawn")
+	else:
+		animation.play("Nacer")
+		
 func enablePlay():
+	print("ENABLED")
 	enabled = true
 
 func _ready():
@@ -64,17 +71,6 @@ func _physics_process(delta):
 			else:
 				animation.play("Atacar")
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
-		elif sensorNave.target != null and sensorNave.target.numCristales > 0:
-			#print("Nave")
-			target = sensorNave.target
-			self.velocity = moveSpeed * sensorNave.target_direction.normalized() * delta
-			updateOrientacion()
-			if sensorNave.target_distance > umbralPicar:
-				animation.play("Move")
-				move_and_slide()
-			else:
-				animation.play("Destruir")
-			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		elif sensorMinerales.target != null:
 			#print("Mineral")
 			target = sensorMinerales.target
@@ -95,6 +91,17 @@ func _physics_process(delta):
 			updateOrientacion()
 			if sensorTrabajadores.target_distance > umbralPicar:
 				move_and_slide()
+			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
+		elif sensorNave.target != null and sensorNave.target.numCristales > 0:
+			#print("Nave")
+			target = sensorNave.target
+			self.velocity = moveSpeed * sensorNave.target_direction.normalized() * delta
+			updateOrientacion()
+			if sensorNave.target_distance > umbralPicar:
+				animation.play("Move")
+				move_and_slide()
+			else:
+				animation.play("Destruir")
 			direction = Vector3(rng.randfn(-1,1),0,rng.randfn(-1,1))
 		else:
 			#print("Moving")

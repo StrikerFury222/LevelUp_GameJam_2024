@@ -36,10 +36,20 @@ func _ready():
 
 var cayendo: bool = false
 var velocidadCaida: Vector3 = Vector3.ZERO
+
+'''
 func setFall(rng: RandomNumberGenerator):
 	cayendo = true
 	influencia.visible = false
 	velocidadCaida = Vector3(rng.randf_range(-0.7,0.7),-1,rng.randf_range(-0.7,0.7))
+'''
+var enabled = false
+func setSpawn():
+	enabled = false
+	animation.play("Nacer")
+
+func enablePlay():
+	enabled = true
 
 func _physics_process(delta):
 	if cayendo:
@@ -49,7 +59,7 @@ func _physics_process(delta):
 			cayendo = false
 			influencia.visible = true
 			position.y = 0
-	elif vida > 0:
+	elif vida > 0 and enabled:
 		counter += delta
 		if (counter >= tiempoLapsoInfluencia):
 			#print("Vida Iluminado: ", vida)
@@ -101,7 +111,7 @@ func _physics_process(delta):
 			position.z = max_V
 			direction.z = -direction.z
 		position.y = 0
-	else:
+	elif enabled:
 		#print("ILUMINADO DYING")
 		animation.play("Morir")
 		

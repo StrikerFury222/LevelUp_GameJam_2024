@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bieijycfti3yp"]
+[gd_scene load_steps=21 format=3 uid="uid://bieijycfti3yp"]
 
 [ext_resource type="Script" path="res://Escenas/trabajador.gd" id="1_j8hv2"]
 [ext_resource type="Texture2D" uid="uid://bgnk3adn0lef1" path="res://Sprites/Final/dwarf_animation.png" id="2_l3840"]
+[ext_resource type="PackedScene" uid="uid://egfw8x6vm44d" path="res://Escenas/oscuro.tscn" id="2_vtllr"]
 [ext_resource type="PackedScene" uid="uid://bg86ff6lnnk5s" path="res://Escenas/sensor.tscn" id="3_6fccv"]
+[ext_resource type="PackedScene" uid="uid://dldjoxoxs212t" path="res://Escenas/iluminado.tscn" id="3_l0y1y"]
 [ext_resource type="Shader" path="res://Shaders/trabajador.gdshader" id="4_65m30"]
 [ext_resource type="Texture2D" uid="uid://ddaq1fkr8ld8n" path="res://Sprites/Alma.png" id="4_y8xla"]
 
@@ -193,12 +195,15 @@ viewport_path = NodePath("SubViewport")
 [node name="Trabajador" type="CharacterBody3D" groups=["Trabajador"]]
 collision_mask = 0
 script = ExtResource("1_j8hv2")
+oscuro = ExtResource("2_vtllr")
+iluminado = ExtResource("3_l0y1y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_w23wv")
 
 [node name="Idle" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
 sorting_offset = 2.0
 texture_filter = 2
 texture = ExtResource("2_l3840")
@@ -246,9 +251,13 @@ hframes = 8
 frame = 1
 
 [node name="IndicadorAlma" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.233, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.051303, 0.140954, 0, -0.140954, 0.051303, 0, 0.233, -0.174072)
 texture = SubResource("ViewportTexture_pcp6t")
 
 [node name="SensorIluminado" parent="." instance=ExtResource("3_6fccv")]
 collision_layer = 0
 collision_mask = 64
+
+[connection signal="signal_iluminado" from="." to="." method="_on_signal_iluminado"]
+[connection signal="signal_oscuro" from="." to="." method="_on_signal_oscuro"]
+[connection signal="signal_trabajador" from="." to="." method="_on_signal_trabajador"]
