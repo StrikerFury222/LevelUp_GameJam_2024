@@ -174,15 +174,15 @@ func _process(delta):
 	camara = $Camera3D
 	gameOver = baseCristales.numCristales >= baseCristales.goalCristales
 	if !gameOver:
-		var poblacionTotal: float = numIluminados + numTrabajadores + numOscuros
+		var poblacionTotal: float = numIluminados + numTrabajadores + numOscuros + 1
 		var porcentajeIluminados = numIluminados / poblacionTotal
 		if porcentajeIluminados > 0.9:
 			porcentajeIluminados = 0.9
-		AudioServer.set_bus_volume_db(4,-60 + int(porcentajeIluminados * 50))
+		AudioServer.set_bus_volume_db(4,-60 + porcentajeIluminados * 50)
 		var porcentajeOscuros = numOscuros / poblacionTotal
 		if porcentajeOscuros > 0.9:
 			porcentajeOscuros = 0.9
-		AudioServer.set_bus_volume_db(3,-40 + int(porcentajeOscuros * 40))
+		AudioServer.set_bus_volume_db(3,-40 + porcentajeOscuros * 40)
 		#print(porcentajeOscuros * 80)
 		
 		if baseCristales.numCristales <= 30:
