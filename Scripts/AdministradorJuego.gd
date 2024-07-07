@@ -32,6 +32,8 @@ const min_H = 230
 const max_V = 250
 const min_V = 240
 
+var vendingMachine = false
+
 func _input(event):
 	if Input.is_action_just_pressed("Click_press"):
 		#print("PRESSED")
@@ -84,7 +86,7 @@ func _physics_process(delta):
 		var rayResult:Dictionary = spaceState.intersect_ray(query)
 		if rayResult.size() > 0:
 			var hit = rayResult.get("collider")
-			#print(hit.get_groups()[0])
+			print(hit.get_groups()[0])
 			if hit.get_groups().size() > 0:
 				if hit.get_groups()[0] == "Trabajador":
 					if hit.carry == null:
@@ -93,8 +95,14 @@ func _physics_process(delta):
 						body.sensorMinerales.empty()
 						place = body.global_position
 				elif hit.get_groups()[0] == "Contratar":
+					vendingMachine = false
 					body2 = hit
 					body2.spriteContratar.frame=1
+				elif hit.get_groups()[0] == "Vending":
+					vendingMachine = true
+					body2 = hit
+					body2.animationVending.play("Off")
+				
 			#print(rayResult.get("Shape"))
 			#place.global_position = rayResult.get("position")
 	elif holded and body != null:
@@ -117,7 +125,11 @@ func _physics_process(delta):
 			body.holded = false
 			body = null
 		elif body2 != null:
-			body2.spriteContratar.frame = 0
+			if vendingMachine:
+				body2.animationVending.play("On")
+			else:
+				body2.spriteContratar.frame = 0
+			body2 = null
 			if baseCristales.numCristales >= costeContratar:
 				var spawnedNode = spawnContratar.instantiate()
 				baseCristales.numCristales = baseCristales.numCristales - costeContratar

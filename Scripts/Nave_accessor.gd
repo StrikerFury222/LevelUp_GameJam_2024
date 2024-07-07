@@ -2,13 +2,18 @@ extends CharacterBody3D
 
 @onready var areaRecoleccion = $Area3D
 @onready var viewPort = $SubViewport
+
 var numCristales: int:
 	get:
 		return areaRecoleccion.numCristales
 	set(newValue):
 		areaRecoleccion.numCristales = newValue
 		areaRecoleccion.text.set_text(str(numCristales))
-		
+	
+func _ready():
+	var vendingAnimation = $StaticBody3D/AnimationVendingMachine
+	vendingAnimation.play("On")
+	
 func picar() -> bool:
 	#print("OUCH")
 	if areaRecoleccion.numCristales > 0:

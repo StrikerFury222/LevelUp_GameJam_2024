@@ -114,7 +114,7 @@ func _physics_process(delta):
 			corrupcion += sensorIluminados.colisiones.size() * ritmoCorrupcionInfluencia
 			if(sensorMinerales.colisiones.size() == 0 and sensorNave.colisiones.size() == 0 and sensorIluminados.colisiones.size() == 0):
 				corrupcion -= ritmoCorrupcion
-			print("corrupcion: ",corrupcion)
+			#print("corrupcion: ",corrupcion)
 			#actualizamos el color del shader
 			if corrupcion < 0:
 				var porcentaje:float = (corrupcion/minCorrupcion)

@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://t1r5istl5w3y"]
+[gd_scene load_steps=16 format=3 uid="uid://t1r5istl5w3y"]
 
 [ext_resource type="Script" path="res://Scripts/Nave_accessor.gd" id="1_smcsu"]
 [ext_resource type="Texture2D" uid="uid://rmayjrukws3h" path="res://Sprites/Final/PORTAL_sheet.png" id="2_04frc"]
 [ext_resource type="Script" path="res://Scripts/RecolectarCristales.gd" id="2_thark"]
 [ext_resource type="Texture2D" uid="uid://ccw3f5blhxkll" path="res://Sprites/PH_placeholders/PH_boton_contratar.png" id="4_hff3p"]
 [ext_resource type="Script" path="res://Scripts/BotonContratar.gd" id="4_mpgym"]
-[ext_resource type="Texture2D" uid="uid://la8btwwbplgv" path="res://Sprites/Final/VENDING_MACHINE.png" id="6_p4k8e"]
+[ext_resource type="Script" path="res://Scripts/Vending.gd" id="6_ud0qs"]
+[ext_resource type="Texture2D" uid="uid://kogxdpmesws6" path="res://Sprites/Final/VENDING_MACHINE_animation.png" id="6_we6st"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0mf3f"]
 viewport_path = NodePath("SubViewport")
@@ -15,6 +16,62 @@ radius = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ogrmy"]
 size = Vector3(0.8, 0.2, 0.05)
+
+[sub_resource type="Animation" id="Animation_5oaol"]
+resource_name = "On"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/VendingMachine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_e380f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/VendingMachine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_o60jo"]
+resource_name = "Off"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/VendingMachine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aua81"]
+_data = {
+"Off": SubResource("Animation_o60jo"),
+"On": SubResource("Animation_5oaol"),
+"RESET": SubResource("Animation_e380f")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ms6e2"]
 size = Vector3(0.45, 0.55, 0.05)
@@ -26,6 +83,7 @@ script = ExtResource("1_smcsu")
 
 [node name="SpriteNave" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123557, 0)
+sorting_offset = -1.0
 texture = ExtResource("2_04frc")
 hframes = 5
 frame = 4
@@ -71,7 +129,7 @@ collision_layer = 8
 collision_mask = 0
 script = ExtResource("4_mpgym")
 
-[node name="VendingMachine" type="Sprite3D" parent="BotonContratar"]
+[node name="VendingButton" type="Sprite3D" parent="BotonContratar"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.177111, 0)
 texture = ExtResource("4_hff3p")
 hframes = 2
@@ -80,15 +138,23 @@ hframes = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.180859, 0)
 shape = SubResource("BoxShape3D_ogrmy")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Contratar"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Vending"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.098, 0, -0.433)
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("4_mpgym")
+script = ExtResource("6_ud0qs")
+
+[node name="AnimationVendingMachine" type="AnimationPlayer" parent="StaticBody3D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_aua81")
+}
 
 [node name="VendingMachine" type="Sprite3D" parent="StaticBody3D"]
-texture = ExtResource("6_p4k8e")
-hframes = 2
+texture = ExtResource("6_we6st")
+hframes = 9
+vframes = 2
+frame = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(0.975783, -0.218739, 0, 0.218739, 0.975783, 0, 0, 0, 1, 0, 0, 0)
