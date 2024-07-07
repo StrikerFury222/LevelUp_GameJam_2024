@@ -27,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245.5)
 administrador = NodePath("..")
 
 [node name="Camera3D" parent="." instance=ExtResource("2_a52lt")]
-transform = Transform3D(1, 0, 0, 0, 0.730162, 0.683274, 0, -0.683274, 0.730162, 235, 1.529, 247.5)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 235, 5.529, 245)
 current = true
 
 [node name="Suelo" parent="." instance=ExtResource("1_48o4x")]

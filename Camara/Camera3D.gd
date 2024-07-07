@@ -19,10 +19,10 @@ func _physics_process(delta):
 	camera_movement(delta)
 
 func get_input():
-	input.x = int(Input.is_action_pressed("Derecha")) - int(Input.is_action_pressed("Izquierda"))
-	input.y = 0
-	input.z = int(Input.is_action_pressed("Abajo")) - int(Input.is_action_pressed("Arriba"))
-	return input.normalized()
+	#input.x = int(Input.is_action_pressed("Derecha")) - int(Input.is_action_pressed("Izquierda"))
+	#input.y = 0
+	#input.z = int(Input.is_action_pressed("Abajo")) - int(Input.is_action_pressed("Arriba"))
+	return Vector3.ZERO#input.normalized()
 	
 func camera_movement(delta):
 	input = get_input()

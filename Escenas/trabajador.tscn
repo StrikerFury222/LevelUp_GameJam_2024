@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ddaq1fkr8ld8n" path="res://Sprites/Alma.png" id="4_y8xla"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w23wv"]
+size = Vector3(0.3, 0.05, 0.3)
 
 [sub_resource type="Animation" id="Animation_rvx5b"]
 resource_name = "Die"
@@ -199,7 +200,7 @@ oscuro = ExtResource("2_vtllr")
 iluminado = ExtResource("3_l0y1y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0.0151331, 0.001607, 0.0540746)
 shape = SubResource("BoxShape3D_w23wv")
 
 [node name="Idle" type="Sprite3D" parent="."]
