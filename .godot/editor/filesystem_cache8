@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1720354808
+::res://::1720361039
 default_bus_layout.tres::AudioBusLayout::8857145681666897644::1720354577::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1720256402::0::1::::<><>::
 icon.svg::CompressedTexture2D::922426160210492311::1720256402::1720256402::1::::<><>::
@@ -11,7 +11,9 @@ m_construccion_lategame.ogg::AudioStreamOggVorbis::5855308832707683315::17202607
 m_construccion_midgame.ogg::AudioStreamOggVorbis::3668920602602306457::1720260781::1720261256::1::::<><>::
 m_luminosos.ogg::AudioStreamOggVorbis::3967861617408601670::1720260894::1720261258::1::::<><>::
 m_oscuros.ogg::AudioStreamOggVorbis::1271611701350425364::1720260961::1720261262::1::::<><>::
-::res://audio/SFX/::1720354315
+::res://audio/SFX/::1720360914
+luminosos_iddle_y_caminando_loop.wav::AudioStreamWAV::8899806226024857502::1720360757::1720360914::1::::<><>::
+oscuros_iddle_y_caminando_loop.wav::AudioStreamWAV::1479657718720866698::1720360228::1720360914::1::::<><>::
 ::res://audio/SFX/death/::1720354343
 death (1).wav::AudioStreamWAV::6870774279457081586::1720354083::1720354343::1::::<><>::
 death (2).wav::AudioStreamWAV::8889891140127725208::1720354095::1720354343::1::::<><>::
@@ -26,26 +28,26 @@ steps-01.wav::AudioStreamWAV::7045527980401378524::1720256402::1720256402::1::::
 steps-02.wav::AudioStreamWAV::1528019085450608694::1720256402::1720256402::1::::<><>::
 steps-03.wav::AudioStreamWAV::5233784184167621106::1720256402::1720256402::1::::<><>::
 steps-04.wav::AudioStreamWAV::4193426518747292500::1720256402::1720256402::1::::<><>::
-::res://Camara/::1720354579
+::res://Camara/::1720356774
 Camera2D.gd::GDScript::-1::1720256401::0::1::::Camara2D<>Camera2D<>::
 Camera3D.gd::GDScript::-1::1720261571::0::1::::Camara3D<>Camera3D<>::
 camera_2d.tscn::PackedScene::4835005963534553802::1720256401::0::1::::<><>::res://Camara/camera_2d_v2.gd
 camera_2d_v2.gd::GDScript::-1::1720256401::0::1::::<>Camera2D<>::
-camera_3d.tscn::PackedScene::3190227723295988860::1720354579::0::1::::<><>::res://Camara/Camera3D.gd
+camera_3d.tscn::PackedScene::3190227723295988860::1720356774::0::1::::<><>::res://Camara/Camera3D.gd
 CharacterBody2D.gd::GDScript::-1::1720256401::0::1::::<>CharacterBody2D<>::
 node_2d.tscn::PackedScene::7900152445865442900::1720256401::0::1::::<><>::uid://ca5d3ve0kcuqk::::res://Camara/camera_2d.tscn<>uid://c5idhf02nf2h2::::res://Sprites/PLACEHOLDER.png
 node_3d.tscn::PackedScene::8620173667143872128::1720261913::0::1::::<><>::uid://c5idhf02nf2h2::::res://Sprites/PLACEHOLDER.png<>uid://blpmt4xmrqowi::::res://Camara/camera_3d.tscn
 ::res://documentos/::1720256402
-::res://Escenas/::1720354580
-iluminado.tscn::PackedScene::7938105149143881577::1720354579::0::1::::<><>::res://Scripts/iluminado.gd<>uid://bg86ff6lnnk5s::::res://Escenas/sensor.tscn<>uid://de1pbl563oj5j::::res://Sprites/Final/LIGHT_animation.png<>uid://cladap4cvjeuj::::res://Sprites/Dwarf/Area-iluminadot.png<>res://Shaders/trabajador.gdshader<>uid://ddaq1fkr8ld8n::::res://Sprites/Alma.png
-juego.tscn::PackedScene::7902025109327516480::1720354579::0::1::::<><>::res://Scripts/AdministradorJuego.gd<>uid://d1nxkkyondq7a::::res://Escenas/Suelo.tscn<>uid://crg4wqf3gt1uy::::res://Escenas/Mineral.tscn<>uid://bieijycfti3yp::::res://Escenas/trabajador.tscn<>uid://blpmt4xmrqowi::::res://Camara/camera_3d.tscn<>uid://t1r5istl5w3y::::res://Escenas/Nave.tscn<>uid://egfw8x6vm44d::::res://Escenas/oscuro.tscn<>uid://ne3hvbwhycgt::::res://icon.svg<>uid://dldjoxoxs212t::::res://Escenas/iluminado.tscn<>uid://useu7m12bxdi::::res://audio/musica/m_construccion_earlygame.ogg<>uid://bwscdo5xq1kos::::res://audio/musica/m_luminosos.ogg<>uid://sd8i2lidisp5::::res://audio/musica/m_oscuros.ogg<>uid://bsjit60q5s1pd::::res://audio/musica/m_construccion_midgame.ogg<>uid://cpomc0v0yn6mx::::res://audio/musica/m_construccion_lategame.ogg
-Mineral.tscn::PackedScene::5980238905391858272::1720354579::0::1::::<><>::res://Scripts/Mineral.gd<>uid://cudg1od31dgsv::::res://Sprites/Final/MINERAL_Ore_sheet.png<>uid://cladap4cvjeuj::::res://Sprites/Dwarf/Area-iluminadot.png<>uid://ibpfysewahyj::::res://Sprites/Final/MINERAL_sheet.png<>uid://duotgxkosryd1::::res://Sprites/Final/MINERAL_fire.png<>uid://b3c2x3sms6spt::::res://Sprites/Final/MINERAL_impact.png
-Nave.tscn::PackedScene::1388348062294805160::1720354580::0::1::::<><>::res://Scripts/Nave_accessor.gd<>uid://rmayjrukws3h::::res://Sprites/Final/PORTAL_sheet.png<>res://Scripts/RecolectarCristales.gd<>res://Scripts/Vending.gd<>uid://kogxdpmesws6::::res://Sprites/Final/VENDING_MACHINE_animation.png
-oscuro.tscn::PackedScene::293486283744351905::1720354579::0::1::::<><>::uid://bg86ff6lnnk5s::::res://Escenas/sensor.tscn<>res://Scripts/oscuro.gd<>uid://i4k8h28sqbgr::::res://Sprites/Final/DARK_animation.png<>uid://fnprqk1j2p2f::::res://Sprites/Dwarf/Area-oscuro.png<>res://Shaders/trabajador.gdshader<>uid://ddaq1fkr8ld8n::::res://Sprites/Alma.png
-sensor.tscn::PackedScene::2877569678173926030::1720354579::0::1::::<><>::res://Scripts/AreaTrabajador.gd<>uid://ckww7rufjv2dc::::res://Sprites/Dwarf/Area.png
-Suelo.tscn::PackedScene::9012423808206013096::1720354579::0::1::::<><>::uid://mygqgoyh1knj::::res://Sprites/Final/WORLD.png
+::res://Escenas/::1720356774
+iluminado.tscn::PackedScene::7938105149143881577::1720356774::0::1::::<><>::res://Scripts/iluminado.gd<>uid://bg86ff6lnnk5s::::res://Escenas/sensor.tscn<>uid://de1pbl563oj5j::::res://Sprites/Final/LIGHT_animation.png<>uid://cladap4cvjeuj::::res://Sprites/Dwarf/Area-iluminadot.png<>res://Shaders/trabajador.gdshader<>uid://ddaq1fkr8ld8n::::res://Sprites/Alma.png
+juego.tscn::PackedScene::7902025109327516480::1720356774::0::1::::<><>::res://Scripts/AdministradorJuego.gd<>uid://d1nxkkyondq7a::::res://Escenas/Suelo.tscn<>uid://crg4wqf3gt1uy::::res://Escenas/Mineral.tscn<>uid://bieijycfti3yp::::res://Escenas/trabajador.tscn<>uid://blpmt4xmrqowi::::res://Camara/camera_3d.tscn<>uid://t1r5istl5w3y::::res://Escenas/Nave.tscn<>uid://egfw8x6vm44d::::res://Escenas/oscuro.tscn<>uid://ne3hvbwhycgt::::res://icon.svg<>uid://dldjoxoxs212t::::res://Escenas/iluminado.tscn<>uid://useu7m12bxdi::::res://audio/musica/m_construccion_earlygame.ogg<>uid://bwscdo5xq1kos::::res://audio/musica/m_luminosos.ogg<>uid://sd8i2lidisp5::::res://audio/musica/m_oscuros.ogg<>uid://bsjit60q5s1pd::::res://audio/musica/m_construccion_midgame.ogg<>uid://cpomc0v0yn6mx::::res://audio/musica/m_construccion_lategame.ogg
+Mineral.tscn::PackedScene::5980238905391858272::1720356774::0::1::::<><>::res://Scripts/Mineral.gd<>uid://cudg1od31dgsv::::res://Sprites/Final/MINERAL_Ore_sheet.png<>uid://cladap4cvjeuj::::res://Sprites/Dwarf/Area-iluminadot.png<>uid://ibpfysewahyj::::res://Sprites/Final/MINERAL_sheet.png<>uid://duotgxkosryd1::::res://Sprites/Final/MINERAL_fire.png<>uid://b3c2x3sms6spt::::res://Sprites/Final/MINERAL_impact.png
+Nave.tscn::PackedScene::1388348062294805160::1720356774::0::1::::<><>::res://Scripts/Nave_accessor.gd<>uid://rmayjrukws3h::::res://Sprites/Final/PORTAL_sheet.png<>res://Scripts/RecolectarCristales.gd<>res://Scripts/Vending.gd<>uid://kogxdpmesws6::::res://Sprites/Final/VENDING_MACHINE_animation.png
+oscuro.tscn::PackedScene::293486283744351905::1720356774::0::1::::<><>::uid://bg86ff6lnnk5s::::res://Escenas/sensor.tscn<>res://Scripts/oscuro.gd<>uid://i4k8h28sqbgr::::res://Sprites/Final/DARK_animation.png<>uid://fnprqk1j2p2f::::res://Sprites/Dwarf/Area-oscuro.png<>res://Shaders/trabajador.gdshader<>uid://ddaq1fkr8ld8n::::res://Sprites/Alma.png
+sensor.tscn::PackedScene::2877569678173926030::1720356774::0::1::::<><>::res://Scripts/AreaTrabajador.gd<>uid://ckww7rufjv2dc::::res://Sprites/Dwarf/Area.png
+Suelo.tscn::PackedScene::9012423808206013096::1720356774::0::1::::<><>::uid://mygqgoyh1knj::::res://Sprites/Final/WORLD.png
 trabajador.gd::GDScript::-1::1720354277::0::1::::Trabajador<>CharacterBody3D<>::
-trabajador.tscn::PackedScene::2956692015803802431::1720354579::0::1::::<><>::res://Escenas/trabajador.gd<>uid://bgnk3adn0lef1::::res://Sprites/Final/dwarf_animation.png<>uid://egfw8x6vm44d::::res://Escenas/oscuro.tscn<>uid://bg86ff6lnnk5s::::res://Escenas/sensor.tscn<>uid://dldjoxoxs212t::::res://Escenas/iluminado.tscn<>res://Shaders/trabajador.gdshader<>uid://ddaq1fkr8ld8n::::res://Sprites/Alma.png
+trabajador.tscn::PackedScene::2956692015803802431::1720356774::0::1::::<><>::res://Escenas/trabajador.gd<>uid://bgnk3adn0lef1::::res://Sprites/Final/dwarf_animation.png<>uid://egfw8x6vm44d::::res://Escenas/oscuro.tscn<>uid://bg86ff6lnnk5s::::res://Escenas/sensor.tscn<>uid://dldjoxoxs212t::::res://Escenas/iluminado.tscn<>res://Shaders/trabajador.gdshader<>uid://ddaq1fkr8ld8n::::res://Sprites/Alma.png
 ::res://Scripts/::1720354277
 AdministradorJuego.gd::GDScript::-1::1720354277::0::1::::AdministradorJuego<>Node3D<>::
 AreaTrabajador.gd::GDScript::-1::1720256401::0::1::::Sensor<>Area3D<>::
@@ -58,8 +60,8 @@ oscuro.gd::GDScript::-1::1720354277::0::1::::Oscuro<>CharacterBody3D<>::
 RecolectarCristales.gd::GDScript::-1::1720345461::0::1::::<>Area3D<>::
 Trabajador.gd::GDScript::-1::1720256401::0::1::::TrabajadorCode<>Node<>::
 Vending.gd::GDScript::-1::1720354277::0::1::::<>StaticBody3D<>::
-::res://Shaders/::1720354580
-trabajador.gdshader::Shader::-1::1720354580::0::1::::<><>::
+::res://Shaders/::1720361007
+trabajador.gdshader::Shader::-1::1720361007::0::1::::<><>::
 ::res://Sprites/::1720342323
 Alma.png::CompressedTexture2D::7370846763400924163::1720342323::1720342323::1::::<><>::
 Floor.png::CompressedTexture2D::3482385679297232381::1720342323::1720342323::1::::<><>::
