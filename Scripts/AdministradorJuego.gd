@@ -79,6 +79,7 @@ func _physics_process(delta):
 				nodo.position.x = 238
 			add_child(nodo)
 			nodo.setSpawn()
+			nodo.administrador = self
 	
 	if clicked:
 		clicked = false

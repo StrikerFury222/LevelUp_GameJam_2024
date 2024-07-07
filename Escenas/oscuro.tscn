@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ddaq1fkr8ld8n" path="res://Sprites/Alma.png" id="6_awdml"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w8b4w"]
+size = Vector3(0.45, 0.05, 0.35)
 
 [sub_resource type="Animation" id="Animation_l55uh"]
 resource_name = "Atacar"
@@ -261,11 +262,11 @@ script = ExtResource("1_wm8n6")
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, -2.18557e-09, -0.3, 0, 0.05, -1.31134e-08, -0.03, -0.04, 0)
+transform = Transform3D(3, 0, 0, 0, 2.81908, -1.02606, 0, 1.02606, 2.81908, 0.0166274, -0.04, 0.141328)
 shape = SubResource("BoxShape3D_w8b4w")
 
 [node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 1.02606, 2.81908, 0, -2.81908, 1.02606, 0, 0, 0)
 sorting_offset = 2.0
 texture = ExtResource("3_8d2vx")
 hframes = 24
@@ -313,5 +314,5 @@ hframes = 8
 frame = 1
 
 [node name="IndicadorAlma" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.051303, 0.140954, 0, -0.140954, 0.051303, -0.0055652, 0.0858345, -0.201157)
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, -0.0055652, 0.35288, -0.927477)
 texture = SubResource("ViewportTexture_vcljk")

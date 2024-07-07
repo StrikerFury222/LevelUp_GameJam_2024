@@ -200,11 +200,11 @@ oscuro = ExtResource("2_vtllr")
 iluminado = ExtResource("3_l0y1y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0.0151331, 0.001607, 0.0540746)
+transform = Transform3D(3, 0, 0, 0, 2.59808, -1.5, 0, 1.5, 2.59808, 0.0151331, 0.001607, 0.0540746)
 shape = SubResource("BoxShape3D_w23wv")
 
 [node name="Idle" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 1.02606, 2.81908, 0, -2.81908, 1.02606, 0, 0, 0)
 sorting_offset = 2.0
 texture_filter = 2
 texture = ExtResource("2_l3840")
@@ -232,7 +232,7 @@ collision_mask = 4
 [node name="SensorOscuro" parent="." instance=ExtResource("3_6fccv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 collision_layer = 0
-collision_mask = 4
+collision_mask = 32
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -252,7 +252,7 @@ hframes = 8
 frame = 1
 
 [node name="IndicadorAlma" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.051303, 0.140954, 0, -0.140954, 0.051303, 0, 0.0867757, -0.25528)
+transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0.425503, -1.09998)
 texture = SubResource("ViewportTexture_pcp6t")
 
 [node name="SensorIluminado" parent="." instance=ExtResource("3_6fccv")]

@@ -23,11 +23,11 @@ spawnIluminado = ExtResource("9_lyw7d")
 spawnOscuro = ExtResource("7_dpimf")
 
 [node name="Trabajador" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("1_nhw5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 246)
 administrador = NodePath("..")
 
 [node name="Camera3D" parent="." instance=ExtResource("2_a52lt")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 235, 5.529, 245)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 235, 10.529, 245.4)
 current = true
 
 [node name="Suelo" parent="." instance=ExtResource("1_48o4x")]
@@ -48,7 +48,7 @@ transform = Transform3D(700, 0, 0, 0, 700, 0, 0, 0, 700, 233.368, 0, 0)
 texture = ExtResource("8_sba8t")
 
 [node name="Trabajador2" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("1_nhw5c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.5, 0, 245.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 233.5, 0, 245.5)
 administrador = NodePath("..")
 
 [node name="m_construccion_earlygame" type="AudioStreamPlayer" parent="."]

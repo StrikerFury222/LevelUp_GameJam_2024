@@ -10,7 +10,7 @@ func endSpawn():
 	get_parent().numCristales = get_parent().numCristales - 5
 	get_parent().get_parent().add_child(spawnedNode)
 	spawnedNode.administrador = get_parent().get_parent()
-	spawnedNode.global_position = Vector3(235.18,0,245.15) + position
+	spawnedNode.global_position = Vector3(235.6,0,245.35) + position
 	animationVending.play("On")
 
 # Called when the node enters the scene tree for the first time.

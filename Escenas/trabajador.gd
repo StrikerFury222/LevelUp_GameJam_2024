@@ -9,7 +9,7 @@ var target = null
 var carry = null
 @onready var animation: AnimationPlayer = $Animation as AnimationPlayer
 @onready var sprite: Sprite3D = $Idle
-var base_coordinates: Vector3 = Vector3(235,0,245)
+var base_coordinates: Vector3 = Vector3(236,0,245)
 
 @export var tiempoLapsoInfluencia: float = 1
 var counter: float = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://t1r5istl5w3y"]
+[gd_scene load_steps=15 format=3 uid="uid://t1r5istl5w3y"]
 
 [ext_resource type="Script" path="res://Scripts/Nave_accessor.gd" id="1_smcsu"]
 [ext_resource type="Texture2D" uid="uid://rmayjrukws3h" path="res://Sprites/Final/PORTAL_sheet.png" id="2_04frc"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0mf3f"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vr2rb"]
+size = Vector3(7, 2, 3)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_57db2"]
 radius = 0.1
@@ -108,14 +111,14 @@ collision_mask = 0
 script = ExtResource("1_smcsu")
 
 [node name="SpriteNave" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0.123557, 0)
+transform = Transform3D(3, 0, 0, 0, 1.02606, 2.81908, 0, -2.81908, 1.02606, 0, 0.123557, 0)
 sorting_offset = -1.0
 texture = ExtResource("2_04frc")
 hframes = 5
 frame = 4
 
 [node name="Textp" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 0.4, 0)
+transform = Transform3D(3, 0, 0, 0, 1.02606, 2.81908, 0, -2.81908, 1.02606, 0, 0.344662, -0.593459)
 sorting_offset = 4.0
 texture = SubResource("ViewportTexture_0mf3f")
 
@@ -139,19 +142,19 @@ fit_content = true
 scroll_active = false
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0489293, 0.961372)
 script = ExtResource("2_thark")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("SphereShape3D_57db2")
+transform = Transform3D(0.5, 0, 0, 0, 0.433013, -0.25, 0, 0.25, 0.433013, -0.0273665, -0.224418, 0.134527)
+shape = SubResource("BoxShape3D_vr2rb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.0151568)
 shape = SubResource("SphereShape3D_57db2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Vending"]]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 1.098, 0, -0.433)
+transform = Transform3D(3, 0, 0, 0, 1.02606, 2.81908, 0, -2.81908, 1.02606, 5.01407, 0, -1.80217)
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("6_ud0qs")
