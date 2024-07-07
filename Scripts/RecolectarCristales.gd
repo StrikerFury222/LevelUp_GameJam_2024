@@ -25,7 +25,7 @@ func _process(delta):
 		spriteNave.frame = 4
 
 func collectCarry(body):
-	if body.carry:
+	if body.carry != null:
 		numCristales += 1#body.carry.value
 		body.carry.eliminarme() #La eliminación se podría hacer con un onCollisionEnter en la nave
 		body.carry = null
