@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1nxkkyondq7a"]
+[gd_scene load_steps=5 format=3 uid="uid://d1nxkkyondq7a"]
 
 [ext_resource type="Texture2D" uid="uid://mygqgoyh1knj" path="res://Sprites/Final/WORLD.png" id="1_m2u58"]
+[ext_resource type="Texture2D" uid="uid://ckswukrlheple" path="res://Sprites/Final/TREE_01.png" id="2_j13uv"]
+[ext_resource type="Texture2D" uid="uid://bmsg712nhm36s" path="res://Sprites/Final/TREE_02.png" id="3_w50kf"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wajje"]
 
@@ -17,3 +19,158 @@ layers = 32
 sorting_offset = -10.0
 texture_filter = 2
 texture = ExtResource("1_m2u58")
+
+[node name="Arbol" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 0, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol2" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -0.179056, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol3" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 0.173248, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("3_w50kf")
+
+[node name="Arbol4" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 0.0835381, 2.70252, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol5" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -0.0926437, 2.71347, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol6" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -0.368668, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol7" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -0.55751, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol8" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 0.354057, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol9" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 0.552254, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol10" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -0.752226, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol11" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 0.74472, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol12" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -0.936024, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol13" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 0.942421, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol14" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -1.12844, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol15" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 1.1371, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol16" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -1.32955, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol17" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 1.33109, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol18" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 1.50328, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol19" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 1.67965, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol20" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 1.87887, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol21" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 2.09093, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol22" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 2.28513, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol23" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 2.49586, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol24" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -1.52443, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol25" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -1.73007, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol26" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -1.94881, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol27" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -2.15416, 2.59192, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol28" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 2.68238, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol29" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, 2.8924, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol30" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -2.3434, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")
+
+[node name="Arbol31" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.176777, -0.176777, 0, 0.176777, 0.176777, -2.55381, 2.59093, 0.23172)
+sorting_offset = 10.0
+texture = ExtResource("2_j13uv")

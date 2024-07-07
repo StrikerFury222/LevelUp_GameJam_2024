@@ -9,6 +9,7 @@ func endSpawn():
 	var spawnedNode = spawnContratar.instantiate()
 	#get_parent().numCristales = get_parent().numCristales - 5
 	get_parent().get_parent().add_child(spawnedNode)
+	spawnedNode.administrador = get_parent().get_parent()
 	spawnedNode.global_position = Vector3(235.18,0,245.15) + position
 	animationVending.play("On")
 
