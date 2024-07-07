@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkt2g1dqddqsu"]
+[gd_scene load_steps=15 format=3 uid="uid://dkt2g1dqddqsu"]
 
 [ext_resource type="Script" path="res://Scripts/AdministradorJuego.gd" id="1_3tvio"]
 [ext_resource type="PackedScene" uid="uid://d1nxkkyondq7a" path="res://Escenas/Suelo.tscn" id="1_48o4x"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://egfw8x6vm44d" path="res://Escenas/oscuro.tscn" id="7_dpimf"]
 [ext_resource type="Texture2D" uid="uid://ne3hvbwhycgt" path="res://icon.svg" id="8_sba8t"]
 [ext_resource type="PackedScene" uid="uid://dldjoxoxs212t" path="res://Escenas/iluminado.tscn" id="9_lyw7d"]
+[ext_resource type="AudioStream" uid="uid://useu7m12bxdi" path="res://audio/musica/m_construccion_earlygame.ogg" id="10_ura3r"]
+[ext_resource type="AudioStream" uid="uid://bwscdo5xq1kos" path="res://audio/musica/m_luminosos.ogg" id="11_v207j"]
+[ext_resource type="AudioStream" uid="uid://sd8i2lidisp5" path="res://audio/musica/m_oscuros.ogg" id="12_xnrop"]
+[ext_resource type="AudioStream" uid="uid://bsjit60q5s1pd" path="res://audio/musica/m_construccion_midgame.ogg" id="13_15pj3"]
+[ext_resource type="AudioStream" uid="uid://cpomc0v0yn6mx" path="res://audio/musica/m_construccion_lategame.ogg" id="14_shygm"]
 
 [node name="Juego" type="Node3D"]
 script = ExtResource("1_3tvio")
@@ -45,6 +50,29 @@ texture = ExtResource("8_sba8t")
 [node name="Trabajador2" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("1_nhw5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.5, 0, 245.5)
 administrador = NodePath("..")
+
+[node name="m_construccion_earlygame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ura3r")
+autoplay = true
+bus = &"Music"
+
+[node name="m_luminosos" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_v207j")
+autoplay = true
+bus = &"Music"
+
+[node name="m_oscuros" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_xnrop")
+autoplay = true
+bus = &"Music"
+
+[node name="m_construccion_midgame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_15pj3")
+bus = &"Music"
+
+[node name="m_construccion_lategame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_shygm")
+bus = &"Music"
 
 [connection signal="signal_iluminado" from="." to="." method="_on_signal_iluminado"]
 [connection signal="signal_muerte_iluminado" from="." to="." method="_on_signal_muerte_iluminado"]
