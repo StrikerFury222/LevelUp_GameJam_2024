@@ -251,7 +251,7 @@ hframes = 8
 frame = 1
 
 [node name="IndicadorAlma" type="Sprite3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, 0.051303, 0.140954, 0, -0.140954, 0.051303, 0, 0.233, -0.174072)
+transform = Transform3D(0.15, 0, 0, 0, 0.051303, 0.140954, 0, -0.140954, 0.051303, 0, 0.0867757, -0.25528)
 texture = SubResource("ViewportTexture_pcp6t")
 
 [node name="SensorIluminado" parent="." instance=ExtResource("3_6fccv")]

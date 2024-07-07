@@ -32,6 +32,7 @@ collision_mask = 0
 
 [node name="Base" parent="." instance=ExtResource("5_b6qm2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245)
+sceneTrabajador = ExtResource("1_nhw5c")
 
 [node name="Oscuro" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("7_dpimf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.034, 0, 247.146)

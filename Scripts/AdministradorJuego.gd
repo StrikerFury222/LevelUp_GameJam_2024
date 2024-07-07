@@ -70,13 +70,6 @@ func _physics_process(delta):
 			#print(nodo.position)
 			add_child(nodo)
 			nodo.setFall(rng)
-		'''
-		if rng.randf_range(0,100) < chanceIluminado:
-			var nodo = spawnIluminado.instantiate()
-			nodo.position = Vector3(rng.randf_range(min_H+2,max_H-2),5,rng.randf_range(min_V+2,max_V-5))
-			add_child(nodo)
-			nodo.setFall(rng)
-		'''
 		if rng.randf_range(0,100) < chanceOscuro:
 			var nodo = spawnOscuro.instantiate()
 			nodo.position = Vector3(rng.randf_range(min_H+2,max_H-2),0,rng.randf_range(min_V+2,max_V-5))
@@ -139,17 +132,16 @@ func _physics_process(delta):
 			body.holded = false
 			body = null
 		elif body2 != null:
-			if vendingMachine:
-				body2.animationVending.play("On")
-			else:
-				body2.spriteContratar.frame = 0
-			body2 = null
 			if baseCristales.numCristales >= costeContratar:
-				var spawnedNode = spawnContratar.instantiate()
-				baseCristales.numCristales = baseCristales.numCristales - costeContratar
-				add_child(spawnedNode)
-				spawnedNode.global_position = Vector3(baseCristales.global_position.x+0.05,baseCristales.global_position.y,baseCristales.global_position.z+0.05)
-				
+				body2.animationVending.play("Spawn")
+				numTrabajadores += 1
+				#var spawnedNode = spawnContratar.instantiate()
+				#baseCristales.numCristales = baseCristales.numCristales - costeContratar
+				#add_child(spawnedNode)
+				#spawnedNode.global_position = Vector3(baseCristales.global_position.x+0.05,baseCristales.global_position.y,baseCristales.global_position.z+0.05)
+			else:
+				body2.animationVending.play("On")
+			body2 = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	camara = $Camera3D

@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var areaRecoleccion = $Area3D
 @onready var viewPort = $SubViewport
+@export var sceneTrabajador: PackedScene
 
 var numCristales: int:
 	get:
@@ -34,3 +35,8 @@ func _process(delta):
 		viewPort.size = Vector2(54,viewPort.size.y)
 	else:
 		viewPort.size = Vector2(19,viewPort.size.y)
+
+func spawnTrabajador():
+	var nodo = sceneTrabajador.instantiate()
+	get_parent().add_child(nodo)
+	nodo.position = position

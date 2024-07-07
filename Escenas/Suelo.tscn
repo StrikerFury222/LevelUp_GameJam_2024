@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1nxkkyondq7a"]
 
-[ext_resource type="Texture2D" uid="uid://bpu5nbfnh8hh2" path="res://Sprites/Floor.png" id="1_8krt4"]
+[ext_resource type="Texture2D" uid="uid://mygqgoyh1knj" path="res://Sprites/Final/WORLD.png" id="1_m2u58"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wajje"]
 
@@ -16,4 +16,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8056, -19.9258, -8.70986e-
 layers = 32
 sorting_offset = -10.0
 texture_filter = 2
-texture = ExtResource("1_8krt4")
+texture = ExtResource("1_m2u58")
