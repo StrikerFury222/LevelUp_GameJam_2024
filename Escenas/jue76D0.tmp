@@ -39,6 +39,10 @@ collision_mask = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235, 0, 245)
 sceneTrabajador = ExtResource("1_nhw5c")
 
+[node name="Oscuro" parent="." node_paths=PackedStringArray("administrador") instance=ExtResource("7_dpimf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 234.034, 0, 247.146)
+administrador = NodePath("..")
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(700, 0, 0, 0, 700, 0, 0, 0, 700, 233.368, 0, 0)
 texture = ExtResource("8_sba8t")
@@ -49,8 +53,8 @@ administrador = NodePath("..")
 
 [node name="m_construccion_earlygame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_ura3r")
-volume_db = -10.0
 autoplay = true
+bus = &"Music"
 
 [node name="m_luminosos" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_v207j")
@@ -64,11 +68,11 @@ bus = &"MusicOscuro"
 
 [node name="m_construccion_midgame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_15pj3")
-volume_db = -10.0
+bus = &"Music"
 
 [node name="m_construccion_lategame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_shygm")
-volume_db = -10.0
+bus = &"Music"
 
 [connection signal="signal_iluminado" from="." to="." method="_on_signal_iluminado"]
 [connection signal="signal_muerte_iluminado" from="." to="." method="_on_signal_muerte_iluminado"]
