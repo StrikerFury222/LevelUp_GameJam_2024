@@ -175,7 +175,7 @@ func _process(delta):
 		AudioServer.set_bus_volume_db(4,-60 + int(porcentajeIluminados * 50))
 		var porcentajeOscuros = numOscuros / poblacionTotal
 		AudioServer.set_bus_volume_db(3,-60 + int(porcentajeOscuros * 50))
-		print(porcentajeOscuros * 80)
+		#print(porcentajeOscuros * 80)
 		
 		if baseCristales.numCristales <= 30:
 			AudioServer.set_bus_volume_db(1,-10)

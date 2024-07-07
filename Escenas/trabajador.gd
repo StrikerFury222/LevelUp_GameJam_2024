@@ -9,7 +9,7 @@ var target = null
 var carry = null
 @onready var animation: AnimationPlayer = $Animation as AnimationPlayer
 @onready var sprite: Sprite3D = $Idle
-var base_coordinates: Vector3 = Vector3(235,0,245.5)
+var base_coordinates: Vector3 = Vector3(235,0,246)
 
 @export var tiempoLapsoInfluencia: float = 1
 var counter: float = 0
@@ -87,7 +87,6 @@ func _physics_process(delta):
 		#var moving = false
 		if (carry != null and corrupcion < maxCorrupcion and corrupcion > minCorrupcion):
 			animation.play("Drag")
-			print(sensorNave.colisiones.size())
 			#moving = true
 			self.velocity = moveSpeed * (base_coordinates - self.global_position).normalized() * delta
 			updateOrientacion()

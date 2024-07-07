@@ -47,7 +47,7 @@ func scan() -> void:
 		if (body != null):
 			var distance = body.global_position.distance_to(global_position)
 			if (distance > area.scale.x):
-				print("I did it")
+				#print("I did it")
 				remove_body(body)
 			elif ((target == null or distance < minDistance) and (not mineralMode or not body.carried)):
 				target = body
