@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc1kmf5as2ky5"
-path.s3tc="res://.godot/imported/WORLD_trees_down.png-b2edaf4e053328ff133d8f6204f1594e.s3tc.ctex"
+uid="uid://c25x2ttjjd4qb"
+path.s3tc="res://.godot/imported/WORLD.png-35603d67dc9bf814972d78f3c5624840.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Final/WORLD_trees_down.png"
-dest_files=["res://.godot/imported/WORLD_trees_down.png-b2edaf4e053328ff133d8f6204f1594e.s3tc.ctex"]
+source_file="res://Sprites/WORLD.png"
+dest_files=["res://.godot/imported/WORLD.png-35603d67dc9bf814972d78f3c5624840.s3tc.ctex"]
 
 [params]
 

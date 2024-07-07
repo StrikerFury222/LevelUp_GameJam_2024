@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ukkmhyaghms"
-path="res://.godot/imported/WORLD.png-98ffec11cc31212f86d34b1616b9fee3.ctex"
+uid="uid://b3y3yp7418r5s"
+path="res://.godot/imported/WORLD_walls.png-1d496afcf965211221a752c6e22b887a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Final/WORLD.png"
-dest_files=["res://.godot/imported/WORLD.png-98ffec11cc31212f86d34b1616b9fee3.ctex"]
+source_file="res://Sprites/WORLD_walls.png"
+dest_files=["res://.godot/imported/WORLD_walls.png-1d496afcf965211221a752c6e22b887a.ctex"]
 
 [params]
 
