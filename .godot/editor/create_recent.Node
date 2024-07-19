@@ -1,5 +1,9 @@
-AudioStreamPlayer
+TextureRect
+Button
+Label
 Sprite3D
+AudioStreamPlayer3D
+AudioStreamPlayer
 AnimationPlayer
 CollisionShape3D
 StaticBody3D
@@ -8,8 +12,4 @@ Sprite2D
 SubViewport
 CharacterBody3D
 Control
-Button
 Area3D
-RichTextLabel
-MeshInstance3D
-CharacterBody2D

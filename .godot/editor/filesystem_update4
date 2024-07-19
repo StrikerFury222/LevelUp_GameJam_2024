@@ -1,11 +1,1 @@
-res://default_bus_layout.tres
-res://Escenas/juego.tscn
 res://Shaders/trabajador.gdshader
-res://Escenas/trabajador.tscn
-res://Escenas/Mineral.tscn
-res://Escenas/Suelo.tscn
-res://Camara/camera_3d.tscn
-res://Escenas/sensor.tscn
-res://Escenas/oscuro.tscn
-res://Escenas/iluminado.tscn
-res://Escenas/Nave.tscn
